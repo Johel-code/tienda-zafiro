@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->date('fecha_ini');
+            $table->date('fecha_fin');
+            $table->integer('salario');
             $table->timestamps();
         });
     }

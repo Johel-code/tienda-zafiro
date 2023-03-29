@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
+            $table->double('total_factura');
+            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('customer_id')->nullable()->constrained('customers');
             $table->timestamps();
         });
     }
