@@ -24,3 +24,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::view('/products', 'index-products');
+    Route::view('/crear_products', 'index-products');
+});
