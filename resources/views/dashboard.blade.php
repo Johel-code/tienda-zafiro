@@ -13,12 +13,13 @@
     </div>
   </div>
   <div>
+    <!--
     <div class="py-12"></div>
     <div class="max-w-7x1 mx-auto sm:px6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4">
         <table class="table-fixed w-full">
           <thead>
-            <tr class="bg-white text-dark">
+            <tr>
               <th class="px-4 py-2">#</th>
               <th class="px-4 py-2">producto</th>
               <th class="px-4 py-2">cantidad</th>
@@ -66,4 +67,5 @@
     </div>
   </div>
   </div>
+-->
 </x-app-layout>
