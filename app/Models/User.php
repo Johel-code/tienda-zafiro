@@ -66,4 +66,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function contract() {
+        return $this->hasOne('app\Http\Model\contract');
+    } 
+
+    public function invoice() {
+        return $this->hasMany('app\Http\Model\Invoice');
+    }
+    
+    public function role(){
+        return $this->hasOne('app\Http\Model\Role');
+    }
+
 }
