@@ -18,6 +18,9 @@ class InvoiceFactory extends Factory
     {
         return [
             //
+            'total_factura'=>$this->faker->randomFloat(2,1,10000),
+            'user_id'=>$this->faker->randomNumber(1,10),
+            'customer_id'=>$this->faker->randomNumber(1,100),
         ];
     }
 }
