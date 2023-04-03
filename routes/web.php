@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::middleware([
     'auth:sanctum',
@@ -29,6 +27,7 @@ Route::middleware([
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::view('/', 'index')->name('home');
     Route::view('/products', 'index-products');
     Route::view('/crear_products', 'index-products');
 });
