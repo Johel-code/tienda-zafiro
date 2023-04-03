@@ -25,7 +25,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            /*'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -33,7 +33,24 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
-            'current_team_id' => null,
+            'current_team_id' => null,*/
+
+            'name'=> $this->faker->name,
+            'last_name'=>$this->faker->lastName,
+            'ci'=>$this->faker->numberBetween(10000000,99999999),
+            'direccion'=>$this->faker->sentence(),
+            'celular'=>$this->faker->numberBetween(60000000,80000000),
+            'genero'=>$this->faker->randomElement(['M','F']),
+            'fecha_nacimiento'=>$this->faker->date(),
+            'email'=>$this->faker->unique()->safeEmail(),
+            'email_verified_at'=> now(),
+            'password'=> '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'activo_user'=>$this->faker->boolean(),
+
+            'role_id'=>$this->faker->numberBetween(1,10),
+
+            'current_team_id'=> null,
+            'profile_photo_path'=> null,
         ];
     }
 
