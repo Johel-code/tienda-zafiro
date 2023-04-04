@@ -11,11 +11,35 @@
 </head>
 
 <body>
+  <button class="right: 50px top:200px bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Guardar
+  </button>
+  <button class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+    Cancelar
+  </button>
+
+  <div>
   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     Guardar
   </button>
   <button class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
     Cancelar
+  </button>
+  </div>
+
+
+</body>
+</div>
+
+
+<div> 
+<head>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+</head>
+
+<body>
+  <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Añadir
   </button>
 </body>
 </div>
