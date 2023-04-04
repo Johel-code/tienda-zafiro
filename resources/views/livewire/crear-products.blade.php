@@ -126,3 +126,11 @@
             </form>
         </div>
     </div>
+<div class="flex justify-center ml-24">
+<button class="ml-64 bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Guardar
+  </button>
+  <button class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+    Cancelar
+  </button>
+</div>
