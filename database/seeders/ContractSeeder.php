@@ -12,6 +12,6 @@ class ContractSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Contract::factory(10)->create();
+        //\App\Models\Contract::factory(10)->create();
     }
 }
