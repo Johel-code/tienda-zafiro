@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $table = "products";
+    public $timestamps = false;
+
     protected $fillable=[
         'name_product',
         'cantidad_inventario',
@@ -33,4 +37,5 @@ class Product extends Model
     public function provider(){
         return $this->belongsTo('app\Http\Model\provider');
     }
+
 }
