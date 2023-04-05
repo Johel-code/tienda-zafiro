@@ -17,7 +17,8 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name_razon'=>$this->faker->name,
+            'ci_nit'=>$this->faker->numberBetween(10000,1000000),
         ];
     }
 }

@@ -17,7 +17,16 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name_categoy'=>$this->faker->randomElement(['Jabones',
+                                                    'Lavavajillas', 
+                                                    'Detergentes',
+                                                    'Suavizantes',
+                                                    'Ambientadores', 
+                                                    'Blanqueadores',
+                                                    'Desinfectantes', 
+                                                    'Limpiadores',
+                                                    'Quitamanchas',
+                                                    'Pulidores'])
         ];
     }
 }
