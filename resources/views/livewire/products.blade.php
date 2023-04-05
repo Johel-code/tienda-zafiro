@@ -1,6 +1,6 @@
 <div>
     <div>
-        <div class="py-4"></div>
+        <div class="py-2"></div>
         <div class="sm:px-8 lg:px-8 md:ml-64">
             <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4 md:shrink">
                 <table class="table-fixed w-full">
