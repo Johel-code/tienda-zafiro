@@ -13,4 +13,14 @@ class Products extends Component
         $this->products = Product::all();
         return view('livewire.products');
     }
+    public function editEstado($id, $estado)
+    {
+        $inicial = Product::find($id);
+        if ($estado) {
+            $inicial->estado_product = false;
+        } else {
+            $inicial->estado_product = true;
+        }
+        $inicial->save();
+    }
 }

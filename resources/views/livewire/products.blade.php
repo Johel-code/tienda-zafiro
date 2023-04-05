@@ -6,28 +6,35 @@
                 <table class="table-fixed w-full">
                     <thead class="py-8">
                         <tr class="bg-white text-dark">
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Nombre</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Precio</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Cantidad</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Fecha vencimiento</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Marca</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Categoria</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Estado</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">Editar</th>
+                            <th class="px-4 py-2 border-b-2 border-black">ID</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Precio</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Fecha vencimiento</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Marca</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Categoria</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Estado</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Editar</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->name_product}}</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->precio}}</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->cantidad_inventario}}</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->fecha_vencimiento}}</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->marca}}</th>
-                            <th class="px-4 py-2 border-b-2 border-black text-sm">{{$product->category_id}}</th>
+                            <th class="text-center font-normal">{{$product->id}}</th>
+                            <th class="text-center font-normal">{{$product->name_product}}</th>
+                            <th class="text-center font-normal">{{$product->precio}}</th>
+                            <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
+                            <th class="text-center font-normal">{{$product->fecha_vencimiento}}</th>
+                            <th class="text-center font-normal">{{$product->marca}}</th>
+                            <th class="text-center font-normal">{{$product->category_id}}</th>
                             <td class="text-center">
                                 <label class="relative inline-flex items-center cursor-pointer items-center">
-                                    <input type="checkbox" value="" class="sr-only peer">
+                                    @if($product->estado_product)
+                                    <input type="checkbox" value="" class="sr-only peer" checked wire:click="editEstado({{$product->id}},{{$product->estado_product}})">
+                                    @else(
+                                    <input type="checkbox" value="" class="sr-only peer" checked="false" wire:click="editEstado({{$product->id}},{{$product->estado_produt}})">
+                                    )
+                                    @endif
                                     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-3 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                 </label>
                             </td>
@@ -39,6 +46,7 @@
                         </tr>
                         @endforeach
                         <tr>
+                            <td class="text-center">2</td>
                             <td class="text-center">2</td>
                             <td class="text-center">ola</td>
                             <td class="text-center">25</td>
