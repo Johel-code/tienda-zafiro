@@ -6,7 +6,7 @@
                 <table class="table-fixed w-full">
                     <thead class="py-8">
                         <tr class="bg-white text-dark">
-                            <th class="px-4 py-2 border-b-2 border-black">ID</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Codigo</th>
                             <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
                             <th class="px-4 py-2 border-b-2 border-black">Precio</th>
                             <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
@@ -32,7 +32,7 @@
                                     @if($product->estado_product)
                                     <input type="checkbox" value="" class="sr-only peer" checked wire:click="editEstado({{$product->id}},{{$product->estado_product}})">
                                     @else(
-                                    <input type="checkbox" value="" class="sr-only peer" checked="false" wire:click="editEstado({{$product->id}},{{$product->estado_produt}})">
+                                    <input type="checkbox" value="" class="sr-only peer" wire:click="editEstado({{$product->id}},{{$product->estado_produt}})">
                                     )
                                     @endif
                                     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-3 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
