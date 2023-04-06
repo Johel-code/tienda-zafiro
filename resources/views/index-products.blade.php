@@ -7,7 +7,7 @@
 <div class="flex ml-10">
     <a href="/">
         <button class="ml-64 bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            NUEVO
+            AÑADIR
         </button>
     </a>
 </div>
