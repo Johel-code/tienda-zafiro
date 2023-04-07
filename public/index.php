@@ -31,7 +31,7 @@ if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php'
 |
 */
 
-require __DIR__ . '/../../TIENDA-ZAFIRO/vendor/autoload.php';
+require __DIR__ . '/../../tienda-zafiro/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ require __DIR__ . '/../../TIENDA-ZAFIRO/vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__ . '/../../TIENDA-ZAFIRO/bootstrap/app.php';
+$app = require_once __DIR__ . '/../../tienda-zafiro/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
