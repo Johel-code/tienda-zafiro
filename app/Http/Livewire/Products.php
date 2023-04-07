@@ -3,18 +3,20 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\User;
+use App\Models\Product;
 class Products extends Component
 {
     public $searchTerm = "";
+    public $productos;
     public $products;
     public function render()
-    {
-        if(emputy($this ->searchTerm)){
-            $this-> products = User::where('name',$this->searchTerm)->get();
+    {   
+        $this->products = Product::all();
+        if(empty($this->searchTerm)){
+            $this->productos = Product::where('name_product',$this->searchTerm)->get();
 
         }else{
-            $this->products= User::where('name','like','%'.$this->searchTerm.'%')->get ();
+            $this->productos= Product::where('name_product','like','%'.$this->searchTerm.'%')->get ();
         }
         return view('livewire.products');
     }

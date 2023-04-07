@@ -11,6 +11,11 @@
         <x-welcome />
       </div>
     </div>
+<<<<<<< HEAD
+
+</x-app-layout>
+
+=======
   </div>
   <div>
     <!--
@@ -69,3 +74,4 @@
   </div>
 -->
 </x-app-layout>
+>>>>>>> dev
