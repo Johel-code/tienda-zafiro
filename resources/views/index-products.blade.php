@@ -5,7 +5,7 @@
     <h2 class="text-4xl font-bold mb-2">PRODUCTOS</h2>
 </div>
 <div class="flex ml-10">
-    <a href="/">
+    <a href="/crear-products">
         <button class="ml-64 bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             NUEVO
         </button>
