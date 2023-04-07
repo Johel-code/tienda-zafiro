@@ -31,8 +31,6 @@
                             Cantidad:
                         </label>
                     </div>
-                    <div class="col-span-3">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="nombre" type="text" placeholder="Nombre del producto">
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad" type="number" placeholder="Cantidad del producto" wire:model="cantidad">
