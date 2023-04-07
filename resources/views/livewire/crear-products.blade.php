@@ -1,10 +1,11 @@
 <div id="ventana_registrar_productos" class="flex justify-center">
-    @if(session('success'))
+    
+    <div class="bg-[#E3E9F1] mx-2 my-5">
+        @if(session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
                 <strong class="font-bold">{{ session('success') }}</strong>
             </div>
         @endif
-    <div class="bg-[#E3E9F1] mx-2 my-5">
         <form class="px-10 mx-1 my-2 " wire:submit.prevent="guardar()">
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
