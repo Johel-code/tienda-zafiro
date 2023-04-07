@@ -10,7 +10,6 @@ class Product extends Model
     use HasFactory;
 
     protected $table = "products";
-    public $timestamps = false;
 
     public function invoice_product() {
         return $this->hasMany('app\Http\Model\Invoice_product');
