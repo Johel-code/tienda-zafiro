@@ -12,6 +12,6 @@ class ProviderSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Provider::factory(5)->create();
+        //\App\Models\Provider::factory(5)->create();
     }
 }

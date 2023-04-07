@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Contract extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'Pulidores',
+        'fecha_ini',
+        'fecha_fin',
+        'salario'  
+    ]; 
+    
+    public function user() {
+        return $this->hasOne('app\Http\Model\User');
+    } 
 }
