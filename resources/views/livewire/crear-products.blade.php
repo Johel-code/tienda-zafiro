@@ -1,12 +1,6 @@
 <div id="ventana_registrar_productos" class="flex justify-center">
+    
     <div class="bg-[#E3E9F1] mx-2 my-5">
-        
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
         <form class="px-10 mx-1 my-2 " wire:submit.prevent="guardar()">
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
@@ -111,14 +105,13 @@
 
             <div class="grid grid-cols-2 gap-4">
           
-                <div class="mb-4 grid grid-cols-2 gap-4">
-                    <div class="">
-                        <label 
-                            class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
-                                Proveedor:
+                <div class="mb-4 grid grid-cols-4 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
+                            Proveedor:
                         </label>
                     </div>
-                    <div class="col-span-3">
+                    <div class="col-span-2">
                         <select id="proveedor_id" wire:model="proveedor">
                             <option value="">Seleccione un proveedor</option>
                             @foreach($proveedors as $proveedor)
@@ -153,11 +146,10 @@
                     <div class="col-span-4">
                         <input  class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="foto" type="file" wire:model="foto">
+                        @if ($foto)
+                            <img src="{{ $foto->temporaryUrl() }}">
+                        @endif
                     </div>
-
-                    @if ($foto)
-                        <img src="{{ $foto->temporaryUrl() }}">
-                    @endif
 
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
@@ -177,10 +169,10 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <button wire:submit.prevent="guardar()" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
-                <button class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                <button type=button wire:click="limpiar()" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                     Cancelar
                 </button>
             </div>

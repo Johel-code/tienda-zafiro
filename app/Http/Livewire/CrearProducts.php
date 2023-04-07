@@ -33,6 +33,7 @@ class CrearProducts extends Component
         $this->cantidad_minima = '';
         $this->descripcion = '';
         $this->adquisicion = '';
+        //session()->flash('success','¡LIMPIO!');
     }
 
     public function mount()
@@ -69,7 +70,6 @@ class CrearProducts extends Component
             ]
         );
         $this->save();
-        session()->flash('success','¡Producto creado exitosamente!');
         $this->limpiar();
     }
 }
