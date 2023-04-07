@@ -70,6 +70,7 @@ class CrearProducts extends Component
             ]
         );
         $this->save();
+        session()->flash('success','¡Producto añadido exitosamente!');
         $this->limpiar();
     }
 }
