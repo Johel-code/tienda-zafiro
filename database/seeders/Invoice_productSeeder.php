@@ -14,6 +14,6 @@ class Invoice_productSeeder extends Seeder
      */
     public function run()
     {
-        Invoice_product::factory()->count(50)->create();
+        //Invoice_product::factory()->count(50)->create();
     }
 }
