@@ -11,7 +11,7 @@ class Products extends Component
 {
     use WithPagination;
     
-    public $searchTerm = "";
+    public $search = "";
     //public $products;
 
 
@@ -22,8 +22,8 @@ class Products extends Component
 
     public function render()
     {
-        $products = Product::when($this->searchTerm, function($query, $searchTerm){
-            return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%'.trim(strtolower($searchTerm)).'%']);
+        $products = Product::when($this->search, function($query, $search){
+            return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%'.trim(strtolower($search)).'%']);
         });
         $products = $products->paginate(10);
         return view('livewire.products', [
