@@ -53,7 +53,8 @@ class CrearProducts extends Component
         }
 }
     public function guardar()
-    {   Product::updateOrCreate(['id'=>$this->id_product],
+    {   
+        Product::updateOrCreate(['id'=>$this->id_product],
             [
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
@@ -69,8 +70,7 @@ class CrearProducts extends Component
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
         );
-        $this->save();
-        session()->flash('success','¡Producto añadido exitosamente!');
+        session()->flash('message','¡Producto añadido exitosamente!');
         $this->limpiar();
     }
 }
