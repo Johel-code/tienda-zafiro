@@ -20,16 +20,19 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <th class="text-center font-normal">{{$product->id}}</th>
-                            <th class="text-center font-normal">{{$product->name_product}}</th>
+                            <td class="text-center font-normal">{{$product->id}}</td>
+                            <th class="text-center font-normal">
+                                <a id="botonAbrir<?php echo $product->id ?>">
+                                    {{$product->name_product}}</a>
+                                <livewire:product.modal :product=$product>
+                            </th>
                             <th class="text-center font-normal">{{$product->precio}}</th>
                             <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
                             <th class="text-center font-normal">{{$product->fecha_vencimiento}}</th>
                             <th class="text-center font-normal">{{$product->marca}}</th>
                             <th class="text-center font-normal">{{$product->category_id}}</th>
                             <td class="text-center">
-                                <livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                                :key="'toggle-button'.$product->id">
+                                <livewire:product.toggle-product :product="$product" :field="'estado_product'" :key="'toggle-button'.$product->id">
                             </td>
                             {{-- <td class="text-center">
                                 <a href="dashboard">
@@ -40,7 +43,7 @@
                             </td> --}}
                         </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
             </div>
