@@ -10,9 +10,20 @@ class Product extends Model
     use HasFactory;
 
     protected $table = "products";
-    public $timestamps = false;
 
-    protected $fillable=[
+    public function invoice_product() {
+        return $this->hasMany('app\Http\Model\Invoice_product');
+    } 
+
+    public function categoria()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function proveedor()
+    {
+        return $this->belongsTo(Provider::class);
+    }
+    protected $fillable = [
         'name_product',
         'cantidad_inventario',
         'cantidad_minima',
@@ -24,18 +35,7 @@ class Product extends Model
         'estado_product',
         'costo_adquisicion',
         'category_id',
-        'provider_id'
+        'provider_id',
     ];
-
-    //Relacion uno a muchos 
-    public function invoice_product() {
-        return $this->hasMany('app\Http\Model\Invoice_product');
-    } 
-    public function category(){
-        return $this->hasOne(Category::class);
-    }
-    public function provider(){
-        return $this->belongsTo('app\Http\Model\provider');
-    }
 
 }
