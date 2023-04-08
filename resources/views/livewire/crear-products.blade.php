@@ -1,8 +1,10 @@
-    <div id="ventana_registrar_productos" class="flex justify-center items-center h-4/5  ml-0    right-0 mt-10 ">
-        <div class="bg-[#E3E9F1] px-10 pl-48 pb-8 mb-10 ml-20">
+    <div id="ventana_registrar_productos" class="flex justify-center items-center h-4/5  ml-0    right-0 ">
+        <div class="bg-[#E3E9F1] pl-48 pb-8 ml-20">
             
-            <form class="px-20 pb-8 mx-20 mb-10 ">
-                <div class="mb-4 grid grid-cols-4 gap-4">
+            <form class="lg:px-20 lg:pb-8 lg:mx-20 lg:mb-10 ">
+
+                <!-- lg:grid lg:grid-cols-4 lg:gap-4 -->
+                <div class="mb-4 md:grid md:grid-cols-4 md:gap-4  ">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="nombre">
                             Nombre:
@@ -14,7 +16,7 @@
                             id="nombre" type="text" placeholder="Nombre del producto">
                     </div>
                 </div>
-                <div class="mb-4 grid grid-cols-4 gap-4">
+                <div class="mb-4 md:grid md:grid-cols-4 md:gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="descripcion">
                             Descripción:
@@ -26,20 +28,20 @@
                             id="descripcion" type="text" placeholder="Descripción del producto">
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="mb-4 grid grid-cols-2 gap-4">
+                <div class="md:grid md:grid-cols-1 md:gap-4 lg:grid lg:grid-cols-2 lg:gap-4">
+                    <div class="md-4 md:grid md:grid-cols-4 mg:gap-4 lg-4 xl:grid  xl:grid-cols-2  xl:gap-4">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
                                 Cantidad:
                             </label>
                         </div>
-                        <div class="">
+                        <div class="md:gap-5 md:col-span-3 xl:col-span:-1">
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] "
                                 id="cantidad" type="number" placeholder="Cantidad del producto">
                         </div>
                     </div>
-                    <div class="mb-4 grid grid-cols-4 gap-4">
+                    <div class="mb-4 grid grid-cols-4 gap-12">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="precio">
                                 Precio:
@@ -65,7 +67,7 @@
                                 id="marca" type="text" placeholder="Marca del producto">
                         </div>
                     </div>
-                    <div class="mb-4 grid grid-cols-4 gap-4">
+                    <div class="mb-4 grid grid-cols-4 gap-12">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="categoria">
                                 Categoría:
@@ -92,7 +94,7 @@
                                 id="fecha" type="date">
                         </div>
                     </div>
-                    <div class="mb-4 grid grid-cols-4 gap-4">
+                    <div class="mb-4 grid grid-cols-4 gap-12">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="estado">
                                 Estado:
