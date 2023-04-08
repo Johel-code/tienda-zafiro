@@ -25,8 +25,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
+        'ci',
+        'direccion',
+        'celular',
+        'genero',
+        'fecha_nacimiento',
         'email',
         'password',
+        'activo_user',
+        'role_id'
     ];
 
     /**
@@ -58,4 +66,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    public function contract() {
+        return $this->hasOne('app\Http\Model\contract');
+    } 
+
+    public function invoice() {
+        return $this->hasMany('app\Http\Model\Invoice');
+    }
+    
+    public function role(){
+        return $this->hasOne('app\Http\Model\Role');
+    }
+
 }

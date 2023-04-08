@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-fadeIn{
+    animation: fadeIn 0.5s ease-in forwards;
+    animation-iteration-count: 1;
+}
+.bg-fadeOut{
+    animation: fadeOut 0.5s ease-in forwards;
+    animation-iteration-count: 1;
+}
+.modal-scaleIn{
+    animation: scaleIn 0.3s ease-in forwards;
+    animation-iteration-count: 1;
+}
+.modal-scaleOut{
+    animation: scaleOut 0.3s ease-in forwards;
+    animation-iteration-count: 1;
+}
