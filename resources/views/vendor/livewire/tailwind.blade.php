@@ -38,7 +38,7 @@
                         <span class="font-medium">{{ $paginator->lastItem() }}</span>
                         <span>{!! __('de') !!}</span>
                         <span class="font-medium">{{ $paginator->total() }}</span>
-                        <span>{!! __('Resultados') !!}</span>
+                        <span>{!! __('Resultados') !!}</span> 
                     </p>
                 </div>
 
