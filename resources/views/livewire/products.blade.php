@@ -29,13 +29,13 @@
                                     
                                 </div>
                             </div>
-                            <th class="px-4 py-2 border-b-2 border-black">Codigo</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Código</th>
                             <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
                             <th class="px-4 py-2 border-b-2 border-black">Precio</th>
                             <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
                             <th class="px-4 py-2 border-b-2 border-black">Fecha vencimiento</th>
                             <th class="px-4 py-2 border-b-2 border-black">Marca</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Categoria</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Categoría</th>
                             <th class="px-4 py-2 border-b-2 border-black">Estado</th>
                             {{-- <th class="px-4 py-2 border-b-2 border-black">Editar</th> --}}  
                         </tr>
