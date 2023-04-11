@@ -43,7 +43,7 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <th class="text-center font-normal">{{$product->id}}</th>
+                            <th class="text-center font-normal">{{$product->codigo}}</th>
                             <th class="text-center font-normal">{{$product->name_product}}</th>
                             <th class="text-center font-normal">{{$product->precio}}</th>
                             <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>

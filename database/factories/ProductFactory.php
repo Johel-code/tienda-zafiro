@@ -17,6 +17,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
+            'codigo'=>$this->faker->unique()->numberBetween(10000,99999),
             'name_product'=>$this->faker->randomKey(['Patito 100 gr' => 1,
                                                     'Omo 500 gr' => 2, 
                                                     'Surf 50 gr' => 3,
