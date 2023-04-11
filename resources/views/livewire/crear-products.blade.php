@@ -10,7 +10,7 @@
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
-                        Nombre*
+                        Nombres*
                     </label>
                 </div>
                 <div class="col-span-3">
@@ -59,7 +59,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
-                            Cantidad Mínima
+                            Cantidad Mínima*
                         </label>
                     </div>
                     <div class="">
@@ -89,7 +89,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
-                            Costo Adquisición
+                            Costo Adquisición*
                         </label>
                     </div>
                     <div class="">
@@ -115,7 +115,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
-                            Proveedor
+                            Proveedor*
                         </label>
                     </div>
                     <div class="col-span-2">
