@@ -47,7 +47,7 @@
                             <th class="text-center font-normal">{{$product->name_product}}</th>
                             <th class="text-center font-normal">{{$product->precio}}</th>
                             <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
-                            <th class="text-center font-normal">{{$product->fecha_vencimiento}}</th>
+                            <th class="text-center font-normal">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
                             <th class="text-center font-normal">{{$product->marca}}</th>
                             <th class="text-center font-normal">{{$product->category_id}}</th>
                             <td class="text-center">
