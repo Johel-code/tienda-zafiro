@@ -1,12 +1,12 @@
-<div id="ventana_registrar_productos" class="flex justify-center">
-    
+<div id="ventana_registrar_productos" class="flex justify-center md:ml-64">
+
     <div class="bg-[#E3E9F1] mx-2 my-5">
         @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
-                <strong class="font-bold">{{ session('success') }}</strong>
-            </div>
+        <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
+            <strong class="font-bold">{{ session('success') }}</strong>
+        </div>
         @endif
-        <form class="px-10 mx-1 my-2 " wire:submit.prevent="guardar()">
+        <form class="md:px-10 md:mx-1 md:my-2 " wire:submit.prevent="guardar()">
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
@@ -14,8 +14,7 @@
                     </label>
                 </div>
                 <div class="col-span-3">
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                    id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
                 </div>
             </div>
             <div class="mb-4 grid grid-cols-4 gap-4">
@@ -25,8 +24,7 @@
                     </label>
                 </div>
                 <div class="col-span-3">
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
@@ -37,8 +35,7 @@
                         </label>
                     </div>
                     <div class="">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad" type="number" placeholder="Cantidad del producto" wire:model="cantidad">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " id="cantidad" type="number" placeholder="Cantidad del producto" wire:model="cantidad">
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
@@ -48,8 +45,7 @@
                         </label>
                     </div>
                     <div class="col-span-3">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="precio" type="number" step="0.01" placeholder="Precio del producto" wire:model="precio">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="precio" type="number" step="0.01" placeholder="Precio del producto" wire:model="precio">
                     </div>
                 </div>
             </div>
@@ -61,22 +57,20 @@
                         </label>
                     </div>
                     <div class="">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima">
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
-                        <label 
-                            class="block text-black-700 text-lg font-bold mx-0 w-10" for="categoria">
-                                Categoría:
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="categoria">
+                            Categoría:
                         </label>
                     </div>
                     <div class="col-span-3">
                         <select id="categoria_id" wire:model="categoria">
                             <option value="">Seleccione una categoria</option>
                             @foreach($categorias as $categoria)
-                                <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
+                            <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -91,8 +85,7 @@
                         </label>
                     </div>
                     <div class="">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisicion" wire:model="adquisicion">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisicion" wire:model="adquisicion">
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
@@ -102,14 +95,13 @@
                         </label>
                     </div>
                     <div class="col-span-3">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="marca" type="text" placeholder="Marca del producto" wire:model="marca">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="marca" type="text" placeholder="Marca del producto" wire:model="marca">
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-          
+
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
@@ -120,7 +112,7 @@
                         <select id="proveedor_id" wire:model="proveedor">
                             <option value="">Seleccione un proveedor</option>
                             @foreach($proveedors as $proveedor)
-                                <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
+                            <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -133,26 +125,24 @@
                         </label>
                     </div>
                     <div class="col-span-3">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha" type="date" wire:model="fecha">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " id="fecha" type="date" wire:model="fecha">
                     </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-                
+
                 <div class="mb-4 grid grid-cols-5 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="foto">
                             Foto:
                         </label>
                     </div>
-                    
+
                     <div class="col-span-4">
-                        <input  class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="foto" type="file" wire:model="foto">
+                        <input class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " id="foto" type="file" wire:model="foto">
                         @if ($foto)
-                            <img src="{{ $foto->temporaryUrl() }}">
+                        <img src="{{ $foto->temporaryUrl() }}">
                         @endif
                     </div>
 

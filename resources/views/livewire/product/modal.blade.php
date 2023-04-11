@@ -22,7 +22,7 @@
                         <p class="font-semibold">{{$product->descripcion}}</p>
                     </div>
                 </article>
-
+                
                 <div class="px-8 grid grid-cols-4 grid-rows-3 gap-2 my-3">
                     <div class="font-bold">Precio</div>
                     <div class="font-semibold">{{$product->precio}}</div>

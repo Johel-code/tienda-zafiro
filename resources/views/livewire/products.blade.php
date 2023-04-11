@@ -24,13 +24,13 @@
                             <th class="text-center font-normal">
                                 <a id="botonAbrir<?php echo $product->id ?>">
                                     {{$product->name_product}}</a>
-                                <livewire:product.modal :product=$product>
+                                <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
                             <th class="text-center font-normal">{{$product->precio}}</th>
                             <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
                             <th class="text-center font-normal">{{$product->fecha_vencimiento}}</th>
                             <th class="text-center font-normal">{{$product->marca}}</th>
-                            <th class="text-center font-normal">{{$product->category_id}}</th>
+                            <th class="text-center font-normal">{{$categorias[$product->category_id-1]->name_categoy}}</th>
                             <td class="text-center">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'" :key="'toggle-button'.$product->id">
                             </td>
