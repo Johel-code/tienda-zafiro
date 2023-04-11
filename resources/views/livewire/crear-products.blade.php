@@ -1,12 +1,12 @@
 <div id="ventana_registrar_productos" class="flex justify-center md:ml-64">
 
     <div class="bg-[#E3E9F1] mx-2 my-5">
-        @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
-            <strong class="font-bold">{{ session('success') }}</strong>
-        </div>
+        @if(session()->has('message'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
+                <strong class="font-bold">{{ session('message') }}</strong>
+            </div>
         @endif
-        <form class="md:px-10 md:mx-1 md:my-2 " wire:submit.prevent="guardar()">
+        <form wire:submit.prevent="submit" class="px-10 mx-1 my-2 ">
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
@@ -14,7 +14,9 @@
                     </label>
                 </div>
                 <div class="col-span-3">
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+                    id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
+                    @error('nombre') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="mb-4 grid grid-cols-4 gap-4">
@@ -24,7 +26,9 @@
                     </label>
                 </div>
                 <div class="col-span-3">
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
+                    @error('descripcion') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
@@ -164,7 +168,7 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <button class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
                 <button type=button wire:click="limpiar()" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">

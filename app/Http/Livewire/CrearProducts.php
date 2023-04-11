@@ -15,6 +15,23 @@ class CrearProducts extends Component
             $categoria, $fecha, $estado, $foto,$id_product, 
             $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
 
+    protected $rules = [
+        'nombre' => 'required|max:4',
+        'estado' => 'required',
+        'foto' => 'required|image|max:1024',
+        'cantidad' => 'required',
+        'precio' => 'required',
+        'marca' => 'required',
+        'categoria' => 'required',
+        'descripcion' => 'required'
+    ];
+
+    protected $messages = [
+        'nombre.required' => 'El campo nombre es requerido',
+        'nombre.max' => 'El nombre no debe tener mas de 20 caracteres',
+        'descripcion.required' => 'El campo descripcion es requerido'
+    ];
+
     public function render()
     {   
         return view('livewire.crear-products');
@@ -52,8 +69,11 @@ class CrearProducts extends Component
             $this->foto = str_replace('public', 'storage', $path);
         }
 }
-    public function guardar()
-    {   Product::updateOrCreate(['id'=>$this->id_product],
+    public function submit()
+    {   
+        $this->validate();
+        dd($this);
+        Product::updateOrCreate(['id'=>$this->id_product],
             [
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
@@ -69,8 +89,7 @@ class CrearProducts extends Component
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
         );
-        $this->save();
-        session()->flash('success','¡Producto añadido exitosamente!');
+        session()->flash('message','¡Producto añadido exitosamente!');
         $this->limpiar();
     }
 }
