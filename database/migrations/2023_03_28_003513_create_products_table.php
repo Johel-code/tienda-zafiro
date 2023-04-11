@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('fecha_vencimiento')->nullable();
             $table->text('descripcion')->nullable();
             $table->string('image');
-            $table->boolean('estado_product');
+            $table->boolean('estado_product')->default(1);
             $table->double('costo_adquisicion');
             $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->foreignId('provider_id')->nullable()->constrained('providers');

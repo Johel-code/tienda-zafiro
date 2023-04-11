@@ -24,6 +24,7 @@ class Product extends Model
         return $this->belongsTo(Provider::class);
     }
     protected $fillable = [
+        'codigo',
         'name_product',
         'cantidad_inventario',
         'cantidad_minima',
