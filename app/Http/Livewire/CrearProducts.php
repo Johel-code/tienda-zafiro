@@ -12,8 +12,9 @@ class CrearProducts extends Component
 {
     use WithFileUploads;
     public $nombre, $descripcion, $cantidad, $precio, $marca,
-            $categoria, $fecha, $estado, $foto,$id_product, 
-            $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
+        $categoria, $fecha, $foto, $id_product,
+        $proveedor, $cantidad_minima, $adquisicion, $categorias, $proveedors;
+    public $estado = true;
 
     protected $rules = [
         'nombre' => 'required|max:4',
@@ -33,18 +34,19 @@ class CrearProducts extends Component
     ];
 
     public function render()
-    {   
+    {
         return view('livewire.crear-products');
     }
 
-    public function limpiar(){
+    public function limpiar()
+    {
         $this->nombre = '';
         $this->cantidad = '';
         $this->precio = '';
         $this->marca = '';
         $this->categoria = '';
         $this->fecha = '';
-        $this->estado = '';
+        $this->estado = '1';
         $this->foto = '';
         $this->proveedor = '';
         $this->cantidad_minima = '';
@@ -59,7 +61,7 @@ class CrearProducts extends Component
         $this->proveedors = Provider::all();
     }
     public function save()
-{
+    {
         $this->validate([
             'foto' => 'image|max:1024', // validar que se cargó una imagen y que es menor a 1MB
         ]);
@@ -68,28 +70,29 @@ class CrearProducts extends Component
             $path = $this->foto->storePublicly('public/images');
             $this->foto = str_replace('public', 'storage', $path);
         }
-}
+    }
     public function submit()
-    {   
+    {
         $this->validate();
         dd($this);
-        Product::updateOrCreate(['id'=>$this->id_product],
+        Product::updateOrCreate(
+            ['id' => $this->id_product],
             [
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
-                'cantidad_minima'=> $this->cantidad_minima,
-                'costo_adquisicion'=> $this->adquisicion,
+                'cantidad_minima' => $this->cantidad_minima,
+                'costo_adquisicion' => $this->adquisicion,
                 'precio' => $this->precio,
                 'marca' => $this->marca,
-                'category_id' => $this->categoria, 
+                'category_id' => $this->categoria,
                 'fecha_vencimiento' => $this->fecha,
                 'estado_product' => $this->estado,
-                'provider_id' => $this->proveedor, 
+                'provider_id' => $this->proveedor,
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
         );
-        session()->flash('message','¡Producto añadido exitosamente!');
+        session()->flash('message', '¡Producto añadido exitosamente!');
         $this->limpiar();
     }
 }

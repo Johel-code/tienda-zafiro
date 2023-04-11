@@ -9,12 +9,13 @@ use Livewire\Livewire;
 
 class Modal extends Component
 {
-    //public Category $categorias;
+    public Category $category;
     public Product $product;
 
     public function render()
     {
-        //$this->categorias = Category::all();
+        // $this->products = Product::all();
+        // $this->category = Category::all();
         return view('livewire.product.modal');
     }
 
