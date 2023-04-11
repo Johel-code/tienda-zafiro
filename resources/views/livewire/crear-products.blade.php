@@ -10,7 +10,7 @@
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
-                        Nombre:
+                        Nombre*
                     </label>
                 </div>
                 <div class="col-span-3">
@@ -22,7 +22,7 @@
             <div class="mb-4 grid grid-cols-4 gap-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="descripcion">
-                        Descripción:
+                        Descripción
                     </label>
                 </div>
                 <div class="col-span-3">
@@ -35,7 +35,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
-                            Cantidad:
+                            Cantidad*
                         </label>
                     </div>
                     <div class="">
@@ -46,7 +46,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="precio">
-                            Precio:
+                            Precio*
                         </label>
                     </div>
                     <div class="col-span-3">
@@ -59,7 +59,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
-                            Cantidad Mínima:
+                            Cantidad Mínima
                         </label>
                     </div>
                     <div class="">
@@ -71,7 +71,7 @@
                     <div class="">
                         <label 
                             class="block text-black-700 text-lg font-bold mx-0 w-10" for="categoria">
-                                Categoría:
+                                Categoría*
                         </label>
                     </div>
                     <div class="col-span-3">
@@ -89,7 +89,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
-                            Costo Adquisición:
+                            Costo Adquisición
                         </label>
                     </div>
                     <div class="">
@@ -100,7 +100,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="marca">
-                            Marca:
+                            Marca*
                         </label>
                     </div>
                     <div class="col-span-3">
@@ -115,7 +115,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
-                            Proveedor:
+                            Proveedor
                         </label>
                     </div>
                     <div class="col-span-2">
@@ -131,7 +131,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="fecha">
-                            Fecha:
+                            Fecha
                         </label>
                     </div>
                     <div class="col-span-3">
@@ -146,7 +146,7 @@
                 <div class="mb-4 grid grid-cols-5 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="foto">
-                            Foto:
+                            Foto*
                         </label>
                     </div>
                     
@@ -162,7 +162,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="estado">
-                            Estado:
+                            Estado*
                         </label>
                     </div>
                     <div class="col-span-3">
