@@ -159,7 +159,7 @@
                     </div>
 
                 </div>
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
+                {{-- <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="estado">
                             Estado:
@@ -173,7 +173,7 @@
 
                         </label>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="flex justify-center">
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
