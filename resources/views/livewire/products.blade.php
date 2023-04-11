@@ -12,6 +12,23 @@
                 <table class="table-fixed w-full">
                     <thead class="py-8">
                         <tr class="bg-white text-dark">
+                             <div>
+                                <div>
+
+                                    @if (!empty($search))
+                                        @if ($products->count() > 0)
+                                            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
+                                                <strong class="font-bold">Se encontraron {{ $products->total() }} resultados</strong>
+                                            </div>
+                                        @else
+                                            <div class="bg-red-100 border border-red-400 text-red-700 px-2 py-3 rounded relative" role="alert">
+                                                <strong class="font-bold">No se encontraron resultados</strong>
+                                            </div>
+                                        @endif
+                                    @endif
+                                    
+                                </div>
+                            </div>
                             <th class="px-4 py-2 border-b-2 border-black">Codigo</th>
                             <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
                             <th class="px-4 py-2 border-b-2 border-black">Precio</th>
@@ -20,7 +37,7 @@
                             <th class="px-4 py-2 border-b-2 border-black">Marca</th>
                             <th class="px-4 py-2 border-b-2 border-black">Categoria</th>
                             <th class="px-4 py-2 border-b-2 border-black">Estado</th>
-                            {{-- <th class="px-4 py-2 border-b-2 border-black">Editar</th> --}}
+                            {{-- <th class="px-4 py-2 border-b-2 border-black">Editar</th> --}}  
                         </tr>
                     </thead>
                     <tbody>
