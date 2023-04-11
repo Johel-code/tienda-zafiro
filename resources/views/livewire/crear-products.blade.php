@@ -151,7 +151,7 @@
                     </div>
                     
                     <div class="col-span-4">
-                        <input  class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
+                        <input  class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " accept="image/*"
                         id="foto" type="file" wire:model="foto">
                         @if ($foto)
                             <img src="{{ $foto->temporaryUrl() }}">
