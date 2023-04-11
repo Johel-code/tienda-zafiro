@@ -70,13 +70,13 @@
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
                         <label 
-                            class="block text-black-700 text-lg font-bold mx-0 w-10" for="categoria">
+                            class="block text-black-700 text-lg font-bold " for="categoria">
                                 Categoría:
                         </label>
                     </div>
                     <div class="col-span-3">
-                        <select id="categoria_id" wire:model="categoria">
-                            <option value="">Seleccione una categoría</option>
+                        <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
+                            <option value="">Seleccione una categ.</option>
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
                             @endforeach
@@ -119,8 +119,8 @@
                         </label>
                     </div>
                     <div class="col-span-2">
-                        <select id="proveedor_id" wire:model="proveedor">
-                            <option value="">Seleccione un proveedor</option>
+                        <select id="proveedor_id" wire:model="proveedor" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
+                            <option value="">Seleccione un prov.</option>
                             @foreach($proveedors as $proveedor)
                                 <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
                             @endforeach
