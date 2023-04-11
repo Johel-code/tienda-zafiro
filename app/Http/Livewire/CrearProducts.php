@@ -72,9 +72,9 @@ class CrearProducts extends Component
     public function submit()
     {   
         $this->validate();
-        dd($this);
         Product::updateOrCreate(['id'=>$this->id_product],
             [
+                'codigo' =>random_int(10000, 99999),
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
