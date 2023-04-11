@@ -8,7 +8,7 @@
                         <tr class="bg-white text-dark">
                             <th class="px-4 py-2 border-b-2 border-black">Codigo</th>
                             <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Precio</th>
+                            <th class="px-4 py-2 border-b-2 border-black">Precio (Bs)</th>
                             <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
                             <th class="px-4 py-2 border-b-2 border-black">Fecha vencimiento</th>
                             <th class="px-4 py-2 border-b-2 border-black">Marca</th>
@@ -20,17 +20,17 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <td class="text-center font-normal">{{$product->id}}</td>
-                            <th class="text-center font-normal">
+                            <td class="text-center">{{$product->id}}</td>
+                            <td class="text-center">
                                 <a id="botonAbrir<?php echo $product->id ?>">
                                     {{$product->name_product}}</a>
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
-                            <th class="text-center font-normal">{{$product->precio}}</th>
-                            <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
-                            <th class="text-center font-normal">{{$product->fecha_vencimiento}}</th>
-                            <th class="text-center font-normal">{{$product->marca}}</th>
-                            <th class="text-center font-normal">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td class="text-center">{{$product->precio}}</th>
+                            <td class="text-center">{{$product->cantidad_inventario}}</th>
+                            <td class="text-center">{{$product->fecha_vencimiento}}</th>
+                            <td class="text-center">{{$product->marca}}</th>
+                            <td class="text-center">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="text-center">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'" :key="'toggle-button'.$product->id">
                             </td>
