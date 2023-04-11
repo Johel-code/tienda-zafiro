@@ -59,7 +59,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
-                            Cantidad Minima:
+                            Cantidad Mínima:
                         </label>
                     </div>
                     <div class="">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-span-3">
                         <select id="categoria_id" wire:model="categoria">
-                            <option value="">Seleccione una categoria</option>
+                            <option value="">Seleccione una categoría</option>
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
                             @endforeach
@@ -89,12 +89,12 @@
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
-                            Costo Adquisicion:
+                            Costo Adquisición:
                         </label>
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisicion" wire:model="adquisicion">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisición" wire:model="adquisicion">
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
