@@ -8,8 +8,8 @@
         </div>   
         <div class="sm:px-8 lg:px-8 md:ml-64">
             <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4 md:shrink">
-                <table class="table-fixed w-full">
-                    <thead class="py-8">
+                <table class="md:table-fixed w-full">
+                    <thead class="md:py-8">
                         <tr class="bg-white text-dark">
                              <div>
                                 <div>
@@ -43,16 +43,16 @@
                         @foreach($products as $product)
                         <tr>
                             <td class="text-center font-normal">{{$product->codigo}}</th>
-                            <td class="text-center">
+                            <td class="text-center text-ellipsis md:overflow-hidden ms:overflow-hidden">
                                 <a id="botonAbrir<?php echo $product->id ?>">
                                     {{$product->name_product}}</a>
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
-                            <td class="text-center font-normal">{{$product->precio}}</th>
-                            <td class="text-center font-normal">{{$product->cantidad_inventario}}</th>
-                            <td class="text-center font-normal">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
-                            <td class="text-center font-normal">{{$product->marca}}</th>
-                            <td class="text-center font-normal">{{$product->category_id}}</th>
+                            <td class="text-center text-ellipsis overflow-hidden">{{$product->precio}}</th>
+                            <td class="text-center text-ellipsis overflow-hidden">{{$product->cantidad_inventario}}</th>
+                            <td class="text-center text-ellipsis overflow-hidden">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
+                            <td class="text-center text-ellipsis overflow-hidden">{{$product->marca}}</th>
+                            <td class="text-center text-ellipsis overflow-hidden">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="text-center">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">

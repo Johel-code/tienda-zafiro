@@ -2,7 +2,7 @@
     
     <div class="bg-[#E3E9F1] mx-2 my-2 md:ml-28 sm:ml-24 sm:mr-0">
         @if(session()->has('message'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative ml:10" role="alert">
+            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative ml:16" role="alert">
                 <strong class="font-bold">{{ session('message') }}</strong>
             </div>
         @endif
