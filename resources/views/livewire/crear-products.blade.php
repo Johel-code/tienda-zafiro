@@ -44,7 +44,7 @@
                         @error('cantidad') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
+                <div class="mb-4 grid grid-cols-2 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="precio">
                             Precio<span class="text-red-900">*</span>
@@ -80,13 +80,14 @@
 
                     <div class="col-span-3 sm:col-span-2">
                         <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
-                        @error('categoria') <span class="error">{{ $message }}</span> @enderror
+                        
                             <option value="">Seleccione una categ.</option>
 
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
                             @endforeach
                         </select>
+                        @error('categoria') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -137,6 +138,7 @@
                                 <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
                             @endforeach
                         </select>
+                        @error('proveedor') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
 

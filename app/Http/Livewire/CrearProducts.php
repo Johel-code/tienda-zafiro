@@ -17,38 +17,45 @@ class CrearProducts extends Component
 
     protected $rules = [
 
-        'nombre' => 'required|max:50|string',
+        'nombre' => 'required|max:50|alpha_num',
         'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
-        'marca' => 'required|max: 25| string',
-
+        'marca' => 'required|max: 20| alpha_num',
+        'cantidad_minima' => 'required|numeric|min:1',
+        'adquisicion' => 'required|numeric|min:1',
         'categoria' => 'required',
-        'descripcion' => 'required|max: 100|string',
-        'fecha' => 'required|date | after:start_date'
+        'proveedor'  => 'required',
+        'descripcion' => 'max: 100',
+        'fecha' => 'after:tomorrow|nullable'
     ];
 
     protected $messages = [
+        'proveedor.required'=> 'El campo es requerido',
+        'adquisicion.required'=> 'El campo es requerido',
+        'adquisicion.numeric' => 'Solo se admiten números enteros',
+        'adquisicion.min' => 'No se admiten números negativos',
+        'cantidad_minima.required' => 'El campo es requerido',
+        'cantidad_minima.numeric' => 'Solo se admiten números enteros',
+        'cantidad_minima.min' => 'No se admiten números negativos',
         'nombre.required' => 'El campo nombre es requerido',
-        'nombre.string' => 'El campo nombre no admite caracteres epeciales',
+        'nombre.alpha_num' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener mas de 50 caracteres',
-        'descripcion.required' => 'El campo descripcion es requerido',
-        'descripcion.max: 100' =>'Solo se admiten 100 caracteres',
+        'descripcion.max' =>'Solo se admiten 100 caracteres',
         'cantidad.required' => 'El campo cantidad es requerido',
         'cantidad.numeric' => 'Solo se admiten números enteros',
-        'cantidad.min:1' => 'No se admiten números negativos',
+        'cantidad.min' => 'No se admiten números negativos',
         'estado.required' => 'El campo estado es requerido',
         'foto.required' => 'El campo foto es requerido',
-        'foto.max:1024' => 'Solo se permite como maximo 1024',
-        'foto.mimes:jpg,jpeg,png' => 'Solo se admite una imagen o foto',
+        'foto.max' => 'Solo se permite como maximo 1024',
+        'foto.mimes' => 'Solo se admite una imagen o foto',
         'precio.required' => 'El campo precio es requerido',
-        'precio.min:1' => 'El valor minimo a ingresar es 1',
+        'precio.min' => 'El valor minimo a ingresar es 1',
         'marca.required' => 'El campo marca es requerido',
-        'marca.max:25' => 'Solo se admiten maximo 25 caracteres',
-        'marca.string' => 'No se admiten caracteres especiales',
+        'marca.max' => 'Solo se admiten maximo 25 caracteres',
+        'marca.alpha_num' => 'Solo puede ingresar letras y números',
         'categoria.required' =>'El campo categoria es requerido',
-        'fecha.required' => 'El campo fecha es requerido',
-        'fecha.after:start_date' => 'Debe ingresar una fecha posterior a la actual'
+        'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
     ];
 
     public function render()
