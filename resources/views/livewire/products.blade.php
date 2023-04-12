@@ -43,13 +43,17 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <th class="text-center font-normal">{{$product->codigo}}</th>
-                            <th class="text-center font-normal">{{$product->name_product}}</th>
-                            <th class="text-center font-normal">{{$product->precio}}</th>
-                            <th class="text-center font-normal">{{$product->cantidad_inventario}}</th>
-                            <th class="text-center font-normal">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
-                            <th class="text-center font-normal">{{$product->marca}}</th>
-                            <th class="text-center font-normal">{{$product->category_id}}</th>
+                            <td class="text-center font-normal">{{$product->codigo}}</th>
+                            <td class="text-center">
+                                <a id="botonAbrir<?php echo $product->id ?>">
+                                    {{$product->name_product}}</a>
+                                <livewire:product.modal :product=$product :key="'modal'.$product->id">
+                            </th>
+                            <td class="text-center font-normal">{{$product->precio}}</th>
+                            <td class="text-center font-normal">{{$product->cantidad_inventario}}</th>
+                            <td class="text-center font-normal">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
+                            <td class="text-center font-normal">{{$product->marca}}</th>
+                            <td class="text-center font-normal">{{$product->category_id}}</th>
                             <td class="text-center">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
