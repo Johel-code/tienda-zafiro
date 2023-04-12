@@ -16,12 +16,13 @@ class CrearProducts extends Component
             $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
 
     protected $rules = [
+
         'nombre' => 'required|max:50|string',
-        'estado' => 'required| boolean',
         'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max: 25| string',
+
         'categoria' => 'required',
         'descripcion' => 'required|max: 100|string',
         'fecha' => 'required|date | after:start_date'
@@ -48,7 +49,6 @@ class CrearProducts extends Component
         'categoria.required' =>'El campo categoria es requerido',
         'fecha.required' => 'El campo fecha es requerido',
         'fecha.after:start_date' => 'Debe ingresar una fecha posterior a la actual'
-
     ];
 
     public function render()
@@ -91,9 +91,9 @@ class CrearProducts extends Component
     public function submit()
     {   
         $this->validate();
-        dd($this);
         Product::updateOrCreate(['id'=>$this->id_product],
             [
+                'codigo' =>random_int(10000, 99999),
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
@@ -103,7 +103,6 @@ class CrearProducts extends Component
                 'marca' => $this->marca,
                 'category_id' => $this->categoria, 
                 'fecha_vencimiento' => $this->fecha,
-                'estado_product' => $this->estado,
                 'provider_id' => $this->proveedor, 
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
