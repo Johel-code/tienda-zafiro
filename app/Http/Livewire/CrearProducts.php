@@ -18,9 +18,9 @@ class CrearProducts extends Component
     protected $rules = [
         'nombre' => 'required|max:20',
         'foto' => 'required|image|max:1024',
-        'cantidad' => 'required|number',
-        'cantidad_minima' => 'required|number',
-        'precio' => 'required|number',
+        'cantidad' => 'required|numeric',
+        'cantidad_minima' => 'required|numeric',
+        'precio' => 'required|numeric',
         'marca' => 'required',
         'categoria' => 'required',
         'descripcion' => 'required'
