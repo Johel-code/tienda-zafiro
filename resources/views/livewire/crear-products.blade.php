@@ -16,7 +16,7 @@
                 <div class="col-span-3">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                     id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
-                    @error('nombre') <span class="error">{{ $message }}</span> @enderror
+                    @error('nombre') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="mb-4 grid grid-cols-4">
@@ -28,20 +28,20 @@
                 <div class="col-span-3">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                     id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
-                    @error('descripcion') <span class="error">{{ $message }}</span> @enderror
+                    @error('descripcion') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
                             Cantidad<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad" type="number" placeholder="Cantidad del producto" wire:model="cantidad">
-                        @error('cantidad') <span class="error">{{ $message }}</span> @enderror
+                        @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
@@ -53,7 +53,7 @@
                     <div class="col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="precio" type="number" step="0.01" placeholder="Precio del producto" wire:model="precio">
-                        @error('precio') <span class="error">{{ $message }}</span> @enderror
+                        @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -67,7 +67,8 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima">
-                        @error('cantidad_minima') <span class="error">{{ $message }}</span> @enderror
+                        @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
+                    </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
@@ -80,13 +81,14 @@
 
                     <div class="col-span-3 sm:col-span-2">
                         <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
-                        @error('categoria') <span class="error">{{ $message }}</span> @enderror
+                        
                             <option value="">Seleccione una categ.</option>
 
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
                             @endforeach
                         </select>
+                        @error('categoria') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -94,7 +96,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class=" text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
+                        <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
                             Costo Adquisición<span class="text-red-900">*</span>
                         </label>
                     </div>
@@ -102,7 +104,7 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
 
                         id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisición" sm:placeholder="Costo" wire:model="adquisicion">
-                        @error('adquisicion') <span class="error">{{ $message }}</span> @enderror
+                        @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>
                 </div>
@@ -117,7 +119,7 @@
                     <div class="col-span-3 sm:col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="marca" type="text" placeholder="Marca del producto" wire:model="marca">
-                        @error('marca') <span class="error">{{ $message }}</span> @enderror
+                        @error('marca') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -126,7 +128,7 @@
           
                 <div class="mb-4 grid grid-cols-4 gap-2">
                     <div class="col-span-2">
-                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
                             Proveedor<span class="text-red-900">*</span>
                         </label>
                     </div>
@@ -137,6 +139,7 @@
                                 <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
                             @endforeach
                         </select>
+                        @error('proveedor') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -149,7 +152,7 @@
                     <div class="col-span-3 sm:col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="fecha" type="date" wire:model="fecha">
-                        @error('fecha') <span class="error">{{ $message }}</span> @enderror
+                        @error('fecha') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -169,7 +172,7 @@
                     <div class="col-span-2">
                         <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" accept="image/*" 
                         id="foto" type="file" wire:model="foto">
-                        @error('foto') <span class="error">{{ $message }}</span> @enderror
+                        @error('foto') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                         @if ($foto)
                             <img src="{{ $foto->temporaryUrl() }}">
