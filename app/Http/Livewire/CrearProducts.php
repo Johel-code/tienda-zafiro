@@ -30,8 +30,8 @@ class CrearProducts extends Component
     ];
 
     protected $messages = [
-        'proveedor.required'=> 'El campo es requerido',
-        'adquisicion.required'=> 'El campo es requerido',
+        'proveedor.required' => 'El campo es requerido',
+        'adquisicion.required' => 'El campo es requerido',
         'adquisicion.numeric' => 'Solo se admiten números enteros',
         'adquisicion.min' => 'No se admiten números negativos',
         'cantidad_minima.required' => 'El campo es requerido',
@@ -53,7 +53,7 @@ class CrearProducts extends Component
         'marca.required' => 'El campo marca es requerido',
         'marca.max' => 'Solo se admiten máximo 10 caracteres',
         'marca.alpha_num' => 'Solo puede ingresar letras y números',
-        'categoria.required' =>'El campo categoria es requerido',
+        'categoria.required' => 'El campo categoria es requerido',
         'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
     ];
 
