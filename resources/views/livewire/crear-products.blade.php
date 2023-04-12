@@ -9,8 +9,8 @@
         <form wire:submit.prevent="submit" class="px-10 mx-1 my-2 lg:ml-60 md:px-6">
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
-                    <label class="block text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
-                        Nombre:
+                    <label class="text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
+                        Nombres<span class="text-red-900">*</span>
                     </label>
                 </div>
                 <div class="col-span-3">
@@ -22,7 +22,7 @@
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="descripcion">
-                        Descripción:
+                        Descripción
                     </label>
                 </div>
                 <div class="col-span-3">
@@ -34,8 +34,8 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
-                            Cantidad:
+                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
+                            Cantidad<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
@@ -46,7 +46,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="precio">
-                            Precio:
+                            Precio<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="col-span-2">
@@ -59,7 +59,7 @@
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
-                            Cant Mínima:
+                            Cantidad Mínima<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
@@ -70,8 +70,9 @@
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label 
-                            class="block text-black-700 text-lg font-bold " for="categoria">
-                                Categoría:
+                            class="block text-black-700 text-lg font-bold" for="categoria">
+                                Categoría<span class="text-red-900">*</span>
+
                         </label>
                     </div>
                     <div class="col-span-3 sm:col-span-2">
@@ -88,8 +89,8 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
-                            Costo Adquisición:
+                        <label class=" text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
+                            Costo Adquisición<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
@@ -97,10 +98,12 @@
                         id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisición" sm:placeholder="Costo" wire:model="adquisicion">
                     </div>
                 </div>
+
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="marca">
-                            Marca:
+                            Marca<span class="text-red-900">*</span>
+
                         </label>
                     </div>
                     <div class="col-span-3 sm:col-span-2">
@@ -114,8 +117,8 @@
           
                 <div class="mb-4 grid grid-cols-4 gap-2">
                     <div class="col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
-                            Proveedor:
+                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
+                            Proveedor<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="col-span-2">
@@ -131,7 +134,7 @@
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="fecha">
-                            Fecha:
+                            Fecha
                         </label>
                     </div>
                     <div class="col-span-3 sm:col-span-2">
@@ -143,10 +146,12 @@
 
             <div class="grid grid-cols-2 gap-4">
                 
+
                 <div class="mb-4 grid grid-cols-4 gap-2">
                     <div class="col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="foto">
-                            Foto:
+                            Foto<span class="text-red-900">*</span>
+
                         </label>
                     </div>
                     
@@ -159,10 +164,12 @@
                     </div>
 
                 </div>
+
                 {{-- <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="estado">
                             Estado:
+
                         </label>
                     </div>
                     <div class="col-span-3 sm:col-span-2">
