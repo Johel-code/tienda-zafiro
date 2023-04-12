@@ -16,17 +16,17 @@ class CrearProducts extends Component
         $proveedor, $cantidad_minima, $adquisicion, $categorias, $proveedors;
 
     protected $rules = [
-        'nombre' => 'required|max:15|alpha_num',
+        'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
         //'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
-        'marca' => 'required|max:10| alpha_num',
+        'marca' => 'required|max:10|regex:/^[a-zA-Z0-9. ]+$/',
         'cantidad_minima' => 'required|numeric|min:1',
         'adquisicion' => 'required|numeric|min:1',
         'categoria' => 'required',
         'proveedor'  => 'required',
         'descripcion' => 'max:50',
-        'fecha' => 'after:tomorrow|nullable'
+        'fecha' => 'after:today|nullable'
     ];
 
     protected $messages = [
@@ -38,9 +38,9 @@ class CrearProducts extends Component
         'cantidad_minima.numeric' => 'Solo se admiten números enteros',
         'cantidad_minima.min' => 'No se admiten números negativos',
         'nombre.required' => 'El campo nombre es requerido',
-        'nombre.alpha_num' => 'El campo nombre solo puede tener letras y números',
+        'nombre.regex' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener más de 15 caracteres',
-        'descripcion.max' =>'Solo se admiten 50 caracteres',
+        'descripcion.max' => 'Solo se admiten 50 caracteres',
         'cantidad.required' => 'El campo cantidad es requerido',
         'cantidad.numeric' => 'Solo se admiten números enteros',
         'cantidad.min' => 'No se admiten números negativos',
@@ -52,7 +52,7 @@ class CrearProducts extends Component
         'precio.min' => 'El valor minimo a ingresar es 1',
         'marca.required' => 'El campo marca es requerido',
         'marca.max' => 'Solo se admiten máximo 10 caracteres',
-        'marca.alpha_num' => 'Solo puede ingresar letras y números',
+        'marca.regex' => 'Solo puede ingresar letras y números',
         'categoria.required' => 'El campo categoria es requerido',
         'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
     ];
