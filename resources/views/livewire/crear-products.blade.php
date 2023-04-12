@@ -34,7 +34,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="cantidad">
                             Cantidad<span class="text-red-900">*</span>
                         </label>
                     </div>
@@ -44,7 +44,7 @@
                         @error('cantidad') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="mb-4 grid grid-cols-2 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
+                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="precio">
                             Precio<span class="text-red-900">*</span>
@@ -68,6 +68,7 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima">
                         @error('cantidad_minima') <span class="error">{{ $message }}</span> @enderror
+                    </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
@@ -95,7 +96,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class=" text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
+                        <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
                             Costo Adquisición<span class="text-red-900">*</span>
                         </label>
                     </div>
@@ -127,7 +128,7 @@
           
                 <div class="mb-4 grid grid-cols-4 gap-2">
                     <div class="col-span-2">
-                        <label class=" text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
                             Proveedor<span class="text-red-900">*</span>
                         </label>
                     </div>
