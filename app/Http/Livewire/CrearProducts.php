@@ -16,20 +16,39 @@ class CrearProducts extends Component
             $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
 
     protected $rules = [
-        'nombre' => 'required|max:4',
-        'estado' => 'required',
-        'foto' => 'required|image|max:1024',
-        'cantidad' => 'required',
-        'precio' => 'required',
-        'marca' => 'required',
+        'nombre' => 'required|max:50|string',
+        'estado' => 'required| boolean',
+        'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
+        'cantidad' => 'required|numeric|min:1 ',
+        'precio' => 'required|numeric |min:1 ',
+        'marca' => 'required|max: 25| string',
         'categoria' => 'required',
-        'descripcion' => 'required'
+        'descripcion' => 'required|max: 100|string',
+        'fecha' => 'required|date | after:start_date'
     ];
 
     protected $messages = [
         'nombre.required' => 'El campo nombre es requerido',
-        'nombre.max' => 'El nombre no debe tener mas de 20 caracteres',
-        'descripcion.required' => 'El campo descripcion es requerido'
+        'nombre.string' => 'El campo nombre no admite caracteres epeciales',
+        'nombre.max' => 'El nombre no debe tener mas de 50 caracteres',
+        'descripcion.required' => 'El campo descripcion es requerido',
+        'descripcion.max: 100' =>'Solo se admiten 100 caracteres',
+        'cantidad.required' => 'El campo cantidad es requerido',
+        'cantidad.numeric' => 'Solo se admiten números enteros',
+        'cantidad.min:1' => 'No se admiten números negativos',
+        'estado.required' => 'El campo estado es requerido',
+        'foto.required' => 'El campo foto es requerido',
+        'foto.max:1024' => 'Solo se permite como maximo 1024',
+        'foto.mimes:jpg,jpeg,png' => 'Solo se admite una imagen o foto',
+        'precio.required' => 'El campo precio es requerido',
+        'precio.min:1' => 'El valor minimo a ingresar es 1',
+        'marca.required' => 'El campo marca es requerido',
+        'marca.max:25' => 'Solo se admiten maximo 25 caracteres',
+        'marca.string' => 'No se admiten caracteres especiales',
+        'categoria.required' =>'El campo categoria es requerido',
+        'fecha.required' => 'El campo fecha es requerido',
+        'fecha.after:start_date' => 'Debe ingresar una fecha posterior a la actual'
+
     ];
 
     public function render()

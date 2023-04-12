@@ -41,6 +41,7 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad" type="number" placeholder="Cantidad del producto" wire:model="cantidad">
+                        @error('cantidad') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
@@ -52,6 +53,7 @@
                     <div class="col-span-3">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="precio" type="number" step="0.01" placeholder="Precio del producto" wire:model="precio">
+                        @error('precio') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -65,7 +67,7 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima">
-                    </div>
+                        @error('cantidad_minima') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
                     <div class="">
@@ -76,6 +78,7 @@
                     </div>
                     <div class="col-span-3">
                         <select id="categoria_id" wire:model="categoria">
+                        @error('categoria') <span class="error">{{ $message }}</span> @enderror
                             <option value="">Seleccione una categoria</option>
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
@@ -95,6 +98,7 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisicion" wire:model="adquisicion">
+                        @error('adquisicion') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4">
@@ -106,6 +110,7 @@
                     <div class="col-span-3">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="marca" type="text" placeholder="Marca del producto" wire:model="marca">
+                        @error('marca') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -137,6 +142,7 @@
                     <div class="col-span-3">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="fecha" type="date" wire:model="fecha">
+                        @error('fecha') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -153,6 +159,7 @@
                     <div class="col-span-4">
                         <input  class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="foto" type="file" wire:model="foto">
+                        @error('foto') <span class="error">{{ $message }}</span> @enderror
                         @if ($foto)
                             <img src="{{ $foto->temporaryUrl() }}">
                         @endif
@@ -169,7 +176,8 @@
                         <label class="relative inline-flex items-center mb-4 cursor-pointer">
                             <input checked type="checkbox" value="" class="sr-only peer" wire:model="estado">
                             <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus: ring-blue-800 dark:peer-focus:ring-blue-800 dark:bg-gray-500 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                            </div>
+                            @error('estado') <span class="error">{{ $message }}</span> @enderror   
+                        </div>
 
                         </label>
                     </div>
