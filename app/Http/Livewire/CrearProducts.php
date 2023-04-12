@@ -17,7 +17,6 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:4',
-        'estado' => 'required',
         'foto' => 'required|image|max:1024',
         'cantidad' => 'required',
         'precio' => 'required',
@@ -28,8 +27,6 @@ class CrearProducts extends Component
 
     protected $messages = [
         'nombre.required' => 'El campo nombre es requerido',
-        'nombre.max' => 'El nombre no debe tener mas de 20 caracteres',
-        'descripcion.required' => 'El campo descripcion es requerido'
     ];
 
     public function render()
@@ -84,7 +81,6 @@ class CrearProducts extends Component
                 'marca' => $this->marca,
                 'category_id' => $this->categoria, 
                 'fecha_vencimiento' => $this->fecha,
-                'estado_product' => $this->estado,
                 'provider_id' => $this->proveedor, 
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
