@@ -34,3 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     //Route::view('/products', 'index-products');
     Route::view('/crear-products', 'index-create-products');
 });
+
+Route::get('/create-symlink', function (){
+    symlink(storage_path('/app/public'), public_path('storage'));
+    echo "Symlink Created. Thanks";
+});
