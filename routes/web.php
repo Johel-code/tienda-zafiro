@@ -29,8 +29,7 @@ Route::middleware([
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+
     Route::view('/', 'index-products')->name('home');
     //Route::view('/products', 'index-products');
     Route::view('/crear-products', 'index-create-products');
-});
