@@ -40,7 +40,7 @@ class CrearProducts extends Component
         'nombre.required' => 'El campo nombre es requerido',
         'nombre.regex' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener más de 15 caracteres',
-        'descripcion.max' =>'Solo se admiten 50 caracteres',
+        'descripcion.max' => 'Solo se admiten 50 caracteres',
         'cantidad.required' => 'El campo cantidad es requerido',
         'cantidad.numeric' => 'Solo se admiten números enteros',
         'cantidad.min' => 'No se admiten números negativos',
