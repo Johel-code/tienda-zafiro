@@ -85,6 +85,10 @@ class CrearProducts extends Component
         $this->proveedors = Provider::all();
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     // public function save()
     // {
