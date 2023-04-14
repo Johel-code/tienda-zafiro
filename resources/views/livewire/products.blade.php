@@ -8,6 +8,7 @@
                     </button>
                 </a>
             </div>
+
             <div class="flex sm:px-8 lg:px-8 md:ml-48 ">
                 <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
