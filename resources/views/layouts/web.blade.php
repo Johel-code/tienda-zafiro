@@ -16,19 +16,22 @@
 
 <body class="bg-[#E3E9F1]">
     <header class="">
-        <nav class="bg-white">
+        <nav class="bg-white h-14">
             {{-- <a href="{{ route('home') }}">
             <img src="{{ asset('logo/logo-fondo-blanco.png') }}" class="h-8 mx-auto">
             </a> --}}
             <x-top-bar />
         </nav>
     </header>
-    <main class="py-10">
-        <div class="container mx-auto px-4">
-            @yield('content')
+    <main class="">
+        <div class="flex flex-row">
+            <x-sidebar />
+            <div class="w-auto">
+                @yield('content')
+            </div>
         </div>
     </main>
-    <x-sidebar />
+    
 
     @livewireScripts
 </body>
