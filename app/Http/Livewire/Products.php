@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use Livewire\WithPagination;
 
 use App\Models\Product;
@@ -10,9 +11,10 @@ use Livewire\Component;
 class Products extends Component
 {
     use WithPagination;
-    
+
     public $search = "";
     //public $products;
+    public $category;
 
 
     public function updatingSearch()
@@ -22,10 +24,11 @@ class Products extends Component
 
     public function render()
     {
-        $products = Product::when($this->search, function($query, $search){
-            return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%'.trim(strtolower($search)).'%']);
+        $this->category = Category::all();
+        $products = Product::when($this->search, function ($query, $search) {
+            return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%']);
         });
-        $products = $products->paginate(10);
+        $products = $products->orderBy('estado_product', 'desc')->paginate(10);
         return view('livewire.products', [
             'products' => $products
         ]);
