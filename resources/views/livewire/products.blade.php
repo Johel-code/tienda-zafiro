@@ -18,8 +18,8 @@
         
         <div class="py-2"></div>        
 
-        <div class="sm:px-8 lg:px-8 md:ml-64">
-            <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4 md:shrink">
+        <div class="sm:px-8 lg:px-8 md:ml-64 sm:ml-32">
+            <div class="bg-white overflow-hidden shadow-x1 rounded-lg px-4 py-4 md:shrink overflow-x-auto">
                 <table class="md:table-fixed w-full">
                     <thead class="md:py-8">
                         <tr class="bg-white text-dark">
