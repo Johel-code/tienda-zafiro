@@ -176,9 +176,9 @@
                         id="foto" name="img" type="file"  wire:model="foto" placeholder="Seleccionar">
                         @error('foto') <span class="error text-red-700">{{ $message }}</span> @enderror
 
-                        @if ($foto)
+                        {{-- @if ($foto)
                             <img src="{{ $foto->temporaryUrl() }}">
-                        @endif
+                        @endif --}}
                         
                     </div>
 
