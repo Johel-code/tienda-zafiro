@@ -67,7 +67,7 @@
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad minima" type="number" placeholder="Cantidad min. producto" wire:model="cantidad_minima"min="0">
+                        id="cantidad minima" type="number" placeholder="Cantidad min" wire:model="cantidad_minima"min="0">
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adquisición" sm:placeholder="Costo" wire:model="adquisicion" min="0">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo" sm:placeholder="Costo" wire:model="adquisicion" min="0">
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-span-3 sm:col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="marca" type="text" placeholder="Marca del producto" wire:model="marca">
+                        id="marca" type="text" placeholder="Marca" wire:model="marca">
                         @error('marca') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-span-2">
                         <select id="proveedor_id" wire:model="proveedor" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
-                            <option value="">Seleccione un prov.</option>
+                            <option value="">Seleccione.</option>
                             @foreach($proveedors as $proveedor)
                                 <option value="{{ $proveedor->id }}">{{ $proveedor->name_provider}}</option>
                             @endforeach
