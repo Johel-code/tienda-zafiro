@@ -17,7 +17,7 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
+        //'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
@@ -46,8 +46,8 @@ class CrearProducts extends Component
         'cantidad.min' => 'No se admiten números negativos',
         'estado.required' => 'El campo estado es requerido',
         //'foto.required' => 'El campo foto es requerido',
-        'foto.max' => 'Solo se permite como maximo 1024',
-        'foto.image' => 'Solo se admite una imagen o foto',
+        // 'foto.max' => 'Solo se permite como maximo 1024',
+        // 'foto.image' => 'Solo se admite una imagen o foto',
         'precio.required' => 'El campo precio es requerido',
         'precio.min' => 'El valor minimo a ingresar es 1',
         'marca.required' => 'El campo marca es requerido',
