@@ -25,7 +25,7 @@
         {{-- <div class="sm:px-8 lg:px-8 md:ml-64 sm:ml-32">
             <div class="bg-white overflow-hidden shadow-x1 rounded-lg px-4 py-4 md:shrink overflow-x-auto"> --}}
         <div class="sm:px-8 lg:px-8 md:ml-8">
-            <div class="bg-white  overflow-hidden md:overflow-x-auto shadow-x1 sm:rounded-lg px-4 py-4 md:shrink">
+            <div class="bg-white  overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg px-4 py-4 shrink">
                 <table class="md:table-fixed w-full">
                     <thead class="md:py-8">
                         <tr class="bg-white text-dark">
@@ -46,14 +46,14 @@
                                     
                                 </div>
                             </div>
-                            <th class="px-4 py-2 border-b-2 border-black">Código</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Precio</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Fecha vencimiento</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Marca</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Categoría</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Estado</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha vencimiento</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Marca</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Categoría</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>
                             {{-- <th class="px-4 py-2 border-b-2 border-black">Editar</th> --}}  
                         </tr>
                     </thead>
