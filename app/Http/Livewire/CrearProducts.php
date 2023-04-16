@@ -17,7 +17,7 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
+        //'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
