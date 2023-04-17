@@ -17,7 +17,7 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
+        //'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
@@ -85,6 +85,10 @@ class CrearProducts extends Component
         $this->proveedors = Provider::all();
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     // public function save()
     // {
@@ -101,10 +105,7 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        if ($this->foto) {
-            $path = $this->foto->storePublicly('public/images');
-            $this->foto = str_replace('public', 'storage', $path);
-        }
+        
         Product::updateOrCreate(
             ['id' => $this->id_product],
             [
@@ -119,7 +120,8 @@ class CrearProducts extends Component
                 'category_id' => $this->categoria,
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
-                'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
+                //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
+                'image' => $this->foto->store('images/', 'public_uploads')
             ]
         );
         session()->flash('message', '¡Producto añadido exitosamente!');
