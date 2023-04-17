@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import fs from 'fs'; 
  
-const host = 'tienda-zafiro-production.up.railway.app'; 
+const host = 'my-app.test'; 
 
 
 export default defineConfig({
