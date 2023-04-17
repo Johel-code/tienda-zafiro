@@ -121,7 +121,7 @@ class CrearProducts extends Component
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
                 //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
-                'image' => $this->foto->store('images/', 'public_uploads')
+                'image' => $this->foto->storeAs('images/', $imageName, 'public_uploads')
             ]
         );
         session()->flash('message', '¡Producto añadido exitosamente!');
