@@ -4,9 +4,11 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Modal extends Component
 {
+    use WithFileUploads;
     public $product;
     public $category;
     public $ids;
