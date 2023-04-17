@@ -105,7 +105,7 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        
+        $imageName = $this->foto->getClientOriginalExtension();
         Product::updateOrCreate(
             ['id' => $this->id_product],
             [
