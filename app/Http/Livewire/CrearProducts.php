@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Provider;
+use Carbon\Carbon;
 
 class CrearProducts extends Component
 {
@@ -17,7 +18,7 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        //'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
+        'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
@@ -105,7 +106,11 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        $imageName = $this->foto->getClientOriginalExtension();
+        if($this->foto){
+            $imageName = Carbon::now()->timestamp. '.' .$this->foto->extension();
+            $this->foto->storeAs('images/', $imageName, 'public_uploads');
+        }
+        
         Product::updateOrCreate(
             ['id' => $this->id_product],
             [
@@ -121,7 +126,7 @@ class CrearProducts extends Component
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
                 //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
-                'image' => $this->foto->storeAs('images/', $imageName, 'public_uploads')
+                'image' => $imageName
             ]
         );
         session()->flash('message', '¡Producto añadido exitosamente!');
