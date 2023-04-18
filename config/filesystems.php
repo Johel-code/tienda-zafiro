@@ -44,7 +44,7 @@ return [
             'throw' => false,
         ],
 
-        'public_uploads' => [
+        'uploads' => [
             'driver' => 'local',
             'root' => public_path(),
         ],

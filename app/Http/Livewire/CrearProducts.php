@@ -108,8 +108,9 @@ class CrearProducts extends Component
         $this->validate();
         if($this->foto){
             $imageName = Carbon::now()->timestamp. '.' .$this->foto->getClientOriginalName();
+            //dd(asset('images/'.$imageName));
 
-            $this->foto->storeAs('images/', $imageName, 'public_uploads');
+            $this->foto->storeAs('images/', $imageName, 'uploads');
         }
         
         Product::updateOrCreate(
