@@ -108,7 +108,7 @@ class CrearProducts extends Component
         $imageName = time().'-'.$this->foto->getClientOriginalName();
             //dd(asset('images/'.$imageName));
 
-        $this->foto->storeAs('images', $imageName, 'uploads_image');
+        $this->foto->storeAs('/images', $imageName, 'uploads_image');
         //dd(asset('uploads/images/'.$imageName));
         
         Product::updateOrCreate(
