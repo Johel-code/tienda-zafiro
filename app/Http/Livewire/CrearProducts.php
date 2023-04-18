@@ -7,7 +7,6 @@ use Livewire\WithFileUploads;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Provider;
-use Carbon\Carbon;
 
 class CrearProducts extends Component
 {
@@ -106,12 +105,11 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        if($this->foto){
-            $imageName = Carbon::now()->timestamp. '.' .$this->foto->getClientOriginalName();
+        $imageName = time().'-'.$this->foto->getClientOriginalName();
             //dd(asset('images/'.$imageName));
 
-            $this->foto->storeAs('images/', $imageName, 'uploads');
-        }
+        $this->foto->storeAs('images', $imageName, 'uploads_image');
+        //dd(asset('uploads/images/'.$imageName));
         
         Product::updateOrCreate(
             ['id' => $this->id_product],

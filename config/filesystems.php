@@ -44,9 +44,11 @@ return [
             'throw' => false,
         ],
 
-        'uploads' => [
+        'uploads_image' => [
             'driver' => 'local',
-            'root' => public_path(),
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
         ],
 
         's3' => [
