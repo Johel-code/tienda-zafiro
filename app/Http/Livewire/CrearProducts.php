@@ -109,7 +109,7 @@ class CrearProducts extends Component
             //dd(asset('images/'.$imageName));
 
         $this->foto->storeAs('/images', $imageName, 'uploads_image');
-        //dd(asset('uploads/images/'.$imageName));
+        dd(asset('uploads/images/'.$imageName));
         
         Product::updateOrCreate(
             ['id' => $this->id_product],
