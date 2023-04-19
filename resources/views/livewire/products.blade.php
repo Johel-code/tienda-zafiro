@@ -1,7 +1,7 @@
 <div>
     <div>
         <div class="flex flex-row place-content-between">
-            <div class="flex lg:ml-72 md:ml-40 sm:ml-8">
+            <div class="flex lg:ml-16 md:ml-8 sm:ml-8">
                 <a href="/crear-products">
                     <button class=" bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         AÑADIR
@@ -9,8 +9,8 @@
                 </a>
             </div>
 
-            <div class="flex sm:px-8 lg:px-8 md:ml-48 ">
-                <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 z-20 text-sm text-gray-900 bg-gray-50 rounded-lg z-0 border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
+            <div class="flex sm:px-2 lg:px-8 lg:ml-48 md:ml-24 sm:ml-8">
+                <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </button> --}}
@@ -22,8 +22,10 @@
         
         <div class="py-2"></div>        
 
-        <div class="sm:px-8 lg:px-8 md:ml-32">
-            <div class="bg-white  overflow-hidden md:overflow-x-auto shadow-x1  sm:rounded-lg px-4 py-4 md:shrink">
+        {{-- <div class="sm:px-8 lg:px-8 md:ml-64 sm:ml-32">
+            <div class="bg-white overflow-hidden shadow-x1 rounded-lg px-4 py-4 md:shrink overflow-x-auto"> --}}
+        <div class="sm:px-8 lg:px-8 md:ml-8">
+            <div class="bg-white  overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg px-4 py-4 shrink">
                 <table class="md:table-fixed w-full">
                     <thead class="md:py-8">
                         <tr class="bg-white text-dark">
@@ -44,35 +46,35 @@
                                     
                                 </div>
                             </div>
-                            <th class="px-4 py-2 border-b-2 border-black">Código</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Nombre</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Precio</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Cantidad</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Fecha vencimiento</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Marca</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Categoría</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Estado</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha vencimiento</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Marca</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Categoría</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>
                             {{-- <th class="px-4 py-2 border-b-2 border-black">Editar</th> --}}  
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <td class="text-center font-normal">{{$product->codigo}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
-                            <td class="text-center text-ellipsis md:overflow-hidden ms:overflow-hidden">
+                            <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
                                 <a id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
                                     {{$product->name_product}}
                                 </a>
 
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->precio}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->cantidad_inventario}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->marca}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$category[$product->category_id-1]->name_categoy}}</th>
-                            <td class="text-center">
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td class="py-2 text-center  border-b border-gray-400">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
                             </td>

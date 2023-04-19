@@ -17,7 +17,7 @@
                 </div>
 
                 <article class="mx-5 flex bg-[#E3E9F1] transition mt-1 ">
-                    <img src="{{$product->image}}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
+                    <img src="{{ asset('uploads/images/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
                     <div class="justify-between ml-10 mr-10 mt-1.5 mb-8">
                         <h2 class="font-bold text-lg">Descripcion</h2>
                         <p class="font-semibold">{{$product->descripcion}}</p>
@@ -25,19 +25,19 @@
                 </article>
                 
                 <div class="px-8 grid grid-cols-4 grid-rows-3 gap-2 my-3">
-                    <div class="font-bold">Precio</div>
+                    <div class="font-bold">Precio (Bs)</div>
                     <div class="font-semibold">{{$product->precio}}</div>
-                    <div class="font-bold">Cantidad</div>
+                    <div class="font-bold">Cantidad (Ud)</div>
                     <div class="font-semibold">{{$product->cantidad_inventario}}</div>
                     <div class="font-bold">Marca</div>
                     <div class="font-semibold">{{$product->marca}}</div>
                     <div class="font-bold">Categoria</div>
                     {{--{{dd($product->category_id)}}--}}
-                    <div class="font-semibold">{{$product->category_id}}</div>
+                    <div class="font-semibold">{{$product->categoria->name_categoy}}</div>
                     <div class="font-bold">Vencimiento</div>
-                    <div class="font-semibold">{{$product->fecha_vencimiento}}</div>
+                    <div class="font-semibold">{{date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</div>
                     <div class="font-bold">Estado</div>
-                    <div class="font-semibold">{{$product->estado_product}}</div>
+                    <div class="font-semibold">@if($product->estado_product == 1) Activo @else Inactivo @endif</div>
                 </div>
 
             </div>
