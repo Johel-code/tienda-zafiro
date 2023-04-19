@@ -17,7 +17,7 @@
                 </div>
 
                 <article class="mx-5 flex bg-[#E3E9F1] transition mt-1 ">
-                    <img src="{{$product->image}}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
+                    <img src="{{ asset('uploads/images/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
                     <div class="justify-between ml-10 mr-10 mt-1.5 mb-8">
                         <h2 class="font-bold text-lg">Descripcion</h2>
                         <p class="font-semibold">{{$product->descripcion}}</p>
