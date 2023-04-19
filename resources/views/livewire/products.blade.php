@@ -48,8 +48,8 @@
                             </div>
                             <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
                             <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
+                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
                             <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha vencimiento</th>
                             <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Marca</th>
                             <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Categoría</th>
@@ -60,21 +60,21 @@
                     <tbody>
                         @foreach($products as $product)
                         <tr>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->codigo}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
-                            <td class="text-center text-ellipsis md:overflow-hidden ms:overflow-hidden">
+                            <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
                                 <a id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
                                     {{$product->name_product}}
                                 </a>
 
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->precio}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->cantidad_inventario}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->marca}}</th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$category[$product->category_id-1]->name_categoy}}</th>
-                            <td class="text-center">
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
+                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td class="py-2 text-center  border-b border-gray-400">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
                             </td>
