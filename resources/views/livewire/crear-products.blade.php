@@ -3,14 +3,14 @@
     <div class="bg-[#E3E9F1] xl:mx-10 my-2 lg:mx-10 md:mx-10 sm:mx-10">
         @if(session()->has('message'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert" 
-            style="margin-left: 120px; padding-left: 28px;">
+            style="margin-left: 20px; padding-left: 28px;">
                 <strong class="font-bold">{{ session('message') }}</strong>
             </div>
         @endif
         <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6">
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
-                    <label class="text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
+                    <label class="text-black-700 text-lg font-bold mx-0 w-9 font-anek" for="nombre">
                         Nombres<span class="text-red-900">*</span>
                     </label>
                 </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
-                    <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="descripcion">
+                    <label class="block text-black-700 text-lg font-bold mx-0 w-10 font-anek" for="descripcion">
                         Descripción
                     </label>
                 </div>
@@ -35,25 +35,27 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class="block text-black-700 text-lg font-bold" for="cantidad">
+                        <label class="block text-black-700 text-lg font-bold font-anek" for="cantidad">
                             Cantidad<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0">
+                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2 ">
-                        <label class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 w-10" for="precio">
+                        <label class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 w-10 font-anek" for="precio">
                             Precio<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0">
+                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -61,27 +63,28 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
+                        <label class="block text-black-700 text-lg font-bold font-anek" for="cantidad minima">
                             Cantidad Mínima<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0">
+                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
                         <label 
-                            class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="categoria">
+                            class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 font-anek" for="categoria">
                                 Categoría<span class="text-red-900">*</span>
 
                         </label>
                     </div>
 
                     <div class="col-span-3 sm:col-span-2">
-                        <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
+                        <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] font-anek">
                         
                             <option value="">Seleccione</option>
 
@@ -97,14 +100,15 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="mb-4 grid grid-cols-2 gap-2">
                     <div class="">
-                        <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
+                        <label class="block text-black-700 text-lg font-bold mr-1 font-anek" for="costo adquisicion">
                             Costo Adquisición<span class="text-red-900">*</span>
                         </label>
                     </div>
                     <div class="">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] font-anek" 
 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>
@@ -112,7 +116,7 @@
 
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="marca">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 font-anek" for="marca">
                             Marca<span class="text-red-900">*</span>
 
                         </label>
@@ -129,7 +133,7 @@
           
                 <div class="mb-4 grid grid-cols-4 gap-2">
                     <div class="col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 font-anek" for="proveedor">
                             Proveedor<span class="text-red-900">*</span>
                         </label>
                     </div>
@@ -146,7 +150,7 @@
 
                 <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="sm:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="fecha">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 font-anek" for="fecha">
                             Fecha
                         </label>
                     </div>
@@ -163,7 +167,7 @@
 
                 <div class=" mb-4 ">
                     <div class="col-span-1">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="foto">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 font-anek" for="foto">
                             Foto<span class="text-red-900">*</span>
 
                         </label>
@@ -176,9 +180,9 @@
                         id="foto" name="img" type="file"  wire:model="foto" placeholder="Seleccionar">
                         @error('foto') <span class="error text-red-700">{{ $message }}</span> @enderror
 
-                        {{-- @if ($foto)
+                        @if ($foto)
                             <img src="{{ $foto->temporaryUrl() }}">
-                        @endif --}}
+                        @endif
                         
                     </div>
 
