@@ -25,9 +25,9 @@
                 </article>
                 
                 <div class="px-8 grid grid-cols-4 grid-rows-3 gap-2 my-3">
-                    <div class="font-bold">Precio</div>
+                    <div class="font-bold">Precio (Bs)</div>
                     <div class="font-semibold">{{$product->precio}}</div>
-                    <div class="font-bold">Cantidad</div>
+                    <div class="font-bold">Cantidad (Ud)</div>
                     <div class="font-semibold">{{$product->cantidad_inventario}}</div>
                     <div class="font-bold">Marca</div>
                     <div class="font-semibold">{{$product->marca}}</div>

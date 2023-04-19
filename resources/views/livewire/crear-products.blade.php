@@ -41,7 +41,7 @@
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad">
+                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0">
                         @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-span-2">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio">
+                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0">
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima">
+                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0">
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="col-span-3 sm:col-span-2">
                         <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
                         
-                            <option value="">Seleccionar</option>
+                            <option value="">Seleccione</option>
 
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->name_categoy }}</option>
@@ -104,7 +104,7 @@
                     <div class="">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." wire:model="adquisicion">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0">
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>
