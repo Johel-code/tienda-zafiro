@@ -172,12 +172,14 @@
                 <div class="col-span-2">   
 
                     <div class="">
-                        @if ($foto)
-                            <img src="{{ $foto->temporaryUrl() }}">
-                        @endif
                         <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" accept="image/*" 
-                        id="foto" type="file" wire:model="foto">
+                        id="foto" name="img" type="file"  wire:model="foto" placeholder="Seleccionar">
                         @error('foto') <span class="error text-red-700">{{ $message }}</span> @enderror
+
+                        {{-- @if ($foto)
+                            <img src="{{ $foto->temporaryUrl() }}">
+                        @endif --}}
+                        
                     </div>
 
                 </div>
