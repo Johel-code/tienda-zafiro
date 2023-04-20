@@ -30,6 +30,7 @@ class Products extends Component
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%']);
         });
         $products = $products->orderBy('estado_product', 'desc')->paginate(10);
+        $this->emit('refrescarModal');
         return view('livewire.products', [
             'products' => $products
         ]);
