@@ -1,4 +1,5 @@
 <?php return array (
+  'crear-personal' => 'App\\Http\\Livewire\\CrearPersonal',
   'crear-products' => 'App\\Http\\Livewire\\CrearProducts',
   'modal-confirmar-cerrar' => 'App\\Http\\Livewire\\ModalConfirmarCerrar',
   'product.modal' => 'App\\Http\\Livewire\\Product\\Modal',
