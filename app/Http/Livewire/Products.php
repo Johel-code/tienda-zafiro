@@ -16,6 +16,7 @@ class Products extends Component
     //public $products;
     public $category;
 
+    protected $listeners = ['refresh' => 'render'];
 
     public function updatingSearch()
     {

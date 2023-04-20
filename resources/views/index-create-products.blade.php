@@ -6,6 +6,7 @@
     
     ">
         <h2 class="text-4xl font-bold mb-2">NUEVO PRODUCTO</h2>
+
     </div>
     <livewire:crear-products>
 @endsection

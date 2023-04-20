@@ -15,6 +15,8 @@ class CrearProducts extends Component
         $categoria, $fecha, $estado, $foto, $id_product,
         $proveedor, $cantidad_minima, $adquisicion, $categorias, $proveedors;
 
+    protected $listeners = ['clean-cerrar' => 'limpiar'];
+
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
         ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
