@@ -59,11 +59,11 @@
                     </thead>
                     <tbody>
                         @foreach($products as $product)
-                        <tr>
+                        <tr  class="hover:bg-blue-200">
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
-                            <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
-                                <a id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+                            <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400 ">
+                                <a class="hover:text-blue-800 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
                                     {{$product->name_product}}
                                 </a>
 

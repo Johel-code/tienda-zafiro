@@ -20,7 +20,8 @@
                     <img src="{{ asset('uploads/images/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
                     <div class="justify-between ml-10 mr-10 mt-1.5 mb-8">
                         <h2 class="font-bold text-lg">Descripcion</h2>
-                        <p class="font-semibold">{{$product->descripcion}}</p>
+                        <p class="font-semibold">{!! nl2br(e(chunk_split($product->descripcion, 20))) !!}</p>
+
                     </div>
                 </article>
                 
