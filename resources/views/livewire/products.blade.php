@@ -57,17 +57,17 @@
                     </thead>
                     <tbody>
                         @foreach($products as $product)
-                        <tr>
+                        <tr class="hover:bg-blue-200">
                             <td class="text-center font-normal">{{$product->codigo}}</th>
 
                             <td class="text-center text-ellipsis md:overflow-hidden ms:overflow-hidden">
-                                <a id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+                                <a class="hover:text-blue-700 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
                                     {{$product->name_product}}
                                 </a>
 
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
-                            <td class="text-center text-ellipsis overflow-hidden">{{$product->precio}}</th>
+                            <td class="text-center text-ellipsis overflow-hidden ">{{$product->precio}}</th>
                             <td class="text-center text-ellipsis overflow-hidden">{{$product->cantidad_inventario}}</th>
                             <td class="text-center text-ellipsis overflow-hidden">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
                             <td class="text-center text-ellipsis overflow-hidden">{{$product->marca}}</th>
