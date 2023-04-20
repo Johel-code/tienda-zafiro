@@ -107,10 +107,10 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        $imageName = time().'-'.$this->foto->getClientOriginalName();
+        //$imageName = time().'-'.$this->foto->getClientOriginalName();
             //dd(asset('images/'.$imageName));
 
-        $this->foto->storeAs('/images', $imageName, 'uploads_image');
+        //$this->foto->storeAs('/images', $imageName, 'uploads_image');
         //dd(asset('uploads/images/'.$imageName));
         
         Product::updateOrCreate(
@@ -128,7 +128,7 @@ class CrearProducts extends Component
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
                 //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
-                'image' => $imageName
+                'image' => 'imageName.jpg'
             ]
         );
         session()->flash('message', '¡Producto añadido exitosamente!');
