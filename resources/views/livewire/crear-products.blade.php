@@ -7,14 +7,14 @@
                 <strong class="font-bold">{{ session('message') }}</strong>
             </div>
         @endif
-        <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6">
+        <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
                     <label class="text-black-700 text-lg font-bold mx-0 w-9" for="nombre">
-                        Nombres<span class="text-red-900">*</span>
+                        Nombres:<span class="text-red-900">*</span>
                     </label>
                 </div>
-                <div class="col-span-3">
+                <div class="col-span-3 sm:max-lg:ml-12">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                     id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
                     @error('nombre') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -23,64 +23,92 @@
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
                     <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="descripcion">
-                        Descripción
+                        Descripción:
                     </label>
                 </div>
-                <div class="col-span-3">
+                <div class="col-span-3 sm:max-lg:ml-12">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                     id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
                     @error('descripcion') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="mb-4 grid grid-cols-2 gap-2">
+            <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
+            2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad">
-                            Cantidad(Uds)<span class="text-red-900">*</span>
+                            Cantidad(Ud)<span class="text-red-900">*</span>
                         </label>
                     </div>
-                    <div class="">
+                    <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0">
                         @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
-                    <div class="sm:col-span-2 ">
-                        <label class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4 w-10" for="precio">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
+
+                lg:gap-16 md:gap-0 sm:gap-0">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2">
+                        <label class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 w-10" for="precio">
                             Precio(Bs)<span class="text-red-900">*</span>
                         </label>
                     </div>
-                    <div class="col-span-2">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2
+                                sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0">
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="mb-4 grid grid-cols-2 gap-2">
+            <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
+            2xl:grid 2xl:grid-cols-2 2xl:gap-4">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold" for="cantidad minima">
-                            Cantidad Mínima(Uds)<span class="text-red-900">*</span>
+                            Cantidad Mínima(Ud)<span class="text-red-900">*</span>
                         </label>
                     </div>
-                    <div class="">
+                    <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0">
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
-                    <div class="sm:col-span-2">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
+
+                lg:gap-16 md:gap-0 sm:gap-0">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2">
                         <label 
-                            class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="categoria">
-                                Categoría<span class="text-red-900">*</span>
+                            class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-0 sm:ml-0" for="categoria">
+                                Categoría:<span class="text-red-900">*</span>
 
                         </label>
                     </div>
 
-                    <div class="col-span-3 sm:col-span-2">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2
+                                sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <select id="categoria_id" wire:model="categoria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
                         
                             <option value="">Seleccione</option>
@@ -94,14 +122,19 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
-                <div class="mb-4 grid grid-cols-2 gap-2">
+            <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
+            2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                     <div class="">
                         <label class="block text-black-700 text-lg font-bold mr-1" for="costo adquisicion">
                             Costo Adquisición(Bs)<span class="text-red-900">*</span>
                         </label>
                     </div>
-                    <div class="">
+                    <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
 
                         id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0">
@@ -110,14 +143,23 @@
                     </div>
                 </div>
 
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
-                    <div class="sm:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="marca">
-                            Marca<span class="text-red-900">*</span>
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
+
+                lg:gap-16 md:gap-0 sm:gap-0">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-0 sm:ml-0" for="marca">
+                            Marca:<span class="text-red-900">*</span>
 
                         </label>
                     </div>
-                    <div class="col-span-3 sm:col-span-2">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2
+                                sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="marca" type="text" placeholder="Marca" wire:model="marca">
                         @error('marca') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -125,15 +167,20 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
+            2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
           
-                <div class="mb-4 grid grid-cols-4 gap-2">
-                    <div class="col-span-2">
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
+                    <div class="">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="proveedor">
-                            Proveedor<span class="text-red-900">*</span>
+                            Proveedor:<span class="text-red-900">*</span>
                         </label>
                     </div>
-                    <div class="col-span-2">
+                    <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <select id="proveedor_id" wire:model="proveedor" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] ">
                             <option value="">Seleccionar</option>
                             @foreach($proveedors as $proveedor)
@@ -144,24 +191,33 @@
                     </div>
                 </div>
 
-                <div class="mb-4 grid grid-cols-4 gap-4 lg:gap-16 md:gap-20 sm:gap-0">
-                    <div class="sm:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-14 sm:ml-4" for="fecha">
-                            Fecha
+                <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
+                
+                2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
+
+                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
+
+                lg:gap-16 md:gap-0 sm:gap-0">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2">
+                        <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-0 sm:ml-0" for="fecha">
+                            Fecha:
                         </label>
                     </div>
-                    <div class="col-span-3 sm:col-span-2">
+                    <div class="lg:max-2xl:col-span-2 
+                                2xl:col-span-2
+                                sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="fecha" type="date" wire:model="fecha">
                         @error('fecha') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
-
+            
             <div class="grid grid-cols-4 gap-4">
                 
 
-                <div class=" mb-4 ">
+            {{--<div class=" mb-4 ">
                     <div class="col-span-1">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10" for="foto">
                             Foto<span class="text-red-900">*</span>
@@ -182,7 +238,7 @@
                         
                     </div>
 
-                </div>
+                </div>--}}
 
                 {{-- <div class="col-span-1  lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="">
