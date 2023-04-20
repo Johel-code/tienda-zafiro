@@ -15,9 +15,11 @@ class CrearProducts extends Component
         $categoria, $fecha, $estado, $foto, $id_product,
         $proveedor, $cantidad_minima, $adquisicion, $categorias, $proveedors;
 
+    protected $listeners = ['clean-cerrar' => 'limpiar'];
+
     protected $rules = [
         'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        //'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
+        ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
@@ -105,10 +107,12 @@ class CrearProducts extends Component
     public function submit()
     {
         $this->validate();
-        if ($this->foto) {
-            $path = $this->foto->storePublicly('public/images');
-            $this->foto = str_replace('public', 'storage', $path);
-        }
+        $imageName = time().'-'.$this->foto->getClientOriginalName();
+            //dd(asset('images/'.$imageName));
+
+        $this->foto->storeAs('/images', $imageName, 'uploads_image');
+        //dd(asset('uploads/images/'.$imageName));
+        
         Product::updateOrCreate(
             ['id' => $this->id_product],
             [
@@ -123,8 +127,8 @@ class CrearProducts extends Component
                 'category_id' => $this->categoria,
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
-                'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
-                //'image' => $this->foto->store('images/', 'public_uploads')
+                //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
+                'image' => $imageName
             ]
         );
         session()->flash('message', '¡Producto añadido exitosamente!');
