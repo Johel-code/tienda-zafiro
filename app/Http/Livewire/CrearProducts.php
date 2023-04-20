@@ -25,7 +25,7 @@ class CrearProducts extends Component
         'adquisicion' => 'required|numeric|min:0.01|max:999999999999.99',
         'categoria' => 'required',
         'proveedor'  => 'required',
-        'descripcion' => 'max:100',
+        'descripcion' => 'max:80',
         'fecha' => 'after:today|nullable'
     ];
 
@@ -42,7 +42,7 @@ class CrearProducts extends Component
         'nombre.required' => 'El campo nombre es requerido',
         'nombre.regex' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener más de 35 caracteres',
-        'descripcion.max' => 'Solo se admiten 100 caracteres',
+        'descripcion.max' => 'Solo se admiten 80 caracteres',
         'cantidad.required' => 'El campo debe contener números',
         'cantidad.numeric' => 'Solo se admiten números enteros',
         'cantidad.min' => 'Solo se aceptan números mayores a 0',
@@ -80,7 +80,7 @@ class CrearProducts extends Component
         $this->cantidad_minima = '';
         $this->descripcion = '';
         $this->adquisicion = '';
-        //session()->flash('success','¡LIMPIO!');
+        session()->flash('message','¡LIMPIO!');
     }
 
     public function mount()

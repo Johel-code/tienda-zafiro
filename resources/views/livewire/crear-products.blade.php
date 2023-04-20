@@ -1,10 +1,10 @@
 <div id="ventana_registrar_productos" class="flex justify-center items center h-4/5 ">
-    @if(session()->has('message'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert">
-            <strong class="font-bold">{{ session('message') }}</strong>
-        </div>
-    @endif
     <div class="bg-[#E3E9F1] xl:mx-10 my-2 lg:mx-10 md:mx-10 sm:mx-10">
+                @if(session()->has('message'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert">
+                        <strong class="font-bold">{{ session('message') }}</strong>
+                    </div>
+                @endif
         <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6">
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-span-3">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion" maxlength="101">
+                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion" maxlength="81">
                     @error('descripcion') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
