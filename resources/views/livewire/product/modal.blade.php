@@ -9,18 +9,22 @@
                 <!--Contenido-->
                 <div class="flex justify-between">
                     <div>
-                        <h2 class="text-xl font-bold ml-8 mt-5">{{$product->name_product}}</h2>
+                        <h2 class="text-xl font-bold ml-8 mt-5 text-ellipsis overflow-hidden">{{$product->name_product}}</h2>
                     </div>
                     <div>
-                        <button id="botonCerrar<?php echo $product->id ?>" class=" rounded-md  shadow-md px-2 bg-[#063780] text-white font-semibold">x</button>
+                        <button id="botonCerrar<?php echo $product->id ?>" class=" rounded-md  shadow-md px-2 bg-[#597AAB] text-white font-semibold">x</button>
                     </div>
                 </div>
 
-                <article class="mx-5 flex bg-[#E3E9F1] transition mt-1 ">
+                <article class="mx-5 grid grid-cols-5 bg-[#E3E9F1] transition mt-1 ">
+                    <div class="col-span-2">
                     <img src="{{ asset('uploads/images/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
-                    <div class="justify-between ml-10 mr-10 mt-1.5 mb-8">
+                    </div>
+                    <div class="justify-between ml-5 mr-5 mt-1.5 mb-8 col-span-3">
                         <h2 class="font-bold text-lg">Descripcion</h2>
-                        <p class="font-semibold">{!! nl2br(e(chunk_split($product->descripcion, 20))) !!}</p>
+
+                        <p class="font-semibold text-ellipsis overflow-hidden">{!! nl2br(e(chunk_split($product->descripcion, 20))) !!}</p>
+
 
                     </div>
                 </article>
@@ -35,7 +39,7 @@
                     <div class="font-bold">Categoria</div>
                     {{--{{dd($product->category_id)}}--}}
                     <div class="font-semibold">{{$product->categoria->name_categoy}}</div>
-                    <div class="font-bold">Vencimiento</div>
+                    <div class="font-bold">Fecha de ven.</div>
                     <div class="font-semibold">{{date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</div>
                     <div class="font-bold">Estado</div>
                     <div class="font-semibold">@if($product->estado_product == 1) Activo @else Inactivo @endif</div>

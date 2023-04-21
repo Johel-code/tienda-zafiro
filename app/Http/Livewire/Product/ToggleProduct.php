@@ -21,9 +21,10 @@ class ToggleProduct extends Component
         return view('livewire.product.toggle-product');
     }
 
-    
+
     public function updating($field, $value)
     {
         $this->product->setAttribute($this->field, $value)->save();
+        $this->emit('refresh');
     }
 }
