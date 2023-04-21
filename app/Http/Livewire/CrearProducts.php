@@ -20,12 +20,12 @@ class CrearProducts extends Component
     protected $rules = [
         'nombre' => 'required|max:35|regex:/^[a-zA-Z0-9 ]+$/',
         ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
-
-        'cantidad' => 'required|numeric|min:1|max:999999999999 ',
-        'precio' => 'required|numeric |min:0.01|max:999999999999.99 ',
+        
+        'cantidad' => 'required|numeric|min:1|max:9999999999 ',
+        'precio' => 'required|numeric |min:0.01|max:9999999999.99 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
-        'cantidad_minima' => 'required|numeric|min:1|max:999999999999',
-        'adquisicion' => 'required|numeric|min:0.01|max:999999999999.99',
+        'cantidad_minima' => 'required|numeric|min:1|max:9999999999',
+        'adquisicion' => 'required|numeric|min:0.01|max:9999999999.99',
         'categoria' => 'required',
         'proveedor'  => 'required',
         'descripcion' => 'max:80',
@@ -33,21 +33,21 @@ class CrearProducts extends Component
     ];
 
     protected $messages = [
-        'proveedor.required' => 'El campo es requerido',
-        'adquisicion.required' => 'El campo debe contener números',
+        'proveedor.required' => 'Este campo es obligatorio',
+        'adquisicion.required' => 'Este campo es obligatorio',
         'adquisicion.numeric' => 'Solo se admiten números enteros',
         'adquisicion.min' => 'Solo se aceptan números mayores a 0',
         'adquisicion.max' => 'El valor máximo a ingresar es 12 digitos enteros',
-        'cantidad_minima.required' => 'El campo debe contener números',
+        'cantidad_minima.required' => 'Este campo es obligatorio',
         'cantidad_minima.numeric' => 'Solo se admiten números enteros',
         'cantidad_minima.min' => 'Solo se aceptan números mayores a 0',
         'cantidad_minima.max' => 'El valor máximo a ingresar es 12 digitos',
 
-        'nombre.required' => 'El campo nombre es requerido',
+        'nombre.required' => 'Este campo es obligatorio',
         'nombre.regex' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener más de 35 caracteres',
         'descripcion.max' => 'Solo se admiten 80 caracteres',
-        'cantidad.required' => 'El campo debe contener números',
+        'cantidad.required' => 'Este campo es obligatorio',
         'cantidad.numeric' => 'Solo se admiten números enteros',
         'cantidad.min' => 'Solo se aceptan números mayores a 0',
         'cantidad.max' => 'El valor máximo a ingresar es 12 digitos',
@@ -56,13 +56,13 @@ class CrearProducts extends Component
         // 'foto.max' => 'Solo se permite como maximo 1024',
         // 'foto.image' => 'Solo se admite una imagen o foto',
 
-        'precio.required' => 'El campo debe contener números',
+        'precio.required' => 'Este campo es obligatorio',
         'precio.min' => 'Solo se aceptan números mayores a 0',
         'precio.max' => 'El valor máximo a ingresar es 12 digitos enteros',
-        'marca.required' => 'El campo marca es requerido',
+        'marca.required' => 'Este campo es obligatorio',
         'marca.max' => 'Solo se admiten 10 caracteres',
         'marca.regex' => 'Solo puede ingresar letras y números',
-        'categoria.required' => 'El campo categoria es requerido',
+        'categoria.required' => 'Este campo es obligatorio',
         'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
 
     ];
@@ -85,7 +85,7 @@ class CrearProducts extends Component
         $this->cantidad_minima = '';
         $this->descripcion = '';
         $this->adquisicion = '';
-        session()->flash('message','¡LIMPIO!');
+        //session()->flash('message','¡LIMPIO!');
     }
 
     public function mount()
@@ -128,7 +128,7 @@ class CrearProducts extends Component
         
         Product::updateOrCreate(
             ['id' => $this->id_product],
-            [
+            [   'codigo'=>rand(10000, 99999),
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
