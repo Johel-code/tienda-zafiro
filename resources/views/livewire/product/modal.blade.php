@@ -40,7 +40,15 @@
                     {{--{{dd($product->category_id)}}--}}
                     <div class="font-semibold">{{$product->categoria->name_categoy}}</div>
                     <div class="font-bold">Fecha de ven.</div>
-                    <div class="font-semibold">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</div>
+
+                    <div class="font-semibold">
+                        @if($product->fecha_vencimiento) 
+                            {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} 
+                        @else 
+                            Sin vencimiento
+                        @endif
+                    </div>
+
                     <div class="font-bold">Estado</div>
                     <div class="font-semibold">@if($product->estado_product == 1) Activo @else Inactivo @endif</div>
                 </div>
