@@ -17,6 +17,7 @@ class Modal extends Component
     //     dd($this->product);
     //     $this->ids = $product->category_id;
     // }
+    protected $listeners = ['refrescarModal' => 'render'];
     public function render()
     {
         $category = Category::all();
