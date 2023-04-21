@@ -53,9 +53,9 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0"
+                        id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0" max="999999999"
 
-                        oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10);"
+                        oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
 
                         onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
 
@@ -82,9 +82,9 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0" maxlength="12"
+                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0" maxlength="11"
                         oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
-                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
+                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
                         onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
 
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -108,8 +108,8 @@
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
 
-                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0" max="9999999999"
-                        oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10);"
+                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0" max="999999999"
+                        oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
                          onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
 
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -166,9 +166,10 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0" max="9999999999.99" maxlength="10"
-                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0" max="999999999.99" maxlength="11"
+                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false"
+                        >
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>

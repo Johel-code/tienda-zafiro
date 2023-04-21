@@ -21,11 +21,11 @@ class CrearProducts extends Component
         'nombre' => 'required|max:35|regex:/^[a-zA-Z0-9 ]+$/',
         ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
         
-        'cantidad' => 'required|numeric|min:1|max:9999999999 ',
-        'precio' => 'required|numeric |min:0.01|max:9999999999.99 ',
+        'cantidad' => 'required|numeric|min:1|max:999999999 ',
+        'precio' => 'required|numeric |min:0.01|max:999999999.99 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
-        'cantidad_minima' => 'required|numeric|min:1|max:9999999999',
-        'adquisicion' => 'required|numeric|min:0.01|max:9999999999.99',
+        'cantidad_minima' => 'required|numeric|min:1|max:999999999',
+        'adquisicion' => 'required|numeric|min:0.01|max:999999999.99',
         'categoria' => 'required',
         'proveedor'  => 'required',
         'descripcion' => 'max:80',
@@ -34,35 +34,43 @@ class CrearProducts extends Component
 
     protected $messages = [
         'proveedor.required' => 'Este campo es obligatorio',
+
         'adquisicion.required' => 'Este campo es obligatorio',
         'adquisicion.numeric' => 'Solo se admiten números enteros',
-        'adquisicion.min' => 'Solo se aceptan números mayores a 0',
-        'adquisicion.max' => 'El valor máximo a ingresar es 12 digitos enteros',
+        'adquisicion.min' => 'Ingrese números mayores a 0',
+        'adquisicion.max' => 'Se admite solo 9 digitos enteros',
+
         'cantidad_minima.required' => 'Este campo es obligatorio',
         'cantidad_minima.numeric' => 'Solo se admiten números enteros',
-        'cantidad_minima.min' => 'Solo se aceptan números mayores a 0',
-        'cantidad_minima.max' => 'El valor máximo a ingresar es 12 digitos',
+        'cantidad_minima.min' => 'Ingrese números mayores a 0',
+        'cantidad_minima.max' => 'Se admite solo 9 digitos enteros',
 
         'nombre.required' => 'Este campo es obligatorio',
         'nombre.regex' => 'El campo nombre solo puede tener letras y números',
         'nombre.max' => 'El nombre no debe tener más de 35 caracteres',
+
         'descripcion.max' => 'Solo se admiten 80 caracteres',
+
         'cantidad.required' => 'Este campo es obligatorio',
         'cantidad.numeric' => 'Solo se admiten números enteros',
-        'cantidad.min' => 'Solo se aceptan números mayores a 0',
-        'cantidad.max' => 'El valor máximo a ingresar es 12 digitos',
-        'estado.required' => 'El campo estado es requerido',
+        'cantidad.min' => 'Ingrese números mayores a 0',
+        'cantidad.max' => 'Se admite solo 9 digitos enteros',
+
+        //'estado.required' => 'El campo estado es requerido',
         //'foto.required' => 'El campo foto es requerido',
         // 'foto.max' => 'Solo se permite como maximo 1024',
         // 'foto.image' => 'Solo se admite una imagen o foto',
 
         'precio.required' => 'Este campo es obligatorio',
-        'precio.min' => 'Solo se aceptan números mayores a 0',
-        'precio.max' => 'El valor máximo a ingresar es 12 digitos enteros',
+        'precio.min' => 'Ingrese números mayores a 0',
+        'precio.max' => 'Se admite solo 9 digitos enteros',
+
         'marca.required' => 'Este campo es obligatorio',
         'marca.max' => 'Solo se admiten 10 caracteres',
         'marca.regex' => 'Solo puede ingresar letras y números',
+
         'categoria.required' => 'Este campo es obligatorio',
+
         'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
 
     ];
