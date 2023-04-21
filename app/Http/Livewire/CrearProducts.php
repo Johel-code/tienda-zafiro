@@ -12,58 +12,51 @@ class CrearProducts extends Component
 {
     use WithFileUploads;
     public $nombre, $descripcion, $cantidad, $precio, $marca,
-        $categoria, $fecha, $estado, $foto, $id_product,
-        $proveedor, $cantidad_minima, $adquisicion, $categorias, $proveedors;
+            $categoria, $fecha, $estado, $foto,$id_product, 
+            $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
 
     protected $rules = [
-        'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
+        'nombre' => 'required|max:50|string',
+        'estado' => 'required| boolean',
         'foto' => 'required|image|max:1024|mimes:jpg,jpeg,png',
         'cantidad' => 'required|numeric|min:1 ',
         'precio' => 'required|numeric |min:1 ',
-        'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
-        'cantidad_minima' => 'required|numeric|min:1',
-        'adquisicion' => 'required|numeric|min:1',
+        'marca' => 'required|max: 25| string',
         'categoria' => 'required',
-        'proveedor'  => 'required',
-        'descripcion' => 'max:50',
-        'fecha' => 'after:today|nullable'
+        'descripcion' => 'required|max: 100|string',
+        'fecha' => 'required|date | after:start_date'
     ];
 
     protected $messages = [
-        'proveedor.required' => 'El campo es requerido',
-        'adquisicion.required' => 'El campo es requerido',
-        'adquisicion.numeric' => 'Solo se admiten números enteros',
-        'adquisicion.min' => 'No se admiten números negativos',
-        'cantidad_minima.required' => 'El campo es requerido',
-        'cantidad_minima.numeric' => 'Solo se admiten números enteros',
-        'cantidad_minima.min' => 'No se admiten números negativos',
         'nombre.required' => 'El campo nombre es requerido',
-        'nombre.regex' => 'El campo nombre solo puede tener letras y números',
-        'nombre.max' => 'El nombre no debe tener más de 15 caracteres',
-        'descripcion.max' =>'Solo se admiten 50 caracteres',
+        'nombre.string' => 'El campo nombre no admite caracteres epeciales',
+        'nombre.max' => 'El nombre no debe tener mas de 50 caracteres',
+        'descripcion.required' => 'El campo descripcion es requerido',
+        'descripcion.max: 100' =>'Solo se admiten 100 caracteres',
         'cantidad.required' => 'El campo cantidad es requerido',
         'cantidad.numeric' => 'Solo se admiten números enteros',
-        'cantidad.min' => 'No se admiten números negativos',
-        'estado.required' => 'El campo estado es requerido',
+        'cantidad.min:1' => 'No se admiten números negativos',
+        'estado.required' => 'El campo estado es requerido', 
         'foto.required' => 'El campo foto es requerido',
-        'foto.max' => 'Solo se permite como maximo 1024',
-        'foto.image' => 'Solo se admite una imagen o foto',
+        'foto.max:1024' => 'Solo se permite como maximo 1024',
+        'foto.mimes:jpg,jpeg,png' => 'Solo se admite una imagen o foto',
         'precio.required' => 'El campo precio es requerido',
-        'precio.min' => 'El valor minimo a ingresar es 1',
+        'precio.min:1' => 'El valor minimo a ingresar es 1',
         'marca.required' => 'El campo marca es requerido',
-        'marca.max' => 'Solo se admiten máximo 10 caracteres',
-        'marca.regex' => 'Solo puede ingresar letras y números',
-        'categoria.required' => 'El campo categoria es requerido',
-        'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
+        'marca.max:25' => 'Solo se admiten maximo 25 caracteres',
+        'marca.string' => 'No se admiten caracteres especiales',
+        'categoria.required' =>'El campo categoria es requerido',
+        'fecha.required' => 'El campo fecha es requerido',
+        'fecha.after:start_date' => 'Debe ingresar una fecha posterior a la actual'
+
     ];
 
     public function render()
-    {
+    {   
         return view('livewire.crear-products');
     }
 
-    public function limpiar()
-    {
+    public function limpiar(){
         $this->nombre = '';
         $this->cantidad = '';
         $this->precio = '';
@@ -84,45 +77,38 @@ class CrearProducts extends Component
         $this->categorias = Category::all();
         $this->proveedors = Provider::all();
     }
+    public function save()
+{
+        $this->validate([
+            'foto' => 'image|max:1024', // validar que se cargó una imagen y que es menor a 1MB
+        ]);
 
-
-    // public function save()
-    // {
-    //     // $this->validate([
-    //     //     'foto' => 'image|max:1024', // validar que se cargó una imagen y que es menor a 1MB
-    //     // ]);
-
-    //     if ($this->foto) {
-    //         $path = $this->foto->storePublicly('public/images');
-    //         $this->foto = str_replace('public', 'storage', $path);
-    //         dd($this);
-    //     }
-    // }
-    public function submit()
-    {
-        $this->validate();
         if ($this->foto) {
             $path = $this->foto->storePublicly('public/images');
             $this->foto = str_replace('public', 'storage', $path);
         }
-        Product::updateOrCreate(
-            ['id' => $this->id_product],
+}
+    public function submit()
+    {   
+        $this->validate();
+        dd($this);
+        Product::updateOrCreate(['id'=>$this->id_product],
             [
-                'codigo' => random_int(10000, 99999),
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
-                'cantidad_minima' => $this->cantidad_minima,
-                'costo_adquisicion' => $this->adquisicion,
+                'cantidad_minima'=> $this->cantidad_minima,
+                'costo_adquisicion'=> $this->adquisicion,
                 'precio' => $this->precio,
                 'marca' => $this->marca,
-                'category_id' => $this->categoria,
+                'category_id' => $this->categoria, 
                 'fecha_vencimiento' => $this->fecha,
-                'provider_id' => $this->proveedor,
+                'estado_product' => $this->estado,
+                'provider_id' => $this->proveedor, 
                 'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
             ]
         );
-        session()->flash('message', '¡Producto añadido exitosamente!');
+        session()->flash('message','¡Producto añadido exitosamente!');
         $this->limpiar();
     }
 }
