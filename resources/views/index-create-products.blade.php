@@ -5,7 +5,7 @@
     sm:max-lg:ml-10 sm:max-lg:pt-10 sm:max-lg:pb-4
     
     ">
-        <h2 class="text-4xl font-bold mb-2">NUEVO PRODUCTO</h2>
+        <h2 class="text-4xl font-bold mb-2 font-anek">NUEVO PRODUCTO</h2>
 
     </div>
     <livewire:crear-products>
