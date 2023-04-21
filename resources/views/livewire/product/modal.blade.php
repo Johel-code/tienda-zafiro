@@ -23,7 +23,7 @@
                     <div class="justify-between ml-5 mr-5 mt-1.5 mb-8 col-span-3">
                         <h2 class="font-bold text-lg">Descripcion</h2>
 
-                        <p class="font-semibold">{!! nl2br(e(chunk_split($product->descripcion))) !!}</p>
+                        <p class="font-semibold text-ellipsis overflow-hidden">{!! nl2br(e(chunk_split($product->descripcion))) !!}</p>
 
 
                     </div>
