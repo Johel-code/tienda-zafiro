@@ -59,22 +59,26 @@
                     </thead>
                     <tbody>
                         @foreach($products as $product)
-                        <tr>
+
+                        <tr class="hover:bg-blue-200">
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
                             <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
-                                <a id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+                                <a class="hover:text-blue-700 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+
                                     {{$product->name_product}}
                                 </a>
 
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
+
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{ date('d/m/Y', strtotime($product->fecha_vencimiento)) }}</th>
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="py-2 text-center  border-b border-gray-400">
+
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
                             </td>
