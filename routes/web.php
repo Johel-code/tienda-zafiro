@@ -37,4 +37,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/modificar-producto', 'index-modificar-producto');
 
     Route::view('/crear-personal', 'index-create-personal');
+
+    Route::view('/vendedores', 'index-vendedores');
 });
