@@ -29,7 +29,10 @@ class Products extends Component
         $products = Product::when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%']);
         });
+
         $products = $products->orderBy('name_product', 'asc')->paginate(10);
+         $this->emit('refrescarModal');
+
         return view('livewire.products', [
             'products' => $products
         ]);
