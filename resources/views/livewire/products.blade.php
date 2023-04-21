@@ -60,6 +60,7 @@
                     <tbody>
                         @foreach($products as $product)
 
+
                         <tr class="hover:bg-blue-200">
                             <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
