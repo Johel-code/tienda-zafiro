@@ -16,36 +16,60 @@ class CrearProducts extends Component
             $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
 
     protected $rules = [
-        'nombre' => 'required|max:15|regex:/^[a-zA-Z0-9. ]+$/',
-        //'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
-        'cantidad' => 'required|numeric|min:1 ',
-        'precio' => 'required|numeric |min:1 ',
-        'marca' => 'required|max: 25| string',
+        'nombre' => 'required|max:35|regex:/^[a-zA-Z0-9 ]+$/',
+        ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
+        
+        'cantidad' => 'required|numeric|min:1|max:999999999 ',
+        'precio' => 'required|numeric |min:0.01|max:999999999.99 ',
+        'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
+        'cantidad_minima' => 'required|numeric|min:1|max:999999999',
+        'adquisicion' => 'required|numeric|min:0.01|max:999999999.99',
         'categoria' => 'required',
-        'descripcion' => 'required|max: 100|string',
-        'fecha' => 'required|date | after:start_date'
+        'proveedor'  => 'required',
+        'descripcion' => 'max:80',
+        'fecha' => 'after:today|nullable'
     ];
 
     protected $messages = [
-        'nombre.required' => 'El campo nombre es requerido',
+        'proveedor.required' => 'Este campo es obligatorio',
+
+        'adquisicion.required' => 'Este campo es obligatorio',
+        'adquisicion.numeric' => 'Solo se admiten números enteros',
+        'adquisicion.min' => 'Ingrese números mayores a 0',
+        'adquisicion.max' => 'Se admite solo 9 digitos enteros',
+
+        'cantidad_minima.required' => 'Este campo es obligatorio',
+        'cantidad_minima.numeric' => 'Solo se admiten números enteros',
+        'cantidad_minima.min' => 'Ingrese números mayores a 0',
+        'cantidad_minima.max' => 'Se admite solo 9 digitos enteros',
+
+        'nombre.required' => 'Este campo es obligatorio',
         'nombre.regex' => 'El campo nombre solo puede tener letras y números',
-        'nombre.max' => 'El nombre no debe tener más de 15 caracteres',
-        'descripcion.max' => 'Solo se admiten 50 caracteres',
-        'cantidad.required' => 'El campo cantidad es requerido',
+        'nombre.max' => 'El nombre no debe tener más de 35 caracteres',
+
+        'descripcion.max' => 'Solo se admiten 80 caracteres',
+
+        'cantidad.required' => 'Este campo es obligatorio',
         'cantidad.numeric' => 'Solo se admiten números enteros',
-        'cantidad.min' => 'No se admiten números negativos',
-        'estado.required' => 'El campo estado es requerido',
+        'cantidad.min' => 'Ingrese números mayores a 0',
+        'cantidad.max' => 'Se admite solo 9 digitos enteros',
+
+        //'estado.required' => 'El campo estado es requerido',
         //'foto.required' => 'El campo foto es requerido',
         // 'foto.max' => 'Solo se permite como maximo 1024',
         // 'foto.image' => 'Solo se admite una imagen o foto',
-        'precio.required' => 'El campo precio es requerido',
-        'precio.min:1' => 'El valor minimo a ingresar es 1',
-        'marca.required' => 'El campo marca es requerido',
-        'marca.max:25' => 'Solo se admiten maximo 25 caracteres',
-        'marca.string' => 'No se admiten caracteres especiales',
-        'categoria.required' =>'El campo categoria es requerido',
-        'fecha.required' => 'El campo fecha es requerido',
-        'fecha.after:start_date' => 'Debe ingresar una fecha posterior a la actual'
+
+        'precio.required' => 'Este campo es obligatorio',
+        'precio.min' => 'Ingrese números mayores a 0',
+        'precio.max' => 'Se admite solo 9 digitos enteros',
+
+        'marca.required' => 'Este campo es obligatorio',
+        'marca.max' => 'Solo se admiten 10 caracteres',
+        'marca.regex' => 'Solo puede ingresar letras y números',
+
+        'categoria.required' => 'Este campo es obligatorio',
+
+        'fecha.after' => 'Debe ingresar una fecha posterior a la actual'
 
     ];
 
@@ -67,7 +91,7 @@ class CrearProducts extends Component
         $this->cantidad_minima = '';
         $this->descripcion = '';
         $this->adquisicion = '';
-        //session()->flash('success','¡LIMPIO!');
+        //session()->flash('message','¡LIMPIO!');
     }
 
     public function mount()
@@ -108,7 +132,7 @@ class CrearProducts extends Component
         }
         Product::updateOrCreate(
             ['id' => $this->id_product],
-            [
+            [   'codigo'=>rand(10000, 99999),
                 'name_product' => $this->nombre,
                 'descripcion' => $this->descripcion,
                 'cantidad_inventario' => $this->cantidad,
