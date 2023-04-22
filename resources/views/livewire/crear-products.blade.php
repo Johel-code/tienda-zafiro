@@ -1,6 +1,6 @@
 <div id="ventana_registrar_productos" class="flex justify-center items center h-4/5 ">
-    
     <div class="bg-[#E3E9F1] xl:mx-10 my-2 lg:mx-10 md:mx-10 sm:mx-10">
+
         @if(session()->has('message'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert" 
             style="margin-left: 20px; padding-left: 28px;">
@@ -8,6 +8,7 @@
             </div>
         @endif
         <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
+
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
 
@@ -18,7 +19,7 @@
                 </div>
                 <div class="col-span-3 sm:max-lg:ml-12">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                    id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre">
+                    id="nombre" type="text" placeholder="Nombre del producto" wire:model="nombre" maxlength="36">
                     @error('nombre') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -32,7 +33,7 @@
                 </div>
                 <div class="col-span-3 sm:max-lg:ml-12">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion">
+                    id="descripcion" type="text" placeholder="Descripción del producto" wire:model="descripcion" maxlength="81">
                     @error('descripcion') <span class="error text-red-700">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -53,7 +54,11 @@
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad"min="0"
+
+                        oninput="javascript: if (this.value.length > 13) this.value = this.value.slice(0, 13);"
+
                         onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+
                         @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -76,8 +81,10 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+
+                        id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0" maxlength="14"
+                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 13) {this.value = this.value.slice(0, 13);}">
+
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -98,8 +105,11 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+
+                        id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="0" max="999999999999"
+                        oninput="javascript: if (this.value.length > 13) this.value = this.value.slice(0, 13);"
+                         onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+
                         @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -156,8 +166,9 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] font-anek" 
 
 
-                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                        id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0" max="999999999999.99" maxlength="14"
+                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 13) {this.value = this.value.slice(0, 13);}">
+
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
                     </div>
@@ -183,7 +194,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="marca" type="text" placeholder="Marca" wire:model="marca">
+                        id="marca" type="text" placeholder="Marca" wire:model="marca" maxlength="11">
                         @error('marca') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
                 </div>
