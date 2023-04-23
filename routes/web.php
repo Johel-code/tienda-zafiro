@@ -33,6 +33,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/', 'index-products')->name('home');
     //Route::view('/products', 'index-products');
     Route::view('/crear-products', 'index-create-products');
-        //Route::view( '/modificar-producto');
+    //Route::view( '/modificar-producto');
     Route::view('/modificar-producto', 'index-modificar-producto');
+
+    Route::view('/crear-personal', 'index-create-personal');
+
+    Route::view('/vendedores', 'index-vendedores');
 });
