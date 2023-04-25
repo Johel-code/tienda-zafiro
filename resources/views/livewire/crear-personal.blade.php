@@ -1,9 +1,11 @@
 <div id="ventana_registrar_personal" class="flex justify-center items center ">
-    
     <div class="bg-[#E3E9F1] ml-10 my-2 xl:mr-0 xl:pr-0">
-        
-        <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-6 xl:pr-10 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10">
-            
+        <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-6 xl:pr-10 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10" wire:submit.prevent="submit">
+            @if(session()->has('message'))
+                <div class=" bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert">
+                    <strong class="font-anek block text-center">{{ session('message') }}</strong>
+                </div>
+            @endif
             <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
             2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
@@ -20,10 +22,11 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="nombre" type="text" placeholder="Nombre">
+                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre">
+                        @error('nombre') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
-
+                    
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
                 
                 2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
@@ -42,7 +45,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="ci" type="text" placeholder="Carnet de identidad">
+                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci">
+                        @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -63,7 +67,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="apellidos" type="text" placeholder="Apellidos" >
+                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido">
+                        @error('apellido') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -85,7 +90,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="direccion" type="text" placeholder="Dirección">
+                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion">
+                        @error('direccion') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -106,7 +112,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="telefono" type="text" placeholder="Teléfono">
+                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular">
+                        @error('celular') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -127,8 +134,15 @@
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="genero" type="text" placeholder="Género">
+                        {{--<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+                        id="genero" type="text" placeholder="Género">--}}
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+                        wire:model="genero" id="genero">
+                            <option value="">Seleccionar</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                        @error('genero') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -149,7 +163,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="correo" type="text" placeholder="Correo electrónico">
+                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo">
+                        @error('correo') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
@@ -170,7 +185,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="contraseña" type="text" placeholder="Contraseña">
+                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password">
+                        @error('password') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             
@@ -191,7 +207,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-nacimiento" type="date">
+                        id="fecha-nacimiento" type="date" wire:model="fechaNacimiento">
+                        @error('fechaNacimiento') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -214,8 +231,8 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                        id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes">
-
+                        id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes" wire:model="salario">
+                        @error('salario') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -235,7 +252,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-inicio-contrato" type="date">
+                        id="fecha-inicio-contrato" type="date" wire:model="fechaInicio">
+                        @error('fechaInicio') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -257,7 +275,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-fin-contrato" type="date">
+                        id="fecha-fin-contrato" type="date" wire:model="fechaFin">
+                        @error('fechaFin') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
@@ -266,7 +285,7 @@
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
-                <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                <button type=button wire:click="limpiar()" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                     Cancelar
                 </button>
                 @livewire('modal-confirmar-cerrar')

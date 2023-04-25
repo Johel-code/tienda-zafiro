@@ -7,7 +7,7 @@ use App\Models\Contract;
 use App\Models\Role;
 use App\Models\User;
 
-class CrearUsuarios extends Component
+class CrearPersonal extends Component
 {
     public  $roles, $contratos, $id_user, $nombre, $apellido, $direccion, $celular, 
     $ci, $correo, $genero, $fechaNacimiento, $password, /*$estado,$rol,*/
@@ -46,7 +46,7 @@ class CrearUsuarios extends Component
         'correo.regex' => 'Formato inválido',
 
         'password.required' => 'Este campo es obligatorio',
-        'password.min' => 'Se debe tener al menos 8 caracteres',
+        'password.min' => 'Mínimo 8 caracteres',
 
         //'genero.required' => 'Este campo es obligatorio',
         //'fechaNacimiento.required' => 'Este campo es obligatorio',
@@ -92,10 +92,11 @@ class CrearUsuarios extends Component
             'fecha_fin' => $this->fechaFin ? $this->fechaFin : date('Y-m-d'), //'Sin fecha',
             'salario' => $this->salario ? $this->salario : 0, //'Sin dato',
         ]);
-        session()->flash('message', 'El usuario ' . $user->nombre . ' ha sido creado con éxito.');
+        session()->flash('message', 'El personal ha sido creado con éxito.');
         //$this->reset(['nombre', 'apellido', 'direccion', 'celular', 'ci', 'correo', 'genero', 'fechaNacimiento', 'password','fechaInicio', 'fechaFin', 'salario']);
     }
     public function limpiar(){
         $this->reset(['nombre', 'apellido', 'direccion', 'celular', 'ci', 'correo', 'genero', 'fechaNacimiento', 'password','fechaInicio', 'fechaFin', 'salario']);
+        session()->flash('message', 'Limpiezaaaaaaaaaaa');
     }
 }
