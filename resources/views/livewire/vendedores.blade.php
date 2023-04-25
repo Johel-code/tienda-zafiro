@@ -8,176 +8,121 @@
         </a>
     </div>    
 
-    <div class="py-1.5"></div>
+    <div class="py-1.5 2xl:py-2"></div>
  {{----------------------------Tabla vendedores habilidados--------------------------------}}
-    <div class="sm:px-8 lg:px-12">
-        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg 2xl:py-2 shrink">
+    <div class="sm:px-8 lg:px-12 h-56 2xl:h-72">
+        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
             <table class="md:table-fixed w-full font-anek">
-                <thead class="md:py-8">
-                    <tr class="bg-white text-dark">      
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Apellido</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">CI</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Dirección</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Correo</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Celular</th>
-                        <th class=" py-0 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha de Nacimiento</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>  
+                <colgroup>
+                    <col class="md:w-1/4">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-1/3 2xl:w-1/6">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-1/3 2xl:w-1/6">
+                    <col class="md:w-1/3 2xl:w-2/5">
+                    <col class="md:w-1/4 2xl:w-1/6">
+                </colgroup>
+                <thead class="h-12">
+                    <tr class="bg-white text-dark">   
+                        <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nro</th>   
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                        <th class="2xl:text-lg text-center text-ellipsis border-b-2 border-black">Apellido</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">CI</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Dirección</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Correo</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Celular</th>
+                        <th class="2xl:text-lg text-center text-ellipsis md:overflow-hidden border-b-2 border-black whitespace-nowrap">Fecha de Nacimiento</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>  
                     </tr>
                 </thead>
                 <tbody>
-                    {{--@foreach($products as $product)--}}
-
+                    {{--@foreach($users as $user)--}}
 
                     <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
+                        <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">100{{--$user->Nro--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">jfbttidn mfhfutic{{--$user->name--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">sjsjnabshr hrfrfif{{--$user->last_name--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">45454758{{--$user->ci--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">fff fffffffff ff fff fff ffffff{{--$user->direccion--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">sdfsdfdfsfsdsdfssfdd{{--$user->email--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">54896555{{--$user->celular--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">47/58/2035{{--@if($user->fecha_nacimiento) {{date('d/m/Y', strtotime($user->fecha_nacimiento))}} @else  @endif--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center border-b border-gray-400">
 
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
+                            <livewire:vendedor.toggle-vendedor1/>{{--toggle de vendedores activos--}}
+
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    {{--@endforeach--}}
+                   
+                   
+                 {{-- @endforeach--}}
                     
                 </tbody>
             </table>
-            {{-- $products->links() --}}
+            {{-- $users->links() --}}
+           
         </div>
     </div>
 
     {{----------------------------Tabla vendedores deshabilidados----------------------}}
-    <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-3 mt-3">
-        <h2 class="text-4xl font-bold font-anek">Usuarios inactivos</h2>
+    <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 2xl:pb-5 pt-2">
+        <h2 class="text-4xl font-bold font-anek">Usuarios Inactivos</h2>
     </div>
 
-    <div class="sm:px-8 lg:px-12">
-        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg 2xl:py-2 shrink">
+    <div class="sm:px-8 lg:px-12 h-56 2xl:h-72">
+        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
             <table class="md:table-fixed w-full font-anek">
-                <thead class="md:py-8">
-                    <tr class="bg-white text-dark">      
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Apellido</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">CI</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Dirección</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Correo</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Celular</th>
-                        <th class=" py-0 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha de Nacimiento</th>
-                        <th class=" py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>  
+                <colgroup>
+                    <col class="md:w-1/4">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-1/3 2xl:w-1/6">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-2/5 2xl:w-1/3">
+                    <col class="md:w-1/3 2xl:w-1/6">
+                    <col class="md:w-1/3 2xl:w-2/5">
+                    <col class="md:w-1/4 2xl:w-1/6">
+                </colgroup>
+                <thead class="h-12">
+                    <tr class="bg-white text-dark">   
+                        <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nro</th>   
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                        <th class="2xl:text-lg text-center text-ellipsis border-b-2 border-black">Apellido</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">CI</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Dirección</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Correo</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Celular</th>
+                        <th class="2xl:text-lg text-center text-ellipsis md:overflow-hidden border-b-2 border-black whitespace-nowrap">Fecha de Nacimiento</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>  
                     </tr>
                 </thead>
                 <tbody>
-                    {{--@foreach($products as $product)--}}
-
+                    {{--@foreach($users as $user)--}}
 
                     <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
+                        <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">100{{--$user->Nro--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">jfbttidn mfhfutic{{--$user->name--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">sjsjnabshr hrfrfif{{--$user->last_name--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">45454758{{--$user->ci--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">fff fffffffff ff fff fff ffffff{{--$user->direccion--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">sdfsdfdfsfsdsdfssfdd{{--$user->email--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">54896555{{--$user->celular--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">47/58/2035{{--@if($user->fecha_nacimiento) {{date('d/m/Y', strtotime($user->fecha_nacimiento))}} @else  @endif--}}</th>
+                        <td class="pr-3 py-1 2xl:text-lg text-center border-b border-gray-400">
 
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
+                            <livewire:vendedor.toggle-vendedor2/>{{--toggle de vendedores inactivos--}}
+
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-blue-200">
-                        <td class="pl-4 pr-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">cristian{{--$product->codigo--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">Heredia Suaznabar{{--$product->name_product--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">14164143{{--$product->precio--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden whitespace-nowrap border-b border-gray-400">av.circunvalacion k5 hacia sacaba{{--$product->cantidad_inventario--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">mgregory@gmail.com{{-- date('d/m/Y', strtotime($product->fecha_vencimiento)) --}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">68475821{{--$product->marca--}}</th>
-                        <td class="px-2 py-1.5 2xl:py-2.5 text-center text-ellipsis overflow-hidden border-b border-gray-400">05/01/1999{{--$category[$product->category_id-1]->name_categoy--}}</th>
-                        <td class="pl-2 pr-4 py-1.5 2xl:py-2.5 text-center  border-b border-gray-400">
-
-                            {{--<livewire:product.toggle-product :product="$product" :field="'estado_product'"
-                            :key="'toggle-button'.$product->id">--}}
-                        </td>
-                    </tr>
-                    {{--@endforeach--}}
+                    
+                 {{-- @endforeach--}}
                     
                 </tbody>
             </table>
-            {{-- $products->links() --}}
+            {{-- $users->links() --}}
+           
         </div>
     </div>
 
