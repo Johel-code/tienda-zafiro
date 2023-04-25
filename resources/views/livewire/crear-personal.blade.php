@@ -22,7 +22,7 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre">
+                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre" maxlength="50">
                         @error('nombre') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci">
+                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8">
                         @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido">
+                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido" maxlength="50">
                         @error('apellido') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion">
+                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion" maxlength="70">
                         @error('direccion') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular">
+                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular" maxlength="8">
                         @error('celular') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -231,7 +231,10 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                        id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes" wire:model="salario">
+                        id="sueldo-mes" type="number" step="0.01" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" max='9999999999.99'
+                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
+                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('salario') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>

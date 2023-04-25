@@ -16,37 +16,46 @@ class CrearPersonal extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'direccion' => 'required',
-        'celular' => 'required',
-        'ci' => 'required|unique:users,ci',
-        'correo' => 'required|email|unique:users,email',/*regex:/^[a-zA-Z0-9\.]+$/|*/
+        'nombre' => 'required|regex:/^[a-zA-Z\s]+$/',
+        'apellido' => 'required|regex:/^[a-zA-Z\s]+$/',
+        'direccion' => 'required|regex:/^[a-zA-Z0-9.\s]+$/',
+        'celular' => 'required|regex:/^[0-9]+$/',
+        'ci' => 'required|regex:/^[0-9]+$/|unique:users,ci',
+        'correo' => 'required|email|regex:/^[a-zA-Z0-9.@]+$/|unique:users,email',
         'password' => 'required|min:8',
-
-        //'genero' => 'required|string',
-        //'fechaNacimiento' => 'required|date',
-        //'fechaInicio' => 'required|date', 
-        //'fechaFin' => 'required|date',
-        //'salario' => 'required|numeric',
+        'salario' => 'min:0.01|max:9999999999.99',
+        'genero' => 'string',
+        'fechaNacimiento' => 'date',
+        'fechaInicio' => 'date', 
+        'fechaFin' => 'date',
     ];
     
     protected $messages = [
         'nombre.required' => 'Este campo es obligatorio',
+        'nombre.regex' => 'Solo se admiten letras',
+
         'apellido.required' => 'Este campo es obligatorio',
+        'apellido.regex' => 'Solo se admiten letras',
+
         'direccion.required' => 'Este campo es obligatorio',
+        'direccion.regex' => 'Solo se admiten letras y números',
+
         'celular.required' => 'Este campo es obligatorio',
+        'celular.regex' => 'Solo se admiten números',
 
         'ci.required' => 'Este campo es obligatorio',
         'ci.unique' => 'Este CI ya existe',
+        'ci.regex' => 'Solo se admiten números',
 
         'correo.required' => 'Este campo es obligatorio',
         'correo.unique' => 'Este correo ya existe',
         'correo.email' => 'Correo electrónico inválido',
-        'correo.regex' => 'Formato inválido',
+        'correo.regex' => 'Solo se admite @, letras, números, puntos',
 
         'password.required' => 'Este campo es obligatorio',
         'password.min' => 'Mínimo 8 caracteres',
+
+        'salario.regex' => 'Solo se admiten números',
 
         //'genero.required' => 'Este campo es obligatorio',
         //'fechaNacimiento.required' => 'Este campo es obligatorio',
