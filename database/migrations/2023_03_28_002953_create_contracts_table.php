@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->date('fecha_ini');
             $table->date('fecha_fin');
-            $table->integer('salario');
+            $table->double('salario');
             $table->timestamps();
         });
     }
