@@ -266,7 +266,7 @@
                 lg:gap-16 md:gap-0 sm:gap-0">
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-10  font-anek" for="fecha-fin-contrato">
+                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-10 font-anek" for="fecha-fin-contrato">
                             Fecha fin contrato:
 
                         </label>
@@ -285,7 +285,7 @@
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
-                <button type=button wire:click="limpiar()" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                     Cancelar
                 </button>
                 @livewire('modal-confirmar-cerrar')
