@@ -163,7 +163,7 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo">
+                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo" maxlength="50">
                         @error('correo') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password">
+                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password" maxlength="50">
                         @error('password') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -231,7 +231,7 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                        id="sueldo-mes" type="number" step="0.01" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" max='9999999999.99'
+                        id="sueldo-mes" type="number" step="0.01" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" min= '0' max='9999999999.99'
                         oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
                         {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
                         onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
