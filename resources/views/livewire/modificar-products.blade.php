@@ -17,7 +17,7 @@
                     </label>
                 </div>
                 <div class="col-span-3 sm:max-lg:ml-12">
-                <label class=" text-[#656565] text-lg mx-0 w-9 font-anek" for="nombre">
+                <label class="text-[#656565] text-lg mx-0 w-9 font-anek" for="nombre">
                         Nombre del producto 
 
                     </label>
