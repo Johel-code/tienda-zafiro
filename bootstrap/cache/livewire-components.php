@@ -7,5 +7,8 @@
   'product.modal' => 'App\\Http\\Livewire\\Product\\Modal',
   'product.toggle-product' => 'App\\Http\\Livewire\\Product\\ToggleProduct',
   'products' => 'App\\Http\\Livewire\\Products',
+  'vendedor.toggle-vendedor1' => 'App\\Http\\Livewire\\Vendedor\\ToggleVendedor1',
+  'vendedor.toggle-vendedor2' => 'App\\Http\\Livewire\\Vendedor\\ToggleVendedor2',
   'vendedores' => 'App\\Http\\Livewire\\Vendedores',
+  'vendedores-inac' => 'App\\Http\\Livewire\\VendedoresInac',
 );
