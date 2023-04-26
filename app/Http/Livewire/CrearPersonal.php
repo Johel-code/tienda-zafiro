@@ -91,8 +91,8 @@ class CrearPersonal extends Component
             'celular' => $this->celular,
             'ci' => $this->ci,
             'email' => $this->correo,
-            'genero' => $this->genero /*? $this->genero : null*/,
-            'fecha_nacimiento' => $this->fechaNacimiento /*? $this->fechaNacimiento : null*/,
+            'genero' => $this->genero,
+            'fecha_nacimiento' => $this->fechaNacimiento,
             'password' => bcrypt($this->password),
             'activo_user' => 1,
 
@@ -100,9 +100,9 @@ class CrearPersonal extends Component
         ]);
         Contract::UpdateOrCreate(['id' => $this->id_contract],[
             'user_id'=> $user->id,
-            'fecha_ini' => $this->fechaInicio /*? $this->fechaInicio : null*/,
-            'fecha_fin' => $this->fechaFin /*? $this->fechaFin : null*/, 
-            'salario' => $this->salario /*? $this->salario : null*/,
+            'fecha_ini' => $this->fechaInicio,
+            'fecha_fin' => $this->fechaFin, 
+            'salario' => $this->salario,
         ]);
         session()->flash('message', 'El personal ha sido creado con éxito.');
         $this->limpiar();
