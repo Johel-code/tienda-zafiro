@@ -25,9 +25,9 @@ class CrearPersonal extends Component
         'password' => 'required|min:8',
         'salario' => 'min:0.01|max:9999999999.99',
         'genero' => 'string',
-        'fechaNacimiento' => 'date',
-        'fechaInicio' => 'date', 
-        'fechaFin' => 'date',
+        'fechaNacimiento' => 'date|before:today|nullable',
+        'fechaInicio' => 'date|after:today|nullable', 
+        'fechaFin' => 'date|after:today|nullable',
     ];
     
     protected $messages = [
@@ -106,6 +106,6 @@ class CrearPersonal extends Component
     }
     public function limpiar(){
         $this->reset(['nombre', 'apellido', 'direccion', 'celular', 'ci', 'correo', 'genero', 'fechaNacimiento', 'password','fechaInicio', 'fechaFin', 'salario']);
-        //session()->flash('message', 'Limpiezaaaaaaaaaaa');
+        session()->flash('message', 'Limpiezaaaaaaaaaaa');
     }
 }
