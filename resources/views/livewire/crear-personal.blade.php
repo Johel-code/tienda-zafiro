@@ -1,4 +1,4 @@
-<div id="ventana_registrar_personal" class="flex justify-center items center ">
+<div id="ventana_registrar_personal" class="flex justify-center items center">
     
     <div class="bg-[#E3E9F1] ml-10 my-2 xl:mr-0 xl:pr-0">
         
@@ -204,7 +204,7 @@
                 lg:gap-16 md:gap-0 sm:gap-0">
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-10 font-anek" for="sueldo-mes">
+                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-36 lg:max-xl:w-32 font-anek" for="sueldo-mes">
                             Sueldo/mes:(Bs)<span class="text-red-900">*</span>
 
                         </label>
@@ -248,7 +248,7 @@
                 lg:gap-16 md:gap-0 sm:gap-0">
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
-                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-10  font-anek" for="fecha-fin-contrato">
+                        <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-40 lg:max-xl:w-32  font-anek" for="fecha-fin-contrato">
                             Fecha fin contrato:
 
                         </label>
