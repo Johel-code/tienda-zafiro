@@ -31,8 +31,11 @@ class Products extends Component
                 ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
         });
 
-        $products = $products->orderBy('estado_product', 'desc')->paginate(10);
-        $this->emit('refrescarModal');
+
+        $products = $products->orderBy('name_product', 'asc')->paginate(10);
+         $this->emit('refrescarModal');
+
+
         return view('livewire.products', [
             'products' => $products
         ]);
