@@ -23,8 +23,8 @@ class CrearPersonal extends Component
         'ci' => 'required|regex:/^[0-9]+$/|unique:users,ci',
         'correo' => 'required|email|regex:/^[a-zA-Z0-9.@]+$/|unique:users,email',
         'password' => 'required|min:8',
-        'salario' => 'max:9999999999.99',
-        'genero' => 'required|nullable',
+        'salario' => 'max:9999999999.99|nullable',
+        'genero' => 'nullable',//required
         'fechaNacimiento' => 'date|before:18 years ago|nullable',
         'fechaInicio' => 'date|nullable', 
         'fechaFin' => 'date|after_or_equal:fechaInicio|nullable',
@@ -59,8 +59,8 @@ class CrearPersonal extends Component
         'fechaNacimiento.before' => 'Ingrese una fecha anterior a 18 años',
         'fechaFin.after_or_equal' => 'Ingrese una fecha posterior o igual a la fecha de inicio',
 
-        'genero.required' => 'Este campo es obligatorio',
-        
+        //'genero.required' => 'Este campo es obligatorio',
+
         //'fechaNacimiento.required' => 'Este campo es obligatorio',
         //'fechaInicio.required' => 'Este campo es obligatorio',
         //'fechaFin.required' => 'Este campo es obligatorio',
@@ -91,8 +91,8 @@ class CrearPersonal extends Component
             'celular' => $this->celular,
             'ci' => $this->ci,
             'email' => $this->correo,
-            'genero' => $this->genero ? $this->genero : nullValue(),
-            'fecha_nacimiento' => $this->fechaNacimiento ? $this->fechaNacimiento : nullValue(),
+            'genero' => $this->genero /*? $this->genero : null*/,
+            'fecha_nacimiento' => $this->fechaNacimiento /*? $this->fechaNacimiento : null*/,
             'password' => bcrypt($this->password),
             'activo_user' => 1,
 
@@ -100,9 +100,9 @@ class CrearPersonal extends Component
         ]);
         Contract::UpdateOrCreate(['id' => $this->id_contract],[
             'user_id'=> $user->id,
-            'fecha_ini' => $this->fechaInicio ? $this->fechaInicio : nullValue(),
-            'fecha_fin' => $this->fechaFin ? $this->fechaFin : nullValue(), 
-            'salario' => $this->salario ? $this->salario : nullValue(),
+            'fecha_ini' => $this->fechaInicio /*? $this->fechaInicio : null*/,
+            'fecha_fin' => $this->fechaFin /*? $this->fechaFin : null*/, 
+            'salario' => $this->salario /*? $this->salario : null*/,
         ]);
         session()->flash('message', 'El personal ha sido creado con éxito.');
         $this->limpiar();
