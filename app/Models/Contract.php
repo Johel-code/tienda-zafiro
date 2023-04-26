@@ -9,7 +9,7 @@ class Contract extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'Pulidores',
+        'user_id',
         'fecha_ini',
         'fecha_fin',
         'salario'  
