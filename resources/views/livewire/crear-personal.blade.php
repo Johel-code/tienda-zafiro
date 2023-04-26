@@ -2,7 +2,7 @@
     
     <div class="bg-[#E3E9F1] ml-10 my-2 xl:pr-10 xl:mr-10">
         
-        <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-6 xl:pr-10 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10">
+        <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-0 xl:pr-0 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10">
             
             <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
             2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
