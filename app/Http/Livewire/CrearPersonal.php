@@ -109,6 +109,6 @@ class CrearPersonal extends Component
     }
     public function limpiar(){
         $this->reset(['nombre', 'apellido', 'direccion', 'celular', 'ci', 'correo', 'genero', 'fechaNacimiento', 'password','fechaInicio', 'fechaFin', 'salario']);
-        session()->flash('message', 'Limpiezaaaaaaaaaaa');
+        //session()->flash('message', 'Limpiezaaaaaaaaaaa');
     }
 }
