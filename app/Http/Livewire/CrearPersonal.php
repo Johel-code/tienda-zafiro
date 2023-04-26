@@ -11,25 +11,25 @@ class CrearPersonal extends Component
 {
     public  $roles, $contratos, $id_user, $nombre, $apellido, $direccion, $celular, 
     $ci, $correo, $genero, $fechaNacimiento, $password, /*$estado,$rol,*/
-    $id_contract, $fechaInicio, $fechaFin, $salario;
-    
+    $id_contract, $fechaInicio, $fechaFin, $salario, $limite;
+
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nombre' => 'required|regex:/^[a-zA-Z\s]+$/',
-        'apellido' => 'required|regex:/^[a-zA-Z\s]+$/',
-        'direccion' => 'required|regex:/^[a-zA-Z0-9.\s]+$/',
+        'nombre' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
+        'apellido' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
+        'direccion' => 'required|regex:/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]+$/',
         'celular' => 'required|regex:/^[0-9]+$/',
         'ci' => 'required|regex:/^[0-9]+$/|unique:users,ci',
         'correo' => 'required|email|regex:/^[a-zA-Z0-9.@]+$/|unique:users,email',
         'password' => 'required|min:8',
-        'salario' => 'min:0.01|max:9999999999.99',
-        'genero' => 'string',
-        'fechaNacimiento' => 'date|before:today|nullable',
-        'fechaInicio' => 'date|after:today|nullable', 
-        'fechaFin' => 'date|after:today|nullable',
+        'salario' => 'max:9999999999.99',
+        'genero' => 'required|nullable',
+        'fechaNacimiento' => 'date|before:18 years ago|nullable',
+        'fechaInicio' => 'date|nullable', 
+        'fechaFin' => 'date|after_or_equal:fechaInicio|nullable',
     ];
-    
+
     protected $messages = [
         'nombre.required' => 'Este campo es obligatorio',
         'nombre.regex' => 'Solo se admiten letras',
@@ -56,8 +56,11 @@ class CrearPersonal extends Component
         'password.min' => 'Mínimo 8 caracteres',
 
         'salario.regex' => 'Solo se admiten números',
+        'fechaNacimiento.before' => 'Ingrese una fecha anterior a 18 años',
+        'fechaFin.after_or_equal' => 'Ingrese una fecha posterior o igual a la fecha de inicio',
 
-        //'genero.required' => 'Este campo es obligatorio',
+        'genero.required' => 'Este campo es obligatorio',
+        
         //'fechaNacimiento.required' => 'Este campo es obligatorio',
         //'fechaInicio.required' => 'Este campo es obligatorio',
         //'fechaFin.required' => 'Este campo es obligatorio',
@@ -88,8 +91,8 @@ class CrearPersonal extends Component
             'celular' => $this->celular,
             'ci' => $this->ci,
             'email' => $this->correo,
-            'genero' => $this->genero ? $this->genero : 'Sin dato',
-            'fecha_nacimiento' => $this->fechaNacimiento ? $this->fechaNacimiento : date('Y-m-d'),//'Sin fecha',
+            'genero' => $this->genero ? $this->genero : nullValue(),
+            'fecha_nacimiento' => $this->fechaNacimiento ? $this->fechaNacimiento : nullValue(),
             'password' => bcrypt($this->password),
             'activo_user' => 1,
 
@@ -97,9 +100,9 @@ class CrearPersonal extends Component
         ]);
         Contract::UpdateOrCreate(['id' => $this->id_contract],[
             'user_id'=> $user->id,
-            'fecha_ini' => $this->fechaInicio ? $this->fechaInicio : date('Y-m-d'),//'Sin fecha',
-            'fecha_fin' => $this->fechaFin ? $this->fechaFin : date('Y-m-d'), //'Sin fecha',
-            'salario' => $this->salario ? $this->salario : 0, //'Sin dato',
+            'fecha_ini' => $this->fechaInicio ? $this->fechaInicio : nullValue(),
+            'fecha_fin' => $this->fechaFin ? $this->fechaFin : nullValue(), 
+            'salario' => $this->salario ? $this->salario : nullValue(),
         ]);
         session()->flash('message', 'El personal ha sido creado con éxito.');
         $this->limpiar();

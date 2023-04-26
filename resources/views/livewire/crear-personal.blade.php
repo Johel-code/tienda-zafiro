@@ -24,7 +24,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre" maxlength="50">
+                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre" maxlength="50" 
+                        oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
                         @error('nombre') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -47,12 +48,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-<<<<<<< HEAD
-                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8">
-=======
-
-                         id="ci" type="text" placeholder="Carnet identidad" wire:model="ci">
->>>>>>> 4c353f71bf606f01d62d5dd02de2eef44b6b83bc
+                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8" 
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
 
                     </div>
@@ -75,7 +72,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido" maxlength="50">
+                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido" maxlength="50" 
+                        oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
                         @error('apellido') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -98,7 +96,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion" maxlength="70">
+                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion" maxlength="70"
+                        oninput="this.value = this.value.replace(/[^0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]/g, '')">
                         @error('direccion') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -120,7 +119,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular" maxlength="8">
+                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular" maxlength="8"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('celular') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -171,7 +171,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo" maxlength="50">
+                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo" maxlength="50"
+                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9.@]/g, '')">
                         @error('correo') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -215,7 +216,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-nacimiento" type="date" wire:model="fechaNacimiento">
+                        id="fecha-nacimiento" type="date" wire:model="fechaNacimiento" max="{{ date('Y-m-d', strtotime('-18 years')) }}"
+                        min="{{ date('Y-m-d', strtotime('-100 years')) }}">
                         @error('fechaNacimiento') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -264,7 +266,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-inicio-contrato" type="date" wire:model="fechaInicio">
+                        id="fecha-inicio-contrato" type="date" wire:model="fechaInicio"
+                        min="{{ date('Y-m-d')}}">
                         @error('fechaInicio') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -289,7 +292,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-fin-contrato" type="date" wire:model="fechaFin">
+                        id="fecha-fin-contrato" type="date" wire:model="fechaFin"
+                        min="{{ date('Y-m-d') }}">
                         @error('fechaFin') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
