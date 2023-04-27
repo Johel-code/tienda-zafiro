@@ -25,4 +25,4 @@ class ToggleVendedor2 extends Component
         $this->emit('refresh');
     }
 }
-//comentario
+//comentarioxd
