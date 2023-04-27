@@ -1,6 +1,6 @@
 
 <div id="ventana_registrar_personal" class="flex justify-center items center ">
-    <div class="bg-[#E3E9F1] ml-10 my-2 xl:pr-10 xl:mr-10">
+    <div class="bg-[#E3E9F1] ml-10 my-2 mt-12 xl:pr-10 xl:mr-10">
         <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-0 xl:pr-0 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10" wire:submit.prevent="submit">
             @if(session()->has('message'))
                 <div class=" bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert">
@@ -289,7 +289,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center pt-16 lg:pt-10">
+            <div class="flex justify-center pt-20 lg:pt-10">
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
