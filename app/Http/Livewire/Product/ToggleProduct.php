@@ -12,13 +12,16 @@ class ToggleProduct extends Component
     public string $field;
     
     public $mostrarModalSwitch = false;
+    public function abrirModalSwitch(){
+        $this->mostrarModalSwitch = true;
+    }
     public function cerrarModalSwitch(){
         $this->updating($this->field,true);
         redirect('/');
-        $this->mostrarModalSwitch = false;
     }
     public function confirmarSwitch(){
-        $this->mostrarModalSwitch = false;
+        $this->updating($this->field,false);
+        redirect('/');
     }
 
     public function mount()
@@ -34,9 +37,10 @@ class ToggleProduct extends Component
     public function updating($field, $value)
     {
         if($this->isActive){
-            $this->mostrarModalSwitch = true;
+            $this->abrirModalSwitch();
+        }else{
+            $this->product->setAttribute($this->field, $value)->save();
+            $this->emit('refresh');
         }
-        $this->product->setAttribute($this->field, $value)->save();
-        $this->emit('refresh');
     }
 }
