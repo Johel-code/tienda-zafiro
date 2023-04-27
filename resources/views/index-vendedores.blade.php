@@ -1,10 +1,15 @@
 @extends('layouts.web')
 
 @section('content')
-    <div class="mb-4 bg-[#E3E9F1] pb-8 mb-10 pt-20 mt-4 2xl:ml-14 xl:ml-16 lg:ml-16 lg:pt-10 
-    sm:max-lg:ml-10 sm:max-lg:pt-10 sm:max-lg:pb-4">
-        <h2 class="text-4xl font-bold mb-2 font-anek">VENDEDORES</h2>
-
+    <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 mt-3 2xl:mt-4 2xl:mb-3">
+        <h2 class="text-4xl font-bold font-anek">Vendedores</h2>
     </div>
-    <livewire:crear-personal>
+
+    <livewire:vendedores>
+
+    {{----------------------------Tabla vendedores deshabilidados----------------------}}
+    <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 2xl:pb-5 pt-4">
+        <h2 class="text-2xl font-bold font-anek">Vendedores Inactivos</h2>
+    </div>
+    <livewire:vendedores-inac>
 @endsection
