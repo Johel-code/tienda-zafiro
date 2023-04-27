@@ -7,5 +7,6 @@
   'product.modal' => 'App\\Http\\Livewire\\Product\\Modal',
   'product.toggle-product' => 'App\\Http\\Livewire\\Product\\ToggleProduct',
   'products' => 'App\\Http\\Livewire\\Products',
+  'products-desac' => 'App\\Http\\Livewire\\ProductsDesac',
   'vendedores' => 'App\\Http\\Livewire\\Vendedores',
 );
