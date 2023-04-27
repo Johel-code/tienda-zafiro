@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-      <div class="py-8"></div>
+      <div class="py-6"></div>
     <livewire:products-desac>
     </div>
 </div>
