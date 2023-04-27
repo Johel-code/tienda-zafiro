@@ -12,14 +12,12 @@ class ToggleProduct extends Component
     public string $field;
     
     public $mostrarModalSwitch = false;
-    public function abrirModalSwitch(){
-        $this->mostrarModalSwitch = true;
-    }
     public function cerrarModalSwitch(){
+        $this->updating($this->field,true);
+        redirect('/');
         $this->mostrarModalSwitch = false;
     }
     public function confirmarSwitch(){
-    // Lógica para actualizar el estado del switch
         $this->mostrarModalSwitch = false;
     }
 
@@ -33,12 +31,12 @@ class ToggleProduct extends Component
         return view('livewire.product.toggle-product');
     }
 
-
     public function updating($field, $value)
     {
-            
+        if($this->isActive){
+            $this->mostrarModalSwitch = true;
+        }
         $this->product->setAttribute($this->field, $value)->save();
         $this->emit('refresh');
-
     }
 }
