@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\ModificarProducts;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -19,14 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+//      'auth:sanctum',
+//      config('jetstream.auth_session'),
+//      'verified'
+//  ])->group(function () {
+//      Route::get('/dashboard', function () {
+//          return view('dashboard');
+//      })->name('dashboard');
+//  });
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -34,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //Route::view('/products', 'index-products');
     Route::view('/crear-products', 'index-create-products');
     //Route::view( '/modificar-producto');
-    Route::view('/modificar-producto', 'index-modificar-producto');
+    Route::get('modificar-producto/{id}', ModificarProducts::class);
 
     Route::view('/crear-personal', 'index-create-personal');
 

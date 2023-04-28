@@ -1,13 +1,12 @@
 
 <div id="ventana_registrar_personal" class="flex justify-center items center ">
-    <div class="bg-[#E3E9F1] ml-10 my-2 xl:pr-10 xl:mr-10">
+    <div class="bg-[#E3E9F1] ml-10 my-2 mt-12 xl:pr-10 xl:mr-10">
         <form class="2xl:ml-6 2xl:px-0 2xl:mr-0 xl:ml-0 xl:pr-0 xl:pl-0 my-2  md:pl-6 sm:pl-4 sm:pr-10" wire:submit.prevent="submit">
             @if(session()->has('message'))
                 <div class=" bg-green-100 border border-green-400 text-green-700 px-120 py-3 rounded relative ml:120" role="alert">
                     <strong class="font-anek block text-center">{{ session('message') }}</strong>
                 </div>
             @endif
-
             <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
             2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
@@ -24,7 +23,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre">
+                        id="nombre" type="text" placeholder="Nombre" wire:model="nombre" maxlength="50" 
+                        oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
                         @error('nombre') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-
-                         id="ci" type="text" placeholder="Carnet identidad" wire:model="ci">
+                        id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8" 
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
 
                     </div>
@@ -71,7 +71,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido">
+                        id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido" maxlength="50" 
+                        oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
                         @error('apellido') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -94,7 +95,8 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion">
+                        id="direccion" type="text" placeholder="Dirección" wire:model="direccion" maxlength="70"
+                        oninput="this.value = this.value.replace(/[^0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]/g, '')">
                         @error('direccion') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -116,7 +118,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular">
+                        id="telefono" type="text" placeholder="Teléfono" wire:model="celular" maxlength="8"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('celular') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -131,7 +134,7 @@
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
                         <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-10 font-anek" for="genero">
-                            Género<span class="text-red-900">*</span>
+                            Género:
 
                         </label>
                     </div>
@@ -167,7 +170,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo">
+                        id="correo" type="text" placeholder="Correo electrónico" wire:model="correo" maxlength="50"
+                        oninput="this.value = this.value.replace(/[^a-zA-Z0-9.@]/g, '')">
                         @error('correo') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -189,7 +193,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password">
+                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password" maxlength="50">
                         @error('password') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -211,7 +215,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-nacimiento" type="date" wire:model="fechaNacimiento">
+                        id="fecha-nacimiento" type="date" wire:model="fechaNacimiento" max="{{ date('Y-m-d', strtotime('-18 years')) }}"
+                        min="{{ date('Y-m-d', strtotime('-100 years')) }}">
                         @error('fechaNacimiento') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -226,7 +231,7 @@
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
                         <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-36 lg:max-xl:w-32 font-anek" for="sueldo-mes">
-                            Sueldo/mes:(Bs)<span class="text-red-900">*</span>
+                            Sueldo/mes:(Bs)
 
                         </label>
                     </div>
@@ -235,8 +240,10 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-
-                        id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo/mes" wire:model="salario">
+                        id="sueldo-mes" type="number" step="0.01" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" min= '0' max='9999999999.99'
+                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
+                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
+                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                         @error('salario') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
 
                     </div>
@@ -258,7 +265,8 @@
                     </div>
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-inicio-contrato" type="date" wire:model="fechaInicio">
+                        id="fecha-inicio-contrato" type="date" wire:model="fechaInicio"
+                        min="{{ date('Y-m-d')}}">
                         @error('fechaInicio') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -283,13 +291,14 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                        id="fecha-fin-contrato" type="date" wire:model="fechaFin">
+                        id="fecha-fin-contrato" type="date" wire:model="fechaFin"
+                        min="{{ date('Y-m-d') }}">
                         @error('fechaFin') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>
 
-            <div class="flex justify-center pt-16 lg:pt-10">
+            <div class="flex justify-center pt-20 lg:pt-10">
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Guardar
                 </button>
