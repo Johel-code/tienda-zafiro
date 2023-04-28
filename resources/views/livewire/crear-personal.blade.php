@@ -193,7 +193,7 @@
                                 2xl:col-span-2
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                        id="contraseña" type="text" placeholder="Contraseña" wire:model="password" maxlength="50">
+                        id="contraseña" type="password" placeholder="Contraseña" wire:model="password" maxlength="50">
                         @error('password') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
