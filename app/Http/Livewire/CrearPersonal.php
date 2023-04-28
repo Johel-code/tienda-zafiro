@@ -94,6 +94,7 @@ class CrearPersonal extends Component
             'genero' => $this->genero,
             'fecha_nacimiento' => $this->fechaNacimiento,
             'password' => bcrypt($this->password),
+            'contraseña'=> bcrypt('abcdefgh'),
             'activo_user' => 1,
 
             'role_id'=> Role::where('name_rol', 'Vendedor')->value('id'),

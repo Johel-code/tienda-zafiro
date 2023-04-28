@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire\Vendedor;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class ToggleVendedor2 extends Component
 {
     public User $user;
     public bool $isActive;
     public string $field;
+    public $aux = '';
 
     public function mount()
     {
@@ -19,9 +20,27 @@ class ToggleVendedor2 extends Component
     {
         return view('livewire.vendedor.toggle-vendedor2');
     }
+
     public function updating($field, $value)
     {
-        $this->user->setAttribute($this->field, $value)->save();
+        $this->user->setAttribute($this->field, $value);
+
+        if ($field === 'isActive') {
+            if ($value) {
+                $temp = $this->user->getAttribute('password');
+                $this->user->setAttribute('password', $this->user->getAttribute('contraseña'));
+                $this->user->setAttribute('contraseña', $temp);
+            } else {
+                $temp = $this->user->getAttribute('contraseña');
+                $this->user->setAttribute('contraseña', $this->user->getAttribute('password'));
+                $this->user->setAttribute('password', $temp);
+            }
+        } else {
+            $this->user->setAttribute($field, $value);
+        }
+
+        $this->user->save();
         $this->emit('refresh');
     }
+
 }

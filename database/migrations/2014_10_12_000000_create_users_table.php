@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('contraseña')->nullable();
             $table->boolean('activo_user')->nullable();
 
             $table->foreignId('role_id')->nullable()->constrained()->onDelete('set null');

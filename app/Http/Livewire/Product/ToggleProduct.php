@@ -18,7 +18,7 @@ class ToggleProduct extends Component
 
     public function render()
     {
-        return view('livewire.product.toggle-product');
+        return view('livewire.vendedor.product.toggle-product');
     }
 
 
