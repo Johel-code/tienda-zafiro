@@ -15,10 +15,9 @@ class ToggleVendedor1 extends Component
     public function mount()
     {
         $this->isActive = $this->user->getAttribute('activo_user');
-        $fecha = Contract::whereDate('fecha_fin', '<', now())->get();
+        $fecha = Contract::whereDAte('fecha_fin', '<', now())->get();
         foreach ($fecha as $f) {
-            $vendedor = User::find($f->user_id);
-
+            $vendedor = User::find($f->id);
             $vendedor->setAttribute('activo_user', false)->save();
         }
     }
@@ -47,5 +46,4 @@ class ToggleVendedor1 extends Component
         $this->user->save();
         $this->emit('refresh');
     }
-
 }
