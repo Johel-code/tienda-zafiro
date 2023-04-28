@@ -266,7 +266,7 @@
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="fecha-inicio-contrato" type="date" wire:model="fechaInicio"
-                        min="{{ date('Y-m-d')}}">
+                        min="{{ date('Y-m-d')}}" max="{{ date('Y-m-d', strtotime('100 years')) }}">
                         @error('fechaInicio') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -292,7 +292,7 @@
                                 sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                         id="fecha-fin-contrato" type="date" wire:model="fechaFin"
-                        min="{{ date('Y-m-d') }}">
+                        min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('100 years')) }}">
                         @error('fechaFin') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                     </div>
                 </div>
