@@ -23,7 +23,6 @@ class ToggleVendedor1 extends Component
     public function updating($field, $value)
     {
         $this->user->setAttribute($this->field, $value);
-
         if ($field === 'isActive') {
             if ($value) {
                 $temp = $this->user->getAttribute('password');
@@ -37,7 +36,6 @@ class ToggleVendedor1 extends Component
         } else {
             $this->user->setAttribute($field, $value);
         }
-
         $this->user->save();
         $this->emit('refresh');
     }
