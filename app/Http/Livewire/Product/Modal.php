@@ -17,6 +17,6 @@ class Modal extends Component
     public function render()
     {
         $category = Category::all();
-        return view('livewire.product.modal');
+        return view('livewire.vendedor.product.modal');
     }
 }
