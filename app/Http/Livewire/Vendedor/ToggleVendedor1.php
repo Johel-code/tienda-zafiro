@@ -11,10 +11,17 @@ class ToggleVendedor1 extends Component
     public bool $isActive;
     public string $field;
 
-    public function mount()
+    public function mount()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  unt()
     {
         $this->isActive = $this->user->getAttribute('activo_user');
+        
+        $fecha = Contract::whereDAte('fecha_fin', '<', now()) -> get();
+        foreach($fecha as $f){
+                $vendedor = User::find($f->id);
+                $vendedor->setAttribute('activo_user',false)->save();
+        }   
     }
+
     public function render()
     {
         return view('livewire.vendedor.toggle-vendedor1');
