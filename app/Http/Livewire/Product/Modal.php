@@ -12,11 +12,7 @@ class Modal extends Component
     public $product;
     public $category;
     public $ids;
-    // public function mount($product)
-    // {
-    //     dd($this->product);
-    //     $this->ids = $product->category_id;
-    // }
+
     protected $listeners = ['refrescarModal' => 'render'];
     public function render()
     {
