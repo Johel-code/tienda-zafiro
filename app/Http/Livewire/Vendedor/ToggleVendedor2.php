@@ -23,17 +23,12 @@ class ToggleVendedor2 extends Component
 
     public function updating($field, $value)
     {
-        if ($this->isActive) {
+        if (!$this->isActive) {
             if ($value) {
                 $temp = $this->user->getAttribute('password');
                 $this->user->setAttribute('password', $this->user->getAttribute('contraseña'));
                 $this->user->setAttribute('contraseña', $temp);
-            } else {
-                $temp = $this->user->getAttribute('contraseña');
-                $this->user->setAttribute('contraseña', $this->user->getAttribute('password'));
-                $this->user->setAttribute('password', $temp);
             }
-        }else{
             $this->user->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
             redirect('/vendedores');
