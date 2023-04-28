@@ -23,8 +23,7 @@ class ToggleVendedor2 extends Component
 
     public function updating($field, $value)
     {
-        $this->user->setAttribute($this->field, $value);
-        if ($field === 'isActive') {
+        if ($this->isActive) {
             if ($value) {
                 $temp = $this->user->getAttribute('password');
                 $this->user->setAttribute('password', $this->user->getAttribute('contraseña'));
@@ -34,11 +33,11 @@ class ToggleVendedor2 extends Component
                 $this->user->setAttribute('contraseña', $this->user->getAttribute('password'));
                 $this->user->setAttribute('password', $temp);
             }
-        } else {
-            $this->user->setAttribute($field, $value);
+        }else{
+            $this->user->setAttribute($this->field, $value)->save();
+            $this->emit('refresh');
+            redirect('/vendedores');
         }
-        $this->user->save();
-        $this->emit('refresh');
     }
 
 }
