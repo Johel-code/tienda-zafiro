@@ -10,7 +10,7 @@ use App\Models\User;
 class CrearPersonal extends Component
 {
     public  $roles, $contratos, $id_user, $nombre, $apellido, $direccion, $celular, 
-    $ci, $correo, $genero, $fechaNacimiento, $password, /*$estado,$rol,*/
+    $ci, $correo, $genero, $fechaNacimiento, $password,
     $id_contract, $fechaInicio, $fechaFin, $salario, $limite;
 
     protected $listeners = ['clean-cerrar' => 'limpiar'];
