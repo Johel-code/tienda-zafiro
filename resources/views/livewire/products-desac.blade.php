@@ -1,5 +1,5 @@
 <div>
-    <div class="sm:px-8 lg:px-8 md:ml-8">
+    <div class="sm:px-8 lg:px-12 md:ml-8">
             <div class="bg-white  overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg px-4 py-2 shrink"style="padding-left:2px;padding-right: 2px;">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="md:py-8">
