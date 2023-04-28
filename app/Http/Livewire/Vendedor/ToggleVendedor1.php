@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Vendedor;
 
+use App\Models\Contract;
 use App\Models\User;
 use Livewire\Component;
 
@@ -14,7 +15,14 @@ class ToggleVendedor1 extends Component
     public function mount()
     {
         $this->isActive = $this->user->getAttribute('activo_user');
+        $fecha = Contract::whereDate('fecha_fin', '<', now())->get();
+        foreach ($fecha as $f) {
+            $vendedor = User::find($f->user_id);
+
+            $vendedor->setAttribute('activo_user', false)->save();
+        }
     }
+
     public function render()
     {
         return view('livewire.vendedor.toggle-vendedor1');

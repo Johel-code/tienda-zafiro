@@ -10,6 +10,7 @@ class Vendedores extends Component
 {
     use WithPagination;
 
+    protected $listeners = ['refresh' => 'render'];
     public function render()
     {
         $vendedoresActivos = User::where('activo_user', 1)
