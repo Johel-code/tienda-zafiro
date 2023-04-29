@@ -13,6 +13,7 @@ class ToggleProduct extends Component
 
     public function mount()
     {
+        
         $this->isActive = $this->product->getAttribute('estado_product');
         $fechaProm = Product::whereDate('fecha_vencimiento',  '<', now())->get();
         foreach ($fechaProm as $product1)    {
