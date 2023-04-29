@@ -15,8 +15,7 @@ class ToggleProduct extends Component
     {
         $this->isActive = $this->product->getAttribute('estado_product');
         $fechaProm = Product::whereDate('fecha_vencimiento', '<', now())->get();
-        foreach ($fechaProm as $product1) 
-        {
+        foreach ($fechaProm as $product1) {
             $product1->setAttribute('estado_product',  false)->save();
         }
     }
