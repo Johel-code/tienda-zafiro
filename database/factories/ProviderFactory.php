@@ -18,9 +18,9 @@ class ProviderFactory extends Factory
     {
         return [
             'name_provider'=>$this->faker->name,
-            'name_empresa'=>$this->faker->word(),
+            'name_empresa'=>$this->faker->lexify('??????????'),
             'celular_provider'=>$this->faker->randomNumber(8,true),
-            'direccion_distribuidora'=>$this->faker->sentence(),
+            'direccion_distribuidora'=>$this->faker->lexify('???????? ?????'),
             'estado_provider'=>$this->faker->boolean(),
         ];
     }

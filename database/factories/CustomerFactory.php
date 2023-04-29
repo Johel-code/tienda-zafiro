@@ -18,7 +18,7 @@ class CustomerFactory extends Factory
     {
         return [
             'name_razon'=>$this->faker->name,
-            'ci_nit'=>$this->faker->numberBetween(10000,1000000),
+            'ci_nit'=>$this->faker->numberBetween(10000000,99999999),
         ];
     }
 }
