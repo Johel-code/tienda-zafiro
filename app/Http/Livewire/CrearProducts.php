@@ -24,7 +24,7 @@ class CrearProducts extends Component
         'cantidad' => 'required|numeric|min:1|max:999999999 ',
         'precio' => 'required|numeric |min:0.01|max:999999999.99 ',
         'marca' => 'required|max:10|regex:/^[a-zA-Z0-9 ]+$/',
-        'cantidad_minima' => 'required|numeric|min:1|max:999999999',
+        'cantidad_minima' => 'required|numeric|min:10|max:999999999',
         'adquisicion' => 'required|numeric|min:0.01|max:999999999.99',
         'categoria' => 'required',
         'proveedor'  => 'required',
@@ -42,7 +42,7 @@ class CrearProducts extends Component
 
         'cantidad_minima.required' => 'Este campo es obligatorio',
         'cantidad_minima.numeric' => 'Solo se admiten números enteros',
-        'cantidad_minima.min' => 'Ingrese números mayores a 0',
+        'cantidad_minima.min' => 'Ingrese números mayores a 10',
         'cantidad_minima.max' => 'Se admite solo 9 digitos enteros',
 
         'nombre.required' => 'Este campo es obligatorio',

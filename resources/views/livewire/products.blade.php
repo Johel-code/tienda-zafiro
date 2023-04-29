@@ -1,13 +1,13 @@
 <div>
     <div>
         <div class="flex flex-row place-content-between">
-            <div class="flex lg:ml-20 md:ml-8 sm:ml-8">
+            <div class="lg:ml-12 md:ml-8 sm:ml-8">
                 <a href="/crear-products">
                     <button class=" bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         AÑADIR
                     </button>
                 </a>
-            </div>
+            </div>  
 
             <div class="flex sm:px-2 lg:px-12 lg:ml-48 md:ml-24 sm:ml-8">
                 <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
@@ -22,10 +22,10 @@
         
         <div class="py-2"></div>        
 
-        <div class="sm:px-8 lg:px-12 md:ml-8">
-            <div class="bg-white  overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg px-4 py-2 shrink"style="padding-left:2px;padding-right: 2px;">
+        <div class="sm:px-8 lg:px-12">
+            <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
-                    <thead class="md:py-8">
+                    <thead class="h-12">
                         <tr class="bg-white text-dark">
                              <div>
                                 <div>
@@ -44,15 +44,15 @@
                                     
                                 </div>
                             </div>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
-                            <th class="py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha vencimiento</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Marca</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Categoría</th>
-                            <th class="px-4 py-2 text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>
-                            <th class="px-4 py-2 border-b-2 border-black">Editar</th>  
+                            <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Fecha vencimiento</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Marca</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Categoría</th>
+                            <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Estado</th>
+                            <th class="2xl:text-lg border-b-2 border-black">Editar</th>  
                         </tr>
                     </thead>
                     <tbody>
@@ -60,9 +60,9 @@
 
 
                         <tr class="hover:bg-blue-200">
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
+                            <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
-                            <td class="py-2 text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400 whitespace-nowrap">
                                 <a class="hover:text-blue-700 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
 
                                     {{$product->name_product}}
@@ -71,16 +71,16 @@
                                 <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
 
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
-                            <td class="py-2 text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
-                            <td class="py-2 text-center  border-b border-gray-400">
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
+                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td class="pr-3 py-1 2xl:text-lg text-center  border-b border-gray-400">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
                             </td>
-                            <td class="px-2 text-center border-b border-gray-400">
+                            <td class="pr-3 py-1 2xl:text-lg text-center border-b border-gray-400">
                                 {{-- <a href="/modificar-producto/{{ $product->id }}"> --}}
                                 <a href="{{ url('modificar-producto', $product->id) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2.5" stroke="#3391d6" class="w-6 h-6 m-auto block">
@@ -96,7 +96,10 @@
                 </div>
             </div>
         </div>
-      <div class="py-6"></div>
+      <div class="pt-2 pb-3"></div>
+      <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 2xl:pb-5">
+        <h2 class="text-2xl font-bold font-anek">Productos Inactivos</h2>
+    </div>  
     <livewire:products-desac>
     </div>
 </div>
