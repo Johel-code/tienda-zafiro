@@ -18,8 +18,8 @@ class ContractFactory extends Factory
     {
         return [
             'user_id'=>$this->faker->numberBetween(1,10),
-            'fecha_ini'=>$this->faker->date(),
-            'fecha_fin'=>$this->faker->date(),
+            'fecha_ini'=>$this->faker->dateTimeBetween('-1 month', 'now'),
+            'fecha_fin'=>$this->faker->dateTimeBetween('now' , '+1 year'),
             'salario'=>$this->faker->numberBetween(1000,5000),
         ];
     }

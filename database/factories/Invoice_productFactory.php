@@ -17,10 +17,10 @@ class Invoice_productFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_id'=>$this->faker->randomNumber(1,10),
+            'product_id'=>$this->faker->randomNumber(1,20),
             'invoice_id'=>$this->faker->randomNumber(1,50),
-            'cantidad_detalle'=>$this->faker->randomNumber(1,100),
-            'precio_unitario'=>$this->faker->randomFloat(2,1,1000),
+            'cantidad_detalle'=>$this->faker->randomNumber(1,10000),
+            'precio_unitario'=>$this->faker->randomFloat(2,1,10000),
         ];
     }
 }
