@@ -49,6 +49,7 @@ class ToggleProduct extends Component
         } else {
             $this->product->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
+            redirect('/');
         }
     }
     public function darDeBaja($id)
