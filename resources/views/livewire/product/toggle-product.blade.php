@@ -18,10 +18,10 @@
                 <div class="flex justify-center">
                     
                     <button type=button wire:click="confirmarSwitch()" class="rounded-md border border-white shadow-md 
-                         bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-1 mr-6  w-28">Si
+                         bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-1 mr-6  w-28">SI
                     </button>
                     <button type=button wire:click="cerrarModalSwitch()" class="rounded-md border border-white shadow-md 
-                        bg-[#597AAB]  hover:bg-gray-700 font-bold text-white py-1 ml-6 w-28">No
+                        bg-[#597AAB]  hover:bg-gray-700 font-bold text-white py-1 ml-6 w-28">NO
                     </button>
                 </div>
     

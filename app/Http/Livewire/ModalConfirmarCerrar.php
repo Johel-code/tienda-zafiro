@@ -23,6 +23,10 @@ class ModalConfirmarCerrar extends Component
     public function cerrarModal()
     {
         $this->open = 'hidden';
+    }
+    public function redirigir()
+    {
         redirect('/');
     }
+
 }
