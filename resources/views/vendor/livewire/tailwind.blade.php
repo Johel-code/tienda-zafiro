@@ -31,7 +31,7 @@
 
             <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
-                    <p class="text-sm text-gray-700 leading-5">
+                    <p class="pl-2 text-sm text-gray-700 leading-5">
                         <span>{!! __('Mostrando') !!}</span>
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         <span>{!! __('a') !!}</span>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    <span class="inline-flex rounded-md shadow-sm">
+                    <span class="mt-1 inline-flex rounded-md shadow-sm">
                         <span>
                             {{-- Previous Page Link --}}
                             @if ($paginator->onFirstPage())
@@ -90,7 +90,7 @@
                             @endif
                         @endforeach
 
-                        <span>
+                        <span class="mr-1">
                             {{-- Next Page Link --}}
                             @if ($paginator->hasMorePages())
                                 <button type="button" wire:click="nextPage('{{ $paginator->getPageName() }}')" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}.after" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="{{ __('pagination.next') }}">
