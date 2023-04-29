@@ -42,7 +42,7 @@
 
                     <tr class="hover:bg-blue-200">
                         <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">
-                            {{ $user->id }}
+                            {{ $loop->index + 1 + ($users->currentPage() -1) * $users->perPage() }}
                         </th>
                         <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">
                             {{ $user->name }}
