@@ -25,7 +25,7 @@
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                             id="nombre" type="text" placeholder="Nombre" wire:model="nombre" maxlength="50" 
-                            oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
+                            oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ ]/g, '')">
                             @error('nombre') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                             id="apellidos" type="text" placeholder="Apellidos" wire:model="apellido" maxlength="50" 
-                            oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ /s]/g, '')">
+                            oninput="this.value = this.value.replace(/[^a-zA-ZZñÑáéíóúÁÉÍÓÚüÜ ]/g, '')">
                             @error('apellido') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                             id="direccion" type="text" placeholder="Dirección" wire:model="direccion" maxlength="70"
-                            oninput="this.value = this.value.replace(/[^0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]/g, '')">
+                            oninput="this.value = this.value.replace(/[^0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#. :/]/g, '')">
                             @error('direccion') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </div>
                     </div>
