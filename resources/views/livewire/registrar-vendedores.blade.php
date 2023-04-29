@@ -290,10 +290,10 @@
             {{-- </div> --}}
             <div class="flex justify-center pt-16">
                 <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Guardar
+                    GUARDAR
                 </button>
                 <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                    Cancelar
+                    CANCELAR
                 </button>
                 @livewire('modal-confirmar-cerrar')
             </div>
