@@ -7,7 +7,7 @@
             </button>
         </a>
     </div>    
-
+    
     <div class="py-1.5 2xl:py-2"></div>
  {{----------------------------Tabla vendedores habilitados--------------------------------}}
     <div class="sm:px-8 lg:px-12">
