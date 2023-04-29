@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    <span class="inline-flex rounded-md shadow-sm">
+                    <span class="mt-1 inline-flex rounded-md shadow-sm">
                         <span>
                             {{-- Previous Page Link --}}
                             @if ($paginator->onFirstPage())
