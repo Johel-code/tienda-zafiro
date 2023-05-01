@@ -9,7 +9,7 @@
         @endif
         <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
 
-        <form wire:submit.prevent="submit" enctype="multipart/form-data" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
+        {{-- <form wire:submit.prevent="submit" enctype="multipart/form-data" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4"> --}}
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
 
