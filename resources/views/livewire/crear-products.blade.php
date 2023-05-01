@@ -7,7 +7,7 @@
                 <strong class="font-bold">{{ session('message') }}</strong>
             </div>
         @endif
-        <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
+        <form wire:submit.prevent="submit" enctype="multipart/form-data" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
 
             <div class="mb-4 grid grid-cols-4">
                 <div class="">
@@ -256,7 +256,7 @@
             <div class="grid grid-cols-4 gap-4">
                 
 
-            {{--<div class=" mb-4 ">
+                <div class=" mb-4 ">
 
                     <div class="col-span-1">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10 font-anek" for="foto">
@@ -265,9 +265,9 @@
                         </label>
                     </div>
                 </div> 
-                <div class="col-span-2">    --}}
+                <div class="col-span-2">   
 
-                    {{-- <div class="">
+                    <div class="">
                         <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" accept="image/*" 
                         id="foto" name="img" type="file"  wire:model="foto" placeholder="Seleccionar">
                         @error('foto') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -276,11 +276,11 @@
                             <img src="{{ $foto->temporaryUrl() }}">
                         @endif
                         
-                    </div> --}}
+                    </div>
 
 
-                </div>
-
+            </div>
+        </div>
 
                 {{-- <div class="col-span-1  lg:gap-16 md:gap-20 sm:gap-0">
                     <div class="">

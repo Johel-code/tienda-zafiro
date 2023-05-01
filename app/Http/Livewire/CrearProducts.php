@@ -11,6 +11,7 @@ use App\Models\Provider;
 class CrearProducts extends Component
 {
     use WithFileUploads;
+
     public $nombre, $descripcion, $cantidad, $precio, $marca,
             $categoria, $fecha, $estado, $foto,$id_product, 
             $proveedor,$cantidad_minima, $adquisicion,$categorias, $proveedors;
@@ -19,7 +20,7 @@ class CrearProducts extends Component
 
     protected $rules = [
         'nombre' => 'required|max:35|regex:/^[a-zA-Z0-9 ]+$/',
-        ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
+        'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
         
         'cantidad' => 'required|numeric|min:1|max:999999999 ',
         'precio' => 'required|numeric |min:0.01|max:999999999.99 ',
@@ -56,10 +57,10 @@ class CrearProducts extends Component
         'cantidad.min' => 'Ingrese números mayores a 0',
         'cantidad.max' => 'Se admite solo 9 digitos enteros',
 
-        //'estado.required' => 'El campo estado es requerido',
-        //'foto.required' => 'El campo foto es requerido',
-        // 'foto.max' => 'Solo se permite como maximo 1024',
-        // 'foto.image' => 'Solo se admite una imagen o foto',
+//        'estado.required' => 'El campo estado es requerido',
+ //       'foto.required' => 'El campo foto es requerido',
+        'foto.max' => 'Solo se permite como maximo 1024',
+        'foto.image' => 'Solo se admite una imagen o foto',
 
         'precio.required' => 'Este campo es obligatorio',
         'precio.min' => 'Ingrese números mayores a 0',
@@ -101,12 +102,12 @@ class CrearProducts extends Component
         $this->categorias = Category::all();
         $this->proveedors = Provider::all();
     }
-    public function save()
-    {
-        $this->validate([
-            'foto' => 'image|max:1024', // validar que se cargó una imagen y que es menor a 1MB
-        ]);
-    }
+    // public function save()
+    // {
+    //     $this->validate([
+    //         'foto' => 'image|max:1024', // validar que se cargó una imagen y que es menor a 1MB
+    //     ]);
+    // }
 
     public function updated($propertyName)
     {
@@ -130,7 +131,7 @@ class CrearProducts extends Component
         $this->validate();
         //$imageName = time().'-'.$this->foto->getClientOriginalName();
             //dd(asset('images/'.$imageName));
-
+        $this->foto->store('public/images');
         //$this->foto->storeAs('/images', $imageName, 'uploads_image');
         //dd(asset('uploads/images/'.$imageName));
         
