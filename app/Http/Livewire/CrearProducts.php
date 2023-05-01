@@ -131,7 +131,7 @@ class CrearProducts extends Component
         $this->validate();
         //$imageName = time().'-'.$this->foto->getClientOriginalName();
             //dd(asset('images/'.$imageName));
-        $this->foto->store('public/images');
+        $img = $this->foto->store('images', 'public');
         //$this->foto->storeAs('/images', $imageName, 'uploads_image');
         //dd(asset('uploads/images/'.$imageName));
         
@@ -149,7 +149,7 @@ class CrearProducts extends Component
                 'fecha_vencimiento' => $this->fecha,
                 'provider_id' => $this->proveedor,
                 //'image' => $this->foto ? url($this->foto) : 'default_image.jpg',
-                'image' => 'imageName.jpg'
+                'image' => $img
             ]
         );
         session()->flash('message','¡Producto añadido exitosamente!');
