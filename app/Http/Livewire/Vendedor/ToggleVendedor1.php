@@ -20,12 +20,10 @@ class ToggleVendedor1 extends Component
     public function cerrarModalSwitch()
     {
         $this->updating($this->field, true);
-        redirect('/vendedores');
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
-        redirect('/vendedores');
     }
 
     public function mount()
@@ -55,6 +53,7 @@ class ToggleVendedor1 extends Component
             }
             $this->user->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
+            redirect('/vendedores');
         }
     }
 }
