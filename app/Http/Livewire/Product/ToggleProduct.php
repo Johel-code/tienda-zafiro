@@ -20,12 +20,10 @@ class ToggleProduct extends Component
     public function cerrarModalSwitch()
     {
         $this->updating($this->field, true);
-        redirect('/');
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
-        redirect('/');
     }
 
     public function mount()
@@ -46,7 +44,7 @@ class ToggleProduct extends Component
     {
         if ($this->isActive) {
             $this->abrirModalSwitch();
-        } else {
+        }else{
             $this->product->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
             redirect('/');
