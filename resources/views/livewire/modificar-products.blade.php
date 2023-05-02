@@ -1,5 +1,5 @@
 <div>
-    <div class="mb-4 bg-[#E3E9F1] pb-8 mb-10 pt-20 mt-4 2xl:ml-14 xl:ml-16 lg:ml-16 lg:pt-10 
+    <div class="mb-4 bg-[#E3E9F1] pb-8 pt-20 mt-4 2xl:ml-14 xl:ml-16 lg:ml-16 lg:pt-10 
         sm:max-lg:ml-10 sm:max-lg:pt-10 sm:max-lg:pb-4">
             <h2 class="text-4xl font-bold mb-2 font-anek">MODIFICAR PRODUCTO</h2>
 
@@ -61,6 +61,7 @@
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                             id="cantidad" type="number" placeholder="Cantidad" wire:model="cantidad" min="0" max="999999999"
+                            oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
                         </div>
@@ -113,6 +114,7 @@
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                             id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="10"
+                            oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('cantidad_minima') <span class="error text-red-700">{{ $message }}</span> @enderror
                         </div>
@@ -164,6 +166,8 @@
 
 
                             id="costo Adquisicion" type="number" step="0.50" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0.50" max="9999.99"
+                            oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
+                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 
@@ -190,6 +194,8 @@
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                             id="precio" type="number" step="0.50" placeholder="Precio" wire:model="precio" min="0.50" max="9999.99"
+                            oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
+                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                         </div>
@@ -300,10 +306,10 @@
                 {{-- </div> --}}
                 <div class="flex justify-center pt-16">
                     <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Guardar
+                        GUARDAR
                     </button>
                     <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                        Cancelar
+                        CANCELAR
                     </button>
                     @livewire('modal-confirmar-cerrar')
                 </div>

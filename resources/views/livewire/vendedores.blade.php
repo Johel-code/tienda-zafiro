@@ -7,7 +7,7 @@
             </button>
         </a>
     </div>    
-
+    
     <div class="py-1.5 2xl:py-2"></div>
  {{----------------------------Tabla vendedores habilitados--------------------------------}}
     <div class="sm:px-8 lg:px-12">
@@ -42,7 +42,7 @@
 
                     <tr class="hover:bg-blue-200">
                         <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">
-                            {{ $user->id }}
+                            {{ $loop->index + 1 + ($users->currentPage() -1) * $users->perPage() }}
                         </th>
                         <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400 whitespace-nowrap">
                             {{ $user->name }}

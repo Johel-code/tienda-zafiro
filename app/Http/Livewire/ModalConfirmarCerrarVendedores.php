@@ -4,17 +4,17 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ModalConfirmarCerrar extends Component
+class ModalConfirmarCerrarVendedores extends Component
 {
     public $open = 'hidden';
 
     protected $listeners =  [
-        'clean-cerrar' => 'cerrarModal',
-        'show-modalConfirmacion' => 'mostrarModal'
+        'show-modalConfirmacionVendedor' => 'mostrarModal'
     ];
+
     public function render()
     {
-        return view('livewire.modal-confirmar-cerrar');
+        return view('livewire.modal-confirmar-cerrar-vendedores');
     }
     public function mostrarModal()
     {
@@ -26,7 +26,6 @@ class ModalConfirmarCerrar extends Component
     }
     public function redirigir()
     {
-        redirect('/');
+        redirect('/vendedores');
     }
-
 }

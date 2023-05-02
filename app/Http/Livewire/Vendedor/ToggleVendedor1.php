@@ -12,6 +12,20 @@ class ToggleVendedor1 extends Component
     public bool $isActive;
     public string $field;
 
+    public $mostrarModalSwitch = false;
+    public function abrirModalSwitch()
+    {
+        $this->mostrarModalSwitch = true;
+    }
+    public function cerrarModalSwitch()
+    {
+        $this->updating($this->field, true);
+    }
+    public function confirmarSwitch()
+    {
+        $this->updating($this->field, false);
+    }
+
     public function mount()
     {
         $this->isActive = $this->user->getAttribute('activo_user');
@@ -29,21 +43,17 @@ class ToggleVendedor1 extends Component
 
     public function updating($field, $value)
     {
-        $this->user->setAttribute($this->field, $value);
-        if ($field === 'isActive') {
-            if ($value) {
-                $temp = $this->user->getAttribute('password');
-                $this->user->setAttribute('password', $this->user->getAttribute('contraseña'));
-                $this->user->setAttribute('contraseña', $temp);
-            } else {
+        if ($this->isActive) {
+            $this->abrirModalSwitch();
+        }else{
+            if (!$value) {
                 $temp = $this->user->getAttribute('contraseña');
                 $this->user->setAttribute('contraseña', $this->user->getAttribute('password'));
                 $this->user->setAttribute('password', $temp);
             }
-        } else {
-            $this->user->setAttribute($field, $value);
+            $this->user->setAttribute($this->field, $value)->save();
+            $this->emit('refresh');
+            redirect('/vendedores');
         }
-        $this->user->save();
-        $this->emit('refresh');
     }
 }

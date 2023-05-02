@@ -4,6 +4,7 @@
     <!--Modal-->
     <div class="hidden fixed inset-0 z-20" id="modal<?php echo $product->id ?>">
         <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
             <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
             <div class="border-8 border-[#E3E9F1] inline-block bg-[#E3E9F1] rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle" style="width: 15cm; height: 10cm;">
                 <!--Contenido-->
@@ -18,7 +19,7 @@
 
                 <article class="mx-5 grid grid-cols-5 bg-[#E3E9F1] transition mt-1 ">
                     <div class="col-span-2">
-                    <img src="{{ asset('uploads/images/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
+                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
                     </div>
                     <div class="justify-between ml-5 mr-5 mt-1.5 mb-8 col-span-3">
                         <h2 class="font-bold text-lg">Descripcion</h2>
