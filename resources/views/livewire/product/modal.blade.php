@@ -16,18 +16,20 @@
                     </div>
                 </div>
 
-                <article class="mx-5 grid grid-cols-5 bg-[#E3E9F1] transition mt-1 ">
+                <div class="mx-5 grid grid-cols-5 transition mt-1 ">
                     <div class="col-span-2">
-                    <img src="{{ asset('storage/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="{{$product->name_product}}" style="width: 150px; height: 150px;" class="aspect-square shadow-lg object-cover mx-5 my-3">
                     </div>
                     <div class="justify-between ml-5 mr-5 mt-1.5 mb-8 col-span-3">
                         <h2 class="font-bold text-lg">Descripcion</h2>
 
-                        <p class="font-semibold text-ellipsis overflow-hidden">{!! nl2br(e(chunk_split($product->descripcion))) !!}</p>
+                        <p class="text-justify whitespace-normal">
+                            {{ $product->descripcion }}
+                        </p>
 
 
                     </div>
-                </article>
+                </div>
                 
                 <div class="px-8 grid grid-cols-4 grid-rows-3 gap-2 my-3">
                     <div class="font-bold">Precio (Bs)</div>
