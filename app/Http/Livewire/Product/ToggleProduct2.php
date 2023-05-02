@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Livewire\Vendedor;
+namespace App\Http\Livewire\Product;
 
-use App\Models\User;
+use App\Models\Product;
 use Livewire\Component;
 
-class ToggleVendedor2 extends Component
+class ToggleProduct2 extends Component
 {
-    public User $user;
+    public Product $product;
     public bool $isActive;
     public string $field;
-    public $aux = '';
 
     public $mostrarModalSwitch = false;
     public function abrirModalSwitch()
@@ -20,37 +19,31 @@ class ToggleVendedor2 extends Component
     public function cerrarModalSwitch()
     {
         $this->updating($this->field, false);
-        redirect('/vendedores');
+        redirect('/');
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, true);
-        redirect('/vendedores');
+        redirect('/');
     }
 
     public function mount()
     {
-        $this->isActive = $this->user->getAttribute('activo_user');
+        $this->isActive = $this->product->getAttribute('estado_product');
     }
+
     public function render()
     {
-        return view('livewire.vendedor.toggle-vendedor2');
+        return view('livewire.product.toggle-product2');
     }
 
     public function updating($field, $value)
     {
         if ($this->isActive) {
-            if ($value) {
-                $temp = $this->user->getAttribute('password');
-                $this->user->setAttribute('password', $this->user->getAttribute('contraseña'));
-                $this->user->setAttribute('contraseña', $temp);
-            }
-            $this->user->setAttribute($this->field, $value)->save();
+            $this->product->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
         }else{
             $this->abrirModalSwitch();    
         }
     }
-
 }
-//comentarioxd
