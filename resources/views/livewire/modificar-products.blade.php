@@ -244,7 +244,7 @@
                                     2xl:col-span-2
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                            id="fecha" type="date" wire:model="fecha">
+                            id="fecha" type="date" wire:model="fecha" min="{{ date('Y-m-d')}}">
                             @error('fecha') <span class="error text-red-700">{{ $message }}</span> @enderror
                         </div>
                     </div>

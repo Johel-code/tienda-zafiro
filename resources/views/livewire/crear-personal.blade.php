@@ -48,7 +48,7 @@
                                     2xl:col-span-2
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                            id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8" 
+                            id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8"p
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
 
