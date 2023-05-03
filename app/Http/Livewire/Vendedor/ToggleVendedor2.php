@@ -43,8 +43,9 @@ class ToggleVendedor2 extends Component
         if (date('Y-m-d', strtotime($contratoPequeno)) >= date('Y-m-d', strtotime(now()))) {
             $this->updating($this->field, true);
         } else {
+            $this->isActive = false;
             $this->updating($this->field, false);
-            redirect('/vendedores');
+            //redirect('/vendedores');
         }
         $this->emit('resfresh');
         $this->mostrarModalSwitch = false;
@@ -74,11 +75,8 @@ class ToggleVendedor2 extends Component
             }
             $this->user->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
-            //redirect('/vendedores');
-            //$this->redirect('/vendedores');
         }
         $this->render();
-        //$this->redirect('/vendedores');
     }
 }
 //comentarioxd
