@@ -103,10 +103,4 @@
                 </div>
             </div>
         </div>
-      <div class="pt-2 pb-3"></div>
-      <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 2xl:pb-5">
-        <h2 class="text-2xl font-bold font-anek">Productos Inactivos</h2>
-    </div>  
-    <livewire:products-desac>
     </div>
-</div>
