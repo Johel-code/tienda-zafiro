@@ -64,7 +64,7 @@
                         </th>
                         <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">
                             @if($user->fecha_nacimiento)
-                                {{ date('d/m/Y', strtotime($user->fecha_nacimiento)) }}
+                                {{ date('d/m/Y', strtotime($user->fecha_nacimiento)) }} @else No Especificado
                             @endif
                             
                         </th>
