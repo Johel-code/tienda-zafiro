@@ -30,8 +30,10 @@ class ToggleVendedor1 extends Component
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
+
         $this->render();
         //redirect('/vendedores');
+
     }
 
     public function mount()
