@@ -111,6 +111,7 @@ class ModificarProducts extends Component
             ]
         );
         session()->flash('message','¡Producto actualizado exitosamente!');
+        //redirect()->to('/');
     }
 
 
