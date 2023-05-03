@@ -26,12 +26,15 @@ class ToggleVendedor1 extends Component
         $this->isActive = true;
         $this->emit('refresh');
         //redirect('/vendedores');
+
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
+
         $this->render();
         //redirect('/vendedores');
+
     }
 
     public function mount()
@@ -64,6 +67,7 @@ class ToggleVendedor1 extends Component
             }
             $this->user->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
+            redirect('/vendedores');
         }
     }
 }
