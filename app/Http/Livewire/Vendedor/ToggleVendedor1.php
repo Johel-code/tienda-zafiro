@@ -20,20 +20,34 @@ class ToggleVendedor1 extends Component
     public function cerrarModalSwitch()
     {
         $this->updating($this->field, true);
+        $this->emit('resfresh');
+        $this->mostrarModalSwitch = false;
+        $this->render();
+        $this->isActive = true;
+        $this->emit('refresh');
+        //redirect('/vendedores');
+
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
+
+        $this->render();
+        //redirect('/vendedores');
+
     }
 
     public function mount()
     {
         $this->isActive = $this->user->getAttribute('activo_user');
-        $fecha = Contract::whereDAte('fecha_fin', '<', now())->get();
+        $fecha = Contract::whereDate('fecha_fin', '<=', date('d-m-Y', strtotime(now())))->get();
+        //dd($fecha);
         foreach ($fecha as $f) {
             $vendedor = User::find($f->id);
             $vendedor->setAttribute('activo_user', false)->save();
         }
+        $this->render();
+        $this->emit('resfresh');
     }
 
     public function render()
@@ -45,7 +59,7 @@ class ToggleVendedor1 extends Component
     {
         if ($this->isActive) {
             $this->abrirModalSwitch();
-        }else{
+        } else {
             if (!$value) {
                 $temp = $this->user->getAttribute('contraseña');
                 $this->user->setAttribute('contraseña', $this->user->getAttribute('password'));
