@@ -33,7 +33,7 @@
                             <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
                             <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="pr-3 py-1 2xl:text-lg text-center  border-b border-gray-400">
-                                <livewire:product.toggle-product :product="$product" :field="'estado_product'"
+                                <livewire:product.toggle-product2 :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
                             </td>
                             <td class="pr-3 py-1 2xl:text-lg text-center border-b border-gray-400">

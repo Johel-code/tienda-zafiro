@@ -64,6 +64,7 @@ class ToggleVendedor1 extends Component
             }
             $this->user->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
+            redirect('/vendedores');
         }
     }
 }
