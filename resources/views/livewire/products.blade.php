@@ -23,6 +23,13 @@
         <div class="py-2"></div>        
 
         <div class="sm:px-8 lg:px-12">
+           @if(session()->has('message'))
+                <div class="bg-green-100 border border-green-400 text-green-700 py-3 rounded relative ml:120" role="alert" 
+                style="padding-left: 28px;">
+                    <strong class="font-bold">{{ session('message') }}</strong>
+                </div>
+            @endif
+
             <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
@@ -96,10 +103,4 @@
                 </div>
             </div>
         </div>
-      <div class="pt-2 pb-3"></div>
-      <div class=" bg-[#E3E9F1] sm:ml-8 lg:ml-12 pb-2 2xl:pb-5">
-        <h2 class="text-2xl font-bold font-anek">Productos Inactivos</h2>
-    </div>  
-    <livewire:products-desac>
     </div>
-</div>
