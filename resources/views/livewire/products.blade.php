@@ -23,6 +23,13 @@
         <div class="py-2"></div>        
 
         <div class="sm:px-8 lg:px-12">
+           @if(session()->has('message'))
+                <div class="bg-green-100 border border-green-400 text-green-700 py-3 rounded relative ml:120" role="alert" 
+                style="padding-left: 28px;">
+                    <strong class="font-bold">{{ session('message') }}</strong>
+                </div>
+            @endif
+
             <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
