@@ -19,9 +19,11 @@ class CrearPersonal extends Component
         'nombre' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
         'apellido' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
         'direccion' => 'required|regex:/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]+$/',
-        'celular' => 'required|regex:/^[0-9]+$/',
-        'ci' => 'required|regex:/^[0-9]+$/|unique:users,ci',
-        'correo' => 'required|email|regex:/^[a-zA-Z0-9.@]+$/|unique:users,email',
+        'celular' => 'required|regex:/^[0-9]+$/|min:8',
+
+        'ci' => 'required|regex:/^[0-9]{6}[a-zA-Z0-9]{0,2}$/|min:6|unique:users,ci',
+
+        'correo' => 'required|email|regex:/^[a-zA-Z0-9.@_\-\/]+$/|unique:users,email',
         'password' => 'required|min:8',
         'salario' => 'max:9999999999.99|nullable',
         'genero' => 'nullable',//required
@@ -42,10 +44,12 @@ class CrearPersonal extends Component
 
         'celular.required' => 'Este campo es obligatorio',
         'celular.regex' => 'Solo se admiten números',
+        'celular.min'=> 'Minimo 8 digitos',
 
         'ci.required' => 'Este campo es obligatorio',
         'ci.unique' => 'Este CI ya existe',
-        'ci.regex' => 'Solo se admiten números',
+        'ci.regex' => 'Obligatorio 6 números seguidos, opcional 2 alfanuméricos',
+        'ci.min' => 'Minimo 6 digitos',
 
         'correo.required' => 'Este campo es obligatorio',
         'correo.unique' => 'Este correo ya existe',

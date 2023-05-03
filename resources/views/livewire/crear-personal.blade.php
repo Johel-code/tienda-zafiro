@@ -48,8 +48,11 @@
                                     2xl:col-span-2
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+
                             id="ci" type="text" placeholder="Carnet de identidad" wire:model="ci" maxlength="8" 
-                            onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                            oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')"
+                            >
+
                             @error('ci') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
 
                         </div>
@@ -171,8 +174,8 @@
                         </div>
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                            id="correo" type="text" placeholder="Correo electrónico" wire:model="correo" maxlength="50"
-                            oninput="this.value = this.value.replace(/[^a-zA-Z0-9.@]/g, '')">
+                            id="correo" type="email" placeholder="Correo electrónico" wire:model="correo" maxlength="50"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z0-9.@_\-/]/g, '')">
                             @error('correo') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -267,7 +270,7 @@
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-500 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                             id="fecha-inicio-contrato" type="date" wire:model="fechaInicio"
-                            min="{{ date('Y-m-d')}}" max="{{ date('Y-m-d', strtotime('100 years')) }}">
+                            min="{{ date('Y') }}-01-01" max="{{ date('Y-m-d', strtotime('100 years')) }}">
                             @error('fechaInicio') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -303,10 +306,10 @@
                     <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         GUARDAR
                     </button>
-                    <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    <button type=button wire:click="$emit('show-modalConfirmacionVendedor')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                         CANCELAR
                     </button>
-                    @livewire('modal-confirmar-cerrar')
+                    @livewire('modal-confirmar-cerrar-vendedores')
                 </div>
             </div>
         </form>
