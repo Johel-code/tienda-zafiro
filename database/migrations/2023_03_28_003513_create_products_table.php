@@ -20,7 +20,7 @@ return new class extends Migration
             $table->double('precio');
             $table->string('marca');
             $table->date('fecha_vencimiento')->nullable();
-            $table->text('descripcion')->nullable();
+            $table->string('descripcion')->nullable();
             $table->string('image');
             $table->boolean('estado_product')->default(1);
             $table->double('costo_adquisicion');
