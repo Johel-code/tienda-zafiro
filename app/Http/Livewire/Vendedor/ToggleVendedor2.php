@@ -15,6 +15,7 @@ class ToggleVendedor2 extends Component
     public string $field;
     public $aux = '';
     public $mostrarModalSwitch = false;
+    public $mostrarModalSwitch2 = false;
     public function abrirModalSwitch()
     {
         $this->mostrarModalSwitch = true;
@@ -24,6 +25,7 @@ class ToggleVendedor2 extends Component
         $this->updating($this->field, false);
         $this->emit('resfresh');
         $this->mostrarModalSwitch = false;
+        $this->mostrarModalSwitch2 = false;
         $this->render();
         $this->isActive = false;
         $this->emit('refresh');
@@ -67,7 +69,19 @@ class ToggleVendedor2 extends Component
     {
         //$this->emit('refresh');
         if (!$this->isActive) {
-            $this->abrirModalSwitch();
+            //me ayudara a elegir que modal abrir
+            $contrato = Contract::where('user_id', '=', $this->user->id)->get();
+            foreach ($contrato as $contratos) {
+                $contratoPequeno = $contratos->fecha_fin;
+            }
+            if (empty($contratoPequeno)) {
+                $contratoPequeno = '2001-01-01';
+            }
+            if (date('Y-m-d', strtotime($contratoPequeno)) >= date('Y-m-d', strtotime(now()))) {
+                $this->abrirModalSwitch();
+            } else {
+                $this->mostrarModalSwitch2 = true;
+            }
         } else {
 
             if ($value) {

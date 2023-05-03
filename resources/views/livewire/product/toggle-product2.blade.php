@@ -9,25 +9,46 @@
         <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
             <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
-            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle" style="width: 9.5cm; height: 4.3cm;">
+            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all duration-75 align-middle" style="width: 10cm; height: 4.3cm;">
                 <!--Contenido-->
-                    <div class="flex justify-center mb-0 mt-2">
-                        <h2 class=" text-2xl font-semibold ">Este producto sera dado de alta<a href="http://lta" target="_blank" rel="noopener noreferrer"></a> </h2>
-                    </div>
-                    <div class="flex justify-center mb-0 mt-0">
-                        <h2 class=" text-xl font-medium">Producto: {{$product->name_product}}</h2>
-                    </div>
-                    <div class="flex justify-center mb-0 mt-0">
-                        <h2 class=" text-2xl font-semibold">¿Estás seguro?</h2>
-                    </div>
+                
+                <div class="mx-4 mb-0 mt-2">
+                    <h2 class="text-2xl font-bold">Activar Producto</h2>
+                    <p class="text-xl font-normal pt-1">¿Estás seguro con activar nuevamente al producto <span class="font-semibold">{{$product->name_product}}</span>?</p>
+                </div>
 
                 <div class="flex justify-center">
                     
                     <button type=button wire:click="confirmarSwitch()" class="rounded-md border border-white shadow-md 
-                         bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-1 mr-6  w-28">SI
+                         bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-0 mt-1 mr-6 w-24 h-9">SI
                     </button>
                     <button type=button wire:click="cerrarModalSwitch()" class="rounded-md border border-white shadow-md 
-                        bg-[#597AAB]  hover:bg-gray-700 font-bold text-white py-1 ml-6 w-28">NO
+                        bg-[#597AAB]  hover:bg-gray-700 font-bold text-white py-0 mt-1 ml-6 w-24 h-9">NO
+                    </button>
+                </div>
+    
+            <!--finContenido-->
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if($mostrarModalSwitch2)
+    <div class="fixed inset-0 z-20">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
+            <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
+            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all duration-75 align-middle" style="width: 10cm; height: 5cm;">
+                <!--Contenido-->
+                
+                <div class="mx-4 mb-0 mt-2">
+                    <h2 class="text-2xl font-bold">Producto Caducado</h2>
+                    <p class="text-xl font-normal pt-1">No puedes activar éste producto, por favor cambia la fecha de vencimiento para activar.</p>
+                </div>
+
+                <div class="flex justify-center">
+                     <button type=button wire:click="cerrarModalSwitch()" class="rounded-md border border-white shadow-md 
+                     bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-0 mt-1 w-24 h-9">CERRAR
                     </button>
                 </div>
     

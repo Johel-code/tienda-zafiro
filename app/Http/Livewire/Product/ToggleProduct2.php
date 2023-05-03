@@ -12,6 +12,7 @@ class ToggleProduct2 extends Component
     public string $field;
 
     public $mostrarModalSwitch = false;
+    public $mostrarModalSwitch2 = false;
     public function abrirModalSwitch()
     {
         $this->mostrarModalSwitch = true;
@@ -43,7 +44,12 @@ class ToggleProduct2 extends Component
             $this->product->setAttribute($this->field, $value)->save();
             $this->emit('refresh');
         }else{
-            $this->abrirModalSwitch();    
+            $temp = $this->product->getAttribute('fecha_vencimiento');
+            if (date('Y-m-d', strtotime($temp)) >= date('Y-m-d', strtotime(now())) || empty($temp)) {
+                $this->abrirModalSwitch();
+            } else {
+                $this->mostrarModalSwitch2 = true;
+            }   
         }
     }
 }
