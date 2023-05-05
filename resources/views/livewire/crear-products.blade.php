@@ -84,9 +84,9 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
                         id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0" maxlength="11"
-                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
-                        {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                        onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
+                            oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2){this.value = parseFloat(this.value).toFixed(2);}} 
+                            else if (this.value.length > 9){this.value = this.value.slice(0, 9);}">
 
                         @error('precio') <span class="error text-red-700">{{ $message }}</span> @enderror
                     </div>
@@ -168,8 +168,9 @@
                     <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                         id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0" max="999999999.99" maxlength="11"
-                        oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 9) {this.value = this.value.slice(0, 9);}"
-                        onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false"
+                        onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
+                            oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2){this.value = parseFloat(this.value).toFixed(2);}} 
+                            else if (this.value.length > 9){this.value = this.value.slice(0, 9);}""
                         >
                         @error('adquisicion') <span class="error text-red-700">{{ $message }}</span> @enderror
 

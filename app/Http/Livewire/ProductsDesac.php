@@ -13,9 +13,9 @@ class ProductsDesac extends Component
     public function render()
     {
         $category = Category::all();
-        $productsDesac = Product::where('estado_product', '=', 'false');
+        $productsDesac = Product::where('estado_product', 0)
+            ->orderBy('name_product', 'asc')->paginate(5);
 
-        $productsDesac = $productsDesac->orderBy('name_product', 'asc')->paginate(5);
         $this->emit('refrescarModal');
 
         return view('livewire.products-desac', [
