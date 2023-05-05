@@ -18,18 +18,16 @@ class CrearPersonal extends Component
     protected $rules = [
         'nombre' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
         'apellido' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/',
-        'direccion' => 'required|regex:/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]+$/',
+        'direccion' => 'required|regex:/^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚüÜ#.\s]+$/|min:10',
         'celular' => 'required|regex:/^[0-9]+$/|min:8',
-
         'ci' => 'required|regex:/^[0-9]{6}[a-zA-Z0-9]{0,2}$/|min:6|unique:users,ci',
-
         'correo' => 'required|email|regex:/^[a-zA-Z0-9.@_\-\/]+$/|unique:users,email',
         'password' => 'required|min:8',
-        'salario' => 'max:9999999999.99|nullable',
+        'salario' => 'required|min:4|max:9999999999.99|nullable',
         'genero' => 'nullable',//required
-        'fechaNacimiento' => 'date|before:18 years ago|nullable',
-        'fechaInicio' => 'date|nullable', 
-        'fechaFin' => 'date|after_or_equal:fechaInicio|nullable',
+        'fechaNacimiento' => 'required|date|before:18 years ago|nullable',
+        'fechaInicio' => 'required|date|nullable', 
+        'fechaFin' => 'required|date|after_or_equal:fechaInicio|nullable',
     ];
 
     protected $messages = [
@@ -41,6 +39,7 @@ class CrearPersonal extends Component
 
         'direccion.required' => 'Este campo es obligatorio',
         'direccion.regex' => 'Solo se admiten letras y números',
+        'direccion.min' => 'Minimo 10 caracteres',
 
         'celular.required' => 'Este campo es obligatorio',
         'celular.regex' => 'Solo se admiten números',
@@ -60,15 +59,18 @@ class CrearPersonal extends Component
         'password.min' => 'Mínimo 8 caracteres',
 
         'salario.regex' => 'Solo se admiten números',
+        'salario.required' => 'Este campo es obligatorio',
+        'salario.min' => 'Minimo 1000 bs',
+
         'fechaNacimiento.before' => 'Ingrese una fecha anterior a 18 años',
+        'fechaNacimiento.required' => 'Este campo es obligatorio',
+        
+        'fechaFin.required' => 'Este campo es obligatorio',
         'fechaFin.after_or_equal' => 'Ingrese una fecha posterior o igual a la fecha de inicio',
+        
+        'fechaInicio.required' => 'Este campo es obligatorio',
 
         //'genero.required' => 'Este campo es obligatorio',
-
-        //'fechaNacimiento.required' => 'Este campo es obligatorio',
-        //'fechaInicio.required' => 'Este campo es obligatorio',
-        //'fechaFin.required' => 'Este campo es obligatorio',
-        //'salario.required' => 'Este campo es obligatorio',
     ];
     
     public function render()
