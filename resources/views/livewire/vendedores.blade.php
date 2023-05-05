@@ -1,4 +1,4 @@
-<div>
+<div class="max-w-screen-sm">
     
     <div class="lg:ml-12 md:ml-8 sm:ml-8">
         <a href="/crear-personal">
