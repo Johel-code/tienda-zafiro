@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert([
             'name_rol'=> 'Vendedor',
         ]);
-        
+
         DB::table('users')->insert([//1
             'name' => 'admin',
             'email' => 'admin@gmail.com',
@@ -124,7 +124,7 @@ class DatabaseSeeder extends Seeder
             'activo_user' => 1,
             'role_id'=> 2,
         ]);
-        //inactivos
+        
         DB::table('users')->insert([//8
             'name' => 'Joaquin',
             'last_name' => 'Rosas Arze',
@@ -136,7 +136,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '1998/12/30',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
 
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '2002/08/01',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
 
@@ -166,7 +166,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '2004/10/31',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
 
@@ -181,7 +181,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '2003/10/04',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
 
@@ -196,7 +196,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '2002/09/21',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
 
@@ -211,7 +211,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '2003/10/15',
             'password' => bcrypt(12345678),
             'contraseña'=> bcrypt('abcdefgh'),
-            'activo_user' => 0,
+            'activo_user' => 1,
             'role_id'=> 2,
         ]);
         //\App\Models\Role::factory(2)->create();
