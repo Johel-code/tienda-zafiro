@@ -1,7 +1,7 @@
 <div>
 
     <div class="{{$with_reponsivos}}">
-        <div class="fixed transform duration-75 {{$sidebarOpen}} bg-[#021633] h-full">
+        <div class="fixed z-10 transform duration-75 {{$sidebarOpen}} bg-[#021633] h-full">
             
             <div class="h-10">
                 <div class="">
