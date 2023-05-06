@@ -25,7 +25,7 @@
     </header>
     <main class="">
         <div class="flex flex-row">
-            <x-sidebar />
+            @livewire('sidebar.sidebar')
             <div class="w-auto">
                 @yield('content')
             </div>
