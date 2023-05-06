@@ -16,7 +16,7 @@ class CrearPersonal extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nombre' => 'required',
+        'nombre' => 'required|regrex:/^([^ ]* ){4}[^ ]*$/',
         'apellido' => 'required',
         'direccion' => 'required',
         'celular' => 'required',
