@@ -17,8 +17,8 @@ class CrearPersonal extends Component
 
     protected $rules = [
         'nombre' => 'required|regrex:/^([^ ]* ){4}[^ ]*$/',
-        'apellido' => 'required',
-        'direccion' => 'required',
+        'apellido' => 'required|regrex:/^([^ ]* ){4}[^ ]*$/',
+        'direccion' => 'required|regrex:/^([^ ]* ){6}[^ ]*$/',
         'celular' => 'required',
         'ci' => 'required|unique:users,ci',
         'correo' => 'required|email|unique:users,email',/*regex:/^[a-zA-Z0-9\.]+$/|*/
