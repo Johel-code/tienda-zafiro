@@ -213,7 +213,7 @@
                     sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold font-anek" for="fecha-nacimiento">
-                                Fecha de nacimiento:
+                                Fecha de nacimiento:<span class="text-red-900">*</span>
 
                             </label>
                         </div>
@@ -235,7 +235,7 @@
                         <div class="lg:max-2xl:col-span-2 
                                     2xl:col-span-2">
                             <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-36 lg:max-xl:w-32 font-anek" for="sueldo-mes">
-                                Sueldo/mes:(Bs)
+                                Sueldo/mes:(Bs)<span class="text-red-900">*</span>
 
                             </label>
                         </div>
@@ -244,7 +244,7 @@
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
                             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                            id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" min= '0' max='9999999999.99'
+                            id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" min= '1000' max='9999999999.99'
                             oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
                             {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
@@ -263,7 +263,7 @@
                     sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold font-anek" for="fecha-inicio-contrato">
-                                Fecha inicio contrato:
+                                Fecha inicio contrato:<span class="text-red-900">*</span>
 
                             </label>
                         </div>
@@ -287,7 +287,7 @@
 
                             <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-40 lg:max-xl:w-32  font-anek" for="fecha-fin-contrato">
 
-                                Fecha fin contrato:
+                                Fecha fin contrato:<span class="text-red-900">*</span>
 
                             </label>
                         </div>
