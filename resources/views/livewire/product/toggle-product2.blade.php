@@ -9,7 +9,7 @@
         <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
             <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
-            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all duration-75 align-middle" style="width: 10cm; height: 4.3cm;">
+            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform align-middle" style="width: 10cm; height: 4.3cm;">
                 <!--Contenido-->
                 
                 <div class="mx-4 mb-0 mt-2">

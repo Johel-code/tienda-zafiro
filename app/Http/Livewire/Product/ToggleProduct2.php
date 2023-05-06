@@ -19,8 +19,11 @@ class ToggleProduct2 extends Component
     }
     public function cerrarModalSwitch()
     {
-        $this->updating($this->field, false);
-        redirect('/');
+        $this->mostrarModalSwitch = false;
+        $this->mostrarModalSwitch2 = false;
+        $this->isActive = false;
+        //$this->updating($this->field, false);
+        //redirect('/');
     }
     public function confirmarSwitch()
     {
@@ -42,7 +45,7 @@ class ToggleProduct2 extends Component
     {
         if ($this->isActive) {
             $this->product->setAttribute($this->field, $value)->save();
-            $this->emit('refresh');
+            //$this->emit('refresh');
         }else{
             $temp = $this->product->getAttribute('fecha_vencimiento');
             if (date('Y-m-d', strtotime($temp)) >= date('Y-m-d', strtotime(now())) || empty($temp)) {
