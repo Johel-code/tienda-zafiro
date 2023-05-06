@@ -1,5 +1,5 @@
 <div>
-    <div class="sm:px-8 lg:px-12">
+    <div class="sm:px-8">
         <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
