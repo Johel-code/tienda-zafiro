@@ -242,7 +242,7 @@
                         <div class="lg:max-2xl:col-span-2 
                                     2xl:col-span-2
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] input-no-arrows" 
 
                             id="sueldo-mes" type="number" step="0.50" placeholder="Sueldo por mes" wire:model="salario" maxlength="12" min= '1000' max='9999999999.99'
                             oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 

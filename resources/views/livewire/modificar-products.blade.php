@@ -59,8 +59,8 @@
                             </label>
                         </div>
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] appearance-none" 
-                            id="cantidad" type="text"  placeholder="Cantidad" wire:model="cantidad" min="0" max="999999999"
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] appearance-none input-no-arrows" 
+                            id="cantidad" type="number"  placeholder="Cantidad" wire:model="cantidad" min="0" max="999999999"
                             oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                             @error('cantidad') <span class="error text-red-700">{{ $message }}</span> @enderror
@@ -112,7 +112,7 @@
                             </label>
                         </div>
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] input-no-arrows" 
                             id="cantidad minima" type="number" placeholder="Cant. min." wire:model="cantidad_minima"min="10"
                             oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
                             onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
@@ -162,10 +162,10 @@
                             </label>
                         </div>
                         <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] font-anek" 
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] font-anek input-no-arrows" 
 
 
-                            id="costo Adquisicion" type="text" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0.50" max="9999.99"
+                            id="costo Adquisicion" type="number" step="0.01" placeholder="Costo Adq." sm:placeholder="Costo" wire:model="adquisicion" min="0.50" max="9999.99"
                             {{---------Validación de numeros con decimales (9 digitos y 2 decimales redondeado)------------}}
                             onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
                             oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2){this.value = parseFloat(this.value).toFixed(2);}} 
@@ -195,7 +195,7 @@
                         <div class="lg:max-2xl:col-span-2 
                                     2xl:col-span-2
                                     sm:max-lg:col-span-3 sm:max-lg:ml-12">
-                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]        custom-number-input   " 
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]      input-no-arrows      " 
                             id="precio" type="number" step="0.01" placeholder="Precio" wire:model="precio" min="0.50" max="9999.99"
                             {{---------Validación de numeros con decimales con punto (9 digitos y 2 decimales redondeado)------------}}
                             onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"

@@ -20,3 +20,9 @@
     animation: scaleOut 0.3s ease-in forwards;
     animation-iteration-count: 1;
 }
+
+.input-no-arrows::-webkit-inner-spin-button,
+.input-no-arrows::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
