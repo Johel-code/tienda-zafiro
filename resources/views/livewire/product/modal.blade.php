@@ -2,10 +2,11 @@
     {{-- Close your eyes. Count to one. That is how long forever feels. --}}
     <!-- Botón para abrir el modal -->
     <!--Modal-->
-    <div class="hidden fixed inset-0 z-20" id="modal<?php echo $product->id ?>">
+    @if($isOpen)
+    <div class="fixed inset-0 z-20" id="">
         <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
-            <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
+            <div class="modal-space-container sm:inline-block sm:align-middle sm:h-screen"></div>
             <div class="border-8 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all align-middle" style="width: 17cm; height: 10cm;">
                 <!--Contenido-->
                 <div class="flex justify-between">
@@ -13,7 +14,7 @@
                         <h2 class="text-xl font-bold ml-8 mt-5 text-ellipsis overflow-hidden">{{$product->name_product}}</h2>
                     </div>
                     <div>
-                        <button id="botonCerrar<?php echo $product->id ?>" class=" rounded-md  shadow-md px-2 bg-[#597AAB] text-white font-semibold">x</button>
+                        <button wire:click="cerrarModal()" id="botonCerrar" class=" rounded-md  shadow-md px-2 bg-[#597AAB] text-white font-semibold">x</button>
                     </div>
                 </div>
 
@@ -64,19 +65,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const botonAbrir<?php echo $product->id ?> = document.getElementById("botonAbrir<?php echo $product->id ?>");
-        const botonCerrar<?php echo $product->id ?> = document.getElementById("botonCerrar<?php echo $product->id ?>");
-
-        function AbrirModal() {
-            document.getElementById("modal<?php echo $product->id ?>").classList.remove("hidden");
-        }
-        botonAbrir<?php echo $product->id ?>.addEventListener("click", AbrirModal);
-
-        function cerrarModal() {
-            document.getElementById("modal<?php echo $product->id ?>").classList.add("hidden");
-        }
-        botonCerrar<?php echo $product->id ?>.addEventListener("click", cerrarModal);
-    </script>
+    @endif
 </div>

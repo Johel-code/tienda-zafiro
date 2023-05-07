@@ -10,6 +10,7 @@
   'product.toggle-product2' => 'App\\Http\\Livewire\\Product\\ToggleProduct2',
   'products' => 'App\\Http\\Livewire\\Products',
   'products-desac' => 'App\\Http\\Livewire\\ProductsDesac',
+  'sidebar.sidebar' => 'App\\Http\\Livewire\\Sidebar\\Sidebar',
   'vendedor.toggle-vendedor1' => 'App\\Http\\Livewire\\Vendedor\\ToggleVendedor1',
   'vendedor.toggle-vendedor2' => 'App\\Http\\Livewire\\Vendedor\\ToggleVendedor2',
   'vendedores' => 'App\\Http\\Livewire\\Vendedores',

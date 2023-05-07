@@ -1,6 +1,6 @@
 <div>
     
-    <div class="lg:ml-12 md:ml-8 sm:ml-8">
+    <div class="sm:ml-8">
         <a href="/crear-personal">
             <button class=" bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 AÑADIR
@@ -10,7 +10,7 @@
     
     <div class="py-1.5 2xl:py-2"></div>
  {{----------------------------Tabla vendedores habilitados--------------------------------}}
-    <div class="sm:px-8 lg:px-12">
+    <div class="sm:px-8">
         <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
             <table class="md:table-fixed w-full font-anek">
                 <colgroup>

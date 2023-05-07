@@ -19,21 +19,20 @@ class ToggleVendedor1 extends Component
     }
     public function cerrarModalSwitch()
     {
-        $this->updating($this->field, true);
-        $this->emit('resfresh');
+        //$this->updating($this->field, true);
+        //$this->emit('resfresh');
         $this->mostrarModalSwitch = false;
-        $this->render();
+        //$this->render();
         $this->isActive = true;
-        $this->emit('refresh');
+        //$this->emit('refresh');
         //redirect('/vendedores');
 
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
-
-        $this->render();
-        //redirect('/vendedores');
+        //$this->render();
+        redirect('/vendedores');
 
     }
 
@@ -66,8 +65,8 @@ class ToggleVendedor1 extends Component
                 $this->user->setAttribute('password', $temp);
             }
             $this->user->setAttribute($this->field, $value)->save();
-            $this->emit('refresh');
-            redirect('/vendedores');
+            //$this->emit('refresh');
+            //redirect('/vendedores');
         }
     }
 }
