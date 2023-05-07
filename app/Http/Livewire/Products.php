@@ -16,7 +16,7 @@ class Products extends Component
     //public $products;
     public $category;
 
-    protected $listeners = ['refresh' => 'render'];
+    //protected $listeners = ['refresh' => 'render'];
 
     public function updatingSearch()
     {
@@ -33,11 +33,16 @@ class Products extends Component
 
 
         $products = $products->orderBy('name_product', 'asc')->paginate(5);
-        $this->emit('refrescarModal');
+        //$this->emit('refrescarModal');
 
 
         return view('livewire.products', [
             'products' => $products
         ]);
+    }
+
+    public function mostrarModal($productId)
+    {
+        $this->emit('mostrarModal', $productId);
     }
 }
