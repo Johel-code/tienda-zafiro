@@ -2,6 +2,7 @@
   'crear-personal' => 'App\\Http\\Livewire\\CrearPersonal',
   'crear-products' => 'App\\Http\\Livewire\\CrearProducts',
   'crear-vendedor' => 'App\\Http\\Livewire\\CrearVendedor',
+  'emitir-factura' => 'App\\Http\\Livewire\\EmitirFactura',
   'modal-confirmar-cerrar' => 'App\\Http\\Livewire\\ModalConfirmarCerrar',
   'modal-confirmar-cerrar-vendedores' => 'App\\Http\\Livewire\\ModalConfirmarCerrarVendedores',
   'modificar-products' => 'App\\Http\\Livewire\\ModificarProducts',
