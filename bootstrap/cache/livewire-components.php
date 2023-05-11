@@ -15,4 +15,5 @@
   'vendedor.toggle-vendedor2' => 'App\\Http\\Livewire\\Vendedor\\ToggleVendedor2',
   'vendedores' => 'App\\Http\\Livewire\\Vendedores',
   'vendedores-inac' => 'App\\Http\\Livewire\\VendedoresInac',
+  'ventas' => 'App\\Http\\Livewire\\Ventas',
 );
