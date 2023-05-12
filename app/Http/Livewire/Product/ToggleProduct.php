@@ -19,11 +19,14 @@ class ToggleProduct extends Component
     }
     public function cerrarModalSwitch()
     {
-        $this->updating($this->field, true);
+        //$this->updating($this->field, true);
+        $this->mostrarModalSwitch = false;
+        $this->isActive=true;
     }
     public function confirmarSwitch()
     {
         $this->updating($this->field, false);
+        redirect('/');
     }
 
     public function mount()
@@ -46,8 +49,8 @@ class ToggleProduct extends Component
             $this->abrirModalSwitch();
         }else{
             $this->product->setAttribute($this->field, $value)->save();
-            $this->emit('refresh');
-            redirect('/');
+            //$this->emit('refresh');
+            //redirect('/');
         }
     }
     public function darDeBaja($id)

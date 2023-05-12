@@ -1,5 +1,5 @@
 <div>
-    <div class="sm:px-8 lg:px-12">
+    <div class="sm:px-8">
         <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
@@ -18,20 +18,17 @@
                     <tbody>
                         @foreach($productsDesac as $product)
                         <tr class="hover:bg-blue-200">
-                            <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
 
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
-                                <a class="hover:text-blue-700 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400">
                                     {{$product->name_product}}
-                                </a>
-                                <livewire:product.modal :product=$product :key="'modal'.$product->id">
                             </th>
 
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="pr-3 py-1 2xl:text-lg text-center  border-b border-gray-400">
                                 <livewire:product.toggle-product2 :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">

@@ -1,7 +1,7 @@
 <div>
     <div>
         <div class="flex flex-row place-content-between">
-            <div class="lg:ml-12 md:ml-8 sm:ml-8">
+            <div class="sm:ml-8">
                 <a href="/crear-products">
                     <button class=" bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         AÑADIR
@@ -9,7 +9,7 @@
                 </a>
             </div>  
 
-            <div class="flex sm:px-2 lg:px-12 lg:ml-48 md:ml-24 sm:ml-8">
+            <div class="flex sm:mr-8">
                 <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -22,14 +22,15 @@
         
         <div class="py-2"></div>        
 
-        <div class="sm:px-8 lg:px-12">
+        <div class="sm:px-8">
            @if(session()->has('message'))
                 <div class="bg-green-100 border border-green-400 text-green-700 py-3 rounded relative ml:120" role="alert" 
                 style="padding-left: 28px;">
                     <strong class="font-bold">{{ session('message') }}</strong>
                 </div>
             @endif
-
+            
+            <livewire:product.modal>
             <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
@@ -67,22 +68,24 @@
 
 
                         <tr class="hover:bg-blue-200">
-                            <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->codigo}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden border-b border-gray-400">
+                                {{$product->codigo}}
+                            </th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400 whitespace-nowrap">
+                                    {{ $product->name_product }}
+                                {{-- <a class="hover:text-blue-700 hover:underline" id="botonAbrir echo $product->id ?>" style="cursor:pointer;">
 
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400 whitespace-nowrap">
-                                <a class="hover:text-blue-700 hover:underline" id="botonAbrir<?php echo $product->id ?>" style="cursor:pointer;">
+                                    {{ $product->name_product }}
+                                </a> --}}
 
-                                    {{$product->name_product}}
-                                </a>
-
-                                <livewire:product.modal :product=$product :key="'modal'.$product->id">
+                                {{-- <livewire:product.modal :product=$product :key="'modal'.$product->id"> --}}
                             </th>
 
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
-                            <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->precio}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->cantidad_inventario}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">@if($product->fecha_vencimiento) {{date('d/m/Y', strtotime($product->fecha_vencimiento))}} @else Sin Vencimiento @endif</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$product->marca}}</th>
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">{{$category[$product->category_id-1]->name_categoy}}</th>
                             <td class="pr-3 py-1 2xl:text-lg text-center  border-b border-gray-400">
                                 <livewire:product.toggle-product :product="$product" :field="'estado_product'"
                                 :key="'toggle-button'.$product->id">
