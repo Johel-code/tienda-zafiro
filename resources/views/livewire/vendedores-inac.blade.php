@@ -1,4 +1,4 @@
-<div class="sm:px-8 lg:px-12">
+<div class="sm:px-8">
     <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
         <table class="md:table-fixed w-full font-anek">
             <colgroup>
@@ -52,7 +52,7 @@
                     </th>
                     <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">
                         @if($user->fecha_nacimiento)
-                            {{ date('d/m/Y', strtotime($user->fecha_nacimiento)) }}
+                            {{ date('d/m/Y', strtotime($user->fecha_nacimiento)) }} @else No Especificado
                         @endif
                         
                     </th>

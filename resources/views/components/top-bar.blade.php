@@ -1,7 +1,7 @@
 <div class="bg-white shadow-lg fixed z-10 w-full flex items-center justify-between h-14">
-    <div class="flex items-center justify-start w-14 md:w-64 h-14 border-none">
+    <div class="flex justify-start w-64 h-14 border-none">
         <a href="">
-            <img class="h-9 mx-auto px-5 md:object-cover md:h-full md:w-48 hidden md:block sm:w-8" src="{{ asset('logo/logo-fondo-blanco.png') }}" />
+            <img class="h-14 block w-34" src="{{ asset('logo/logo-fondo-blanco.png') }}" />
         </a>
         <a href="">
             <img class="md:hidden px-3 mx-auto" src="" />

@@ -12,14 +12,18 @@ class ToggleProduct2 extends Component
     public string $field;
 
     public $mostrarModalSwitch = false;
+    public $mostrarModalSwitch2 = false;
     public function abrirModalSwitch()
     {
         $this->mostrarModalSwitch = true;
     }
     public function cerrarModalSwitch()
     {
-        $this->updating($this->field, false);
-        redirect('/');
+        $this->mostrarModalSwitch = false;
+        $this->mostrarModalSwitch2 = false;
+        $this->isActive = false;
+        //$this->updating($this->field, false);
+        //redirect('/');
     }
     public function confirmarSwitch()
     {
@@ -41,9 +45,14 @@ class ToggleProduct2 extends Component
     {
         if ($this->isActive) {
             $this->product->setAttribute($this->field, $value)->save();
-            $this->emit('refresh');
+            //$this->emit('refresh');
         }else{
-            $this->abrirModalSwitch();    
+            $temp = $this->product->getAttribute('fecha_vencimiento');
+            if (date('Y-m-d', strtotime($temp)) >= date('Y-m-d', strtotime(now())) || empty($temp)) {
+                $this->abrirModalSwitch();
+            } else {
+                $this->mostrarModalSwitch2 = true;
+            }   
         }
     }
 }

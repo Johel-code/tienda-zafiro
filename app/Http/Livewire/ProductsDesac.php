@@ -16,12 +16,17 @@ class ProductsDesac extends Component
         $productsDesac = Product::where('estado_product', 0)
             ->orderBy('name_product', 'asc')->paginate(5);
 
-        $this->emit('refrescarModal');
+        //$this->emit('refrescarModal');
 
         return view('livewire.products-desac', [
             'productsDesac' => $productsDesac,
             'category' => $category
         ]);
         //return view('livewire.products-desac');
+    }
+    
+    public function mostrarModal($productId)
+    {
+        $this->emit('mostrarModal', $productId);
     }
 }

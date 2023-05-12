@@ -15,18 +15,20 @@ class ToggleVendedor2 extends Component
     public string $field;
     public $aux = '';
     public $mostrarModalSwitch = false;
+    public $mostrarModalSwitch2 = false;
     public function abrirModalSwitch()
     {
         $this->mostrarModalSwitch = true;
     }
     public function cerrarModalSwitch()
     {
-        $this->updating($this->field, false);
-        $this->emit('resfresh');
+        //$this->updating($this->field, false);
+        //$this->emit('resfresh');
         $this->mostrarModalSwitch = false;
-        $this->render();
+        $this->mostrarModalSwitch2 = false;
+        //$this->render();
         $this->isActive = false;
-        $this->emit('refresh');
+        //$this->emit('refresh');
         //redirect('/vendedores');
     }
     public function confirmarSwitch()
@@ -42,31 +44,19 @@ class ToggleVendedor2 extends Component
 
         if (date('Y-m-d', strtotime($contratoPequeno)) >= date('Y-m-d', strtotime(now()))) {
             $this->updating($this->field, true);
+            redirect('/vendedores');
         } else {
             $this->isActive = false;
-            $this->updating($this->field, false);
+            $this->mostrarModalSwitch = false;
+            $this->mostrarModalSwitch2 = false;
+            //$this->updating($this->field, false);
             //redirect('/vendedores');
         }
-        $this->emit('resfresh');
-        $this->mostrarModalSwitch = false;
-        $this->render();
+        //$this->emit('resfresh');
+        //$this->mostrarModalSwitch = false;
+        //$this->render();
     }
 
-    public $mostrarModalSwitch = false;
-    public function abrirModalSwitch()
-    {
-        $this->mostrarModalSwitch = true;
-    }
-    public function cerrarModalSwitch()
-    {
-        $this->updating($this->field, false);
-        redirect('/vendedores');
-    }
-    public function confirmarSwitch()
-    {
-        $this->updating($this->field, true);
-        redirect('/vendedores');
-    }
 
     public function mount()
     {
@@ -82,7 +72,19 @@ class ToggleVendedor2 extends Component
     {
         //$this->emit('refresh');
         if (!$this->isActive) {
-            $this->abrirModalSwitch();
+            //me ayudara a elegir que modal abrir
+            $contrato = Contract::where('user_id', '=', $this->user->id)->get();
+            foreach ($contrato as $contratos) {
+                $contratoPequeno = $contratos->fecha_fin;
+            }
+            if (empty($contratoPequeno)) {
+                $contratoPequeno = '2001-01-01';
+            }
+            if (date('Y-m-d', strtotime($contratoPequeno)) >= date('Y-m-d', strtotime(now()))) {
+                $this->abrirModalSwitch();
+            } else {
+                $this->mostrarModalSwitch2 = true;
+            }
         } else {
 
             if ($value) {
@@ -91,9 +93,9 @@ class ToggleVendedor2 extends Component
                 $this->user->setAttribute('contraseña', $temp);
             }
             $this->user->setAttribute($this->field, $value)->save();
-            $this->emit('refresh');
+            //$this->emit('refresh');
         }
-        $this->render();
+        //$this->render();
     }
 }
 //comentarioxd

@@ -21,9 +21,9 @@ class ModificarProducts extends Component
         ////'foto' => 'image|max:1024|mimes:jpg,jpeg,png',
         
         'cantidad' => 'required|numeric|min:1|max:999999999 ',
-        'precio' => 'required|numeric |min:0.01|max:999999999.99 ',
+        'precio' => 'required|numeric |min:0.01|max:9999.99 ',
         'cantidad_minima' => 'required|numeric|min:1|max:999999999',
-        'adquisicion' => 'required|numeric|min:0.01|max:999999999.99',
+        'adquisicion' => 'required|numeric|min:0.01|max:9999.99',
         'proveedor'  => 'required',
         'fecha' => 'after:today|nullable'
     ];
@@ -33,7 +33,7 @@ class ModificarProducts extends Component
             'adquisicion.required' => 'Este campo es obligatorio',
             'adquisicion.numeric' => 'Solo se admiten números enteros',
             'adquisicion.min' => 'Ingrese números mayores a 0',
-            'adquisicion.max' => 'Se admite solo 9 digitos enteros',
+            'adquisicion.max' => 'Se admite solo 4 digitos enteros',
 
             'cantidad_minima.required' => 'Este campo es obligatorio',
             'cantidad_minima.numeric' => 'Solo se admiten números enteros',
@@ -52,7 +52,7 @@ class ModificarProducts extends Component
 
             'precio.required' => 'Este campo es obligatorio',
             'precio.min' => 'Ingrese números mayores a 0',
-            'precio.max' => 'Se admite solo 9 digitos enteros',
+            'precio.max' => 'Se admite solo 4 digitos enteros',
 
             'categoria.required' => 'Este campo es obligatorio',
 
