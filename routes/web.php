@@ -30,10 +30,16 @@ use App\Http\Controllers\SessionsController;
 //          return view('dashboard');
 //      })->name('dashboard');
 //  });
-Route::get('/register', [RegisterController::class, 'create'])->name('register.index');
-Route::post('register',[RegisterController::class, 'store'])->name('register.store');
-Route::get('/login', [SessionsController::class, 'create'])->name('login.index');
-Route::post('/login',[SessionsController::class, 'store'])->name('login.store');
+
+Route::get('/logout',[SessionsController::class, 'destroy'])->name('login.destroy');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register',[RegisterController::class, 'store'])->name('register.store');
+    Route::get('/login', [SessionsController::class, 'create'])->name('login');
+    Route::post('/login',[SessionsController::class, 'store'])->name('login.store');
+});
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/', 'index-products')->name('home');

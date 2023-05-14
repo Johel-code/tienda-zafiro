@@ -99,13 +99,16 @@
                         <div class="border-t border-gray-200"></div>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}" x-data>
+                        <a href="{{ route('login.destroy') }}" class="block w-full px-4 py-2 text-left text-sm
+                        leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100
+                        transition duration-150 ease-in-out">Log Out</a>
+                        {{--<form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
 
                             <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
-                        </form>
+                        </form>--}}
                     </x-slot>
                 </x-dropdown>
             </div>
