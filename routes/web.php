@@ -31,7 +31,9 @@ use App\Http\Controllers\SessionsController;
 //      })->name('dashboard');
 //  });
 
-Route::get('/logout',[SessionsController::class, 'destroy'])->name('login.destroy');
+Route::get('/logout',[SessionsController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('login.destroy');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
