@@ -40,4 +40,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/crear-personal', 'index-create-personal');
 
     Route::view('/vendedores', 'index-vendedores');
+
+    //////
+    Route::view('/emitir-factura', 'index-emitir-factura');
 });
