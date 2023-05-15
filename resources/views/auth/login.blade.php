@@ -2,35 +2,40 @@
     <div style="background-image: url('logo/login_fondo.png'); background-size: cover; background-position: center;"
          class="fondo-login min-h-screen flex flex-col justify-center items-center">
         
-         <div class="modal-login w-8/12 sm:max-w-md  my-6 px-14 py-4 bg-white shadow-lg overflow-hidden rounded-lg">
+         <div class="modal-login px-12 pt-3 pb-2 bg-white shadow-lg overflow-hidden rounded-lg">
             
-            <div class="text-center mt-5 mb-5">
-                <span class="text-3xl font-anek font-bold text-[#063780]">INICIAR SESION</span>
+            <div class="text-center mt-7 mb-9 mx-7 px-6">
+                <label class="text-3xl font-anek font-bold text-[#063780]">INICIAR SESION</label>
             </div>
-            
+
             <form method="POST" action="">
                 @csrf
 
-                
-                <input type="email" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg
-                placeholder-gray-900 p-2 my-2 focus:bg-white" id="email" name="email">
+                <label class="block font-semibold text-xs text-gray-700 mb-1">Correo</label>
+                <input type="email" class="border border-gray-300 w-full rounded-md shadow-md h-8 text-sm"
+                id="email" name="email">
 
+                <div class="my-3"></div>
+
+                <label class="block font-semibold text-xs text-gray-700 mb-1">Contraseña</label>
                 <div class="relative">
-                    <input type="password" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Password" id="password" name="password">
-                    <img src="logo/eyeoculto.png" alt="" class="hover:border-white hover:border rounded-full cursor-pointer absolute translate-y-1/2 top-1 right-3 w-7 opacity-30" id="eye">
+                    <input type="password" class="border border-gray-300 w-full rounded-md shadow-md h-8 text-sm pr-9"
+                    id="password" name="password">
+                    <img src="logo/eyeoculto.png" alt="" class="hover:border-white hover:border rounded-full
+                    cursor-pointer absolute top-0 right-0 w-8 p-2 opacity-30" id="eye">
                 </div>
 
                 @error('message')
-                <p class="border border-red-500 rounded-md bg-red-100 w-full text-red-600 p-2 my-2">* {{ $message }}</p>
+                <p class="text-red-600 w-full rounded-md h-8 text-sm mt-3">{{ $message }}</p>
                 @enderror
 
-                <button type="submit" class=" rounded-md bg-indigo-500 w-full text-lg text-white font-semibold
-                p-2 my-3 hover:bg-indigo-600">Send</button>
+                <button type="submit" class="rounded-md bg-[#063780] hover:bg-[#063780f0] w-full text-xs text-gray-200 font-semibold h-8
+                p-2 mt-10 mb-8">Ingresar</button>
             </form>
 
         </div>
 
-        <div style="position: fixed; margin-top: 9rem; margin-right: -53rem; width: 27rem;" class="hidden sm:block">
+        <div style="position: fixed; margin-top: 10rem; margin-right: -52rem; width: 29rem; transform: rotate(-2deg);" class="hidden sm:block">
             <div class="self-end">
                 <img src="{{ asset('logo/zafiro.png') }}" alt="zafiro" class="">
             </div>

@@ -36,8 +36,13 @@ Route::get('/logout',[SessionsController::class, 'destroy'])
     ->name('login.destroy');
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [RegisterController::class, 'create'])->name('register');
-    Route::post('/register',[RegisterController::class, 'store'])->name('register.store');
+    //Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    //Route::post('/register',[RegisterController::class, 'store'])->name('register.store');
+    //este codigo redirige cualquier get ó post '/register' de nuevo a '/'
+        Route::match(['get', 'post'], '/register', function () {
+            return redirect('/');
+        });
+    //
     Route::get('/login', [SessionsController::class, 'create'])->name('login');
     Route::post('/login',[SessionsController::class, 'store'])->name('login.store');
 });
