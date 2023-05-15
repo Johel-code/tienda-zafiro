@@ -12,11 +12,11 @@ class SessionsController extends Controller
     }
 
     public function store(){
-        if(auth()-> attempt(request(['email','password'])) == false) {
-            return back()->withErrors([
-                'message'=> '*Usuario y/o contraseña no válidos'
-            ]);
-        }
+        //if(auth()-> attempt(request(['email','password'])) == false) {
+        //    return back()->withErrors([
+        //        'message'=> '*Usuario y/o contraseña no válidos'
+        //    ]);
+        //}
         return redirect()->to('/');
     }
 
