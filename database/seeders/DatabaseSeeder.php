@@ -17,13 +17,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         DB::table('roles')->insert([
-            'name_rol'=> 'Administrador',
+            'name' => 'Administrador',
+            'guard_name' => 'vista'
         ]);
         DB::table('roles')->insert([
-            'name_rol'=> 'Vendedor',
+            'name' => 'Vendedor',
+            'guard_name' => 'vista'
         ]);
 
-        DB::table('users')->insert([//1
+        DB::table('users')->insert([ //1
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
@@ -35,7 +37,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        DB::table('users')->insert([//2
+        DB::table('users')->insert([ //2
             'name' => 'Juan',
             'last_name' => 'Perez Ignacio',
             'direccion' => 'Av. Blanco Galindo nro 18',
@@ -45,12 +47,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Masculino',
             'fecha_nacimiento' => '1998/03/30',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//3
+        DB::table('users')->insert([ //3
             'name' => 'Pedro',
             'last_name' => 'Garcia Ignacio',
             'direccion' => 'Av. Villazon nro 107',
@@ -60,12 +62,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Masculino',
             'fecha_nacimiento' => '1995/08/31',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//4
+        DB::table('users')->insert([ //4
             'name' => 'Santiago',
             'last_name' => 'Rojas Ignacio',
             'direccion' => 'Av. Circunvalación nro 197',
@@ -75,12 +77,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Masculino',
             'fecha_nacimiento' => '1999/10/31',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//5
+        DB::table('users')->insert([ //5
             'name' => 'Judas',
             'last_name' => 'Ramirez Poveda',
             'direccion' => 'Av. Aroma nro 178',
@@ -90,12 +92,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Masculino',
             'fecha_nacimiento' => '1988/10/31',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//6
+        DB::table('users')->insert([ //6
             'name' => 'Rosa',
             'last_name' => 'Mamani Ignacio',
             'direccion' => 'Av. Heroinas nro 1788',
@@ -105,12 +107,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2000/09/25',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//7
+        DB::table('users')->insert([ //7
             'name' => 'Fernanda',
             'last_name' => 'Ferrufino Fernandez',
             'direccion' => 'Av. Blanco Galindo nro 1988',
@@ -120,12 +122,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2001/10/31',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
-        
-        DB::table('users')->insert([//8
+
+        DB::table('users')->insert([ //8
             'name' => 'Joaquin',
             'last_name' => 'Rosas Arze',
             'direccion' => 'Av. Blanco Galindo nro 718',
@@ -135,12 +137,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Masculino',
             'fecha_nacimiento' => '1998/12/30',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//9
+        DB::table('users')->insert([ //9
             'name' => 'Emilia Rosa',
             'last_name' => 'Garcia Ignacio',
             'direccion' => 'Av. Villazon nro 1707',
@@ -150,12 +152,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2002/08/01',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//10
+        DB::table('users')->insert([ //10
             'name' => 'Amelia',
             'last_name' => 'Rojas Sanchez',
             'direccion' => 'Av. Circunvalación nro 1797',
@@ -165,12 +167,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2004/10/31',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//11
+        DB::table('users')->insert([ //11
             'name' => 'Julieta',
             'last_name' => 'Ramirez Rojas',
             'direccion' => 'Av. Aroma nro 1778',
@@ -180,12 +182,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2003/10/04',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//12
+        DB::table('users')->insert([ //12
             'name' => 'Rosa Jazmin',
             'last_name' => 'Mamani Ignacio',
             'direccion' => 'Av. Heroinas nro 1788',
@@ -195,12 +197,12 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2002/09/21',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
 
-        DB::table('users')->insert([//13
+        DB::table('users')->insert([ //13
             'name' => 'Ana Maria',
             'last_name' => 'Montaño Fernandez',
             'direccion' => 'Av. Oquendo nro 17988',
@@ -210,9 +212,9 @@ class DatabaseSeeder extends Seeder
             'genero' => 'Femenino',
             'fecha_nacimiento' => '2003/10/15',
             'password' => bcrypt(12345678),
-            'contraseña'=> bcrypt('abcdefgh'),
+            'contraseña' => bcrypt('abcdefgh'),
             'activo_user' => 1,
-            'role_id'=> 2,
+            //'role_id'=> 2,
         ]);
         //\App\Models\Role::factory(2)->create();
         //\App\Models\User::factory(20)->create();
@@ -223,6 +225,5 @@ class DatabaseSeeder extends Seeder
         \App\Models\Provider::factory(10)->create();
         \App\Models\Product::factory(20)->create();
         \App\Models\Invoice_product::factory()->count(50)->create();
-
     }
 }
