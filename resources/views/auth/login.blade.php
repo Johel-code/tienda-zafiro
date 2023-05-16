@@ -12,8 +12,14 @@
                 @csrf
 
                 <label class="block font-semibold text-xs text-gray-700 mb-1">Correo</label>
-                <input type="email" class="border border-gray-300 w-full rounded-md shadow-md h-8 text-sm"
+                <input type="email" value="{{ old('email') }}" class="border border-gray-300 w-full rounded-md shadow-md h-8 text-sm"
                 id="email" name="email">
+                @error('email')
+                <small>
+                    <strong>{{ $message }}</strong>
+                </small>   
+                @enderror
+                
 
                 <div class="my-3"></div>
 
@@ -24,7 +30,12 @@
                     <img src="logo/eyeoculto.png" alt="" class="hover:border-white hover:border rounded-full
                     cursor-pointer absolute top-0 right-0 w-8 p-2 opacity-30" id="eye">
                 </div>
-
+                @error('password')
+                <small>
+                    <strong>{{ $message }}</strong>
+                </small>   
+                @enderror
+                
                 @error('message')
                 <p class="text-red-600 w-full rounded-md h-8 text-sm mt-3">{{ $message }}</p>
                 @enderror
