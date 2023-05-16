@@ -46,11 +46,11 @@
 
         </div>
 
-        <div style="position: fixed; margin-top: 10rem; margin-right: -52rem; width: 29rem; transform: rotate(-2deg);" class="hidden sm:block">
+        {{--<div style="position: fixed; margin-top: 10rem; margin-right: -52rem; width: 29rem; transform: rotate(-2deg);" class="hidden sm:block">
             <div class="self-end">
                 <img src="{{ asset('logo/zafiro.png') }}" alt="zafiro" class="">
             </div>
-        </div>
+        </div>--}}
 
         <script>
             var eye= document.getElementById('eye');
