@@ -52,10 +52,10 @@
             </form>
         </div>
 
-        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
+        <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
             <table class="md:table-fixed w-full font-anek">
                 <thead class="h-12">
-                    <tr class="bg-white text-dark">
+                    <tr class=" text-dark">
                         <th class="w-1/6 2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
                         <th class="w-2/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
                         <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
@@ -65,12 +65,19 @@
                 </thead>
             </table>
         </div> 
+    
+        <div>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+            <p>hola</p>
+        </div>
 
-        <div class="bg-white overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
+        <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
             <table class="md:table-fixed w-full font-anek">
                 <thead class="h-12">
-                    <tr class="bg-white text-dark">
-                        <th class="2xl:py-4 2xl:text-lg text-start text-ellipsis overflow-hidden border-t-2 border-black">Total (B):</th>
+                    <tr class=" text-dark">
+                        <th class="2xl:py-4 2xl:px-20 2xl:text-lg text-start text-ellipsis overflow-hidden border-t-2 border-black">Total (B):</th>
                     </tr>
                 </thead>
             </table>
