@@ -34,7 +34,7 @@
                 <thead class="h-12">
                     <tr class="text-dark">
                         <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Código</th>
-                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Nombre</th>
+                        <th class="2xl:text-lg text-left text-ellipsis overflow-hidden border-b border-black" colspan=2>Nombre</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
@@ -43,23 +43,25 @@
                 </thead>
                 <tbody>
                     <tr class="hover:bg-blue-200">
-                        <td class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> 4565
+                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> 4565
                         </td>
 
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap">Patito 500 gr
+                        <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>Patito 500 gr
                         </td>
 
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">10</td>
+                        <td id="precio" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">10</td>
                         
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">12</td>
+                        <td id="cantidad" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                            <input class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '0' max='999999' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                        </td>
 
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
+                        <td id="total-parcial" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
 
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">Quitar</td>
+                        <td id="quitar" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden text-red-600"><button type="button" class="delete-row-button">Quitar</button></td>
                     </tr>
 
                     <tr class="">
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total (Bs)</td>
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs)</td>
 
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">600</td>
                     </tr>
