@@ -2,7 +2,7 @@
     <div style="background-image: url('logo/login_fondo.png'); background-size: cover; background-position: center;"
          class="fondo-login min-h-screen flex flex-col justify-center items-center">
         
-         <div class="modal-login px-12 pt-3 pb-2 bg-white shadow-lg overflow-hidden rounded-lg">
+         <div class="fixed z-50 modal-login px-12 pt-3 pb-2 bg-white shadow-lg overflow-hidden rounded-lg">
             
             <div class="text-center mt-7 mb-9 mx-7 px-6">
                 <label class="text-3xl font-anek font-bold text-[#063780]">INICIAR SESION</label>
