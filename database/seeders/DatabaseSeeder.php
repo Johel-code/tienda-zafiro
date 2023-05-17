@@ -16,14 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('roles')->insert([
-            'name' => 'Administrador',
-            'guard_name' => 'vista'
-        ]);
-        DB::table('roles')->insert([
-            'name' => 'Vendedor',
-            'guard_name' => 'vista'
-        ]);
+        // DB::table('roles')->insert([
+        //     'name' => 'Administrador',
+        //     'guard_name' => 'vista'
+        // ]);
+        // DB::table('roles')->insert([
+        //     'name' => 'Vendedor',
+        //     'guard_name' => 'vista'
+        // ]);
+        $this->call(RoleSeeder::class);
 
         DB::table('users')->insert([ //1
             'name' => 'admin',

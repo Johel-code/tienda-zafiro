@@ -68,7 +68,7 @@
 
 
                         <tr class="hover:bg-blue-200">
-                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden border-b border-gray-400">
+                            <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">
                                 {{$product->codigo}}
                             </th>
                             <td wire:click="mostrarModal({{ $product->id }})" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400 whitespace-nowrap">
