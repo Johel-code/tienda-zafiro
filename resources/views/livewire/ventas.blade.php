@@ -1,5 +1,7 @@
 <div id="ventas-pre-factura" class="flex justify-center items center">
+
     <div class="px-16 w-full">
+        
         <div class="grid grid-cols-3">
             <div id="buscador" class="flex sm:mr-8">
                 <input wire:model="search" type="search"  class=" p-2.5 w-80 md:w-56 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-300 border border-gray-300 focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
@@ -27,7 +29,41 @@
         </div>
 
         <div id="canasta">
-            
+            <table class="md:table-fixed w-full font-anek">
+                <thead class="h-12">
+                    <tr class="bg-white text-dark">
+                        <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Total Parcial (Bs)</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Quitar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-blue-200">
+                        <td class="cursor-pointer px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden border-b border-gray-400"> 4565
+                        </td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis md:overflow-hidden ms:overflow-hidden  border-b border-gray-400   whitespace-nowrap">Patito 500 gr
+                        </td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">10</td>
+                        
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">12</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">120</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">Quitar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">Total</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-gray-400">600</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div id="botones-cancelar-continuar">
