@@ -14,7 +14,20 @@ class Ventas extends Component
 
     public $datos = [];
     protected $listeners =  ['clean-cerrar' => 'limpiar'];
+    protected $rules = [
+        'datos.*.cantidad' => 'required|numeric|min:1|max:50',
+    ];
 
+    protected $messages = [
+        'datos.*.cantidad.min' => 'Minimo: 1 ud.',
+        'datos.*.cantidad.max' => 'Máximo: 50 uds.',
+    ];
+
+    public function updated($cantidad)
+    {
+        $this->validateOnly($cantidad);
+    }
+    
     public function render()
     {
         $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
@@ -29,6 +42,7 @@ class Ventas extends Component
 
     public function agregar($id, $codigo)
     {
+        $this->validate();
         $existencia = false;
 
         foreach ($this->datos as &$dato) {
@@ -58,7 +72,11 @@ class Ventas extends Component
 
     public function actualizarCantidad($index, $valor)
     {
-        $this->datos[$index]['cantidad'] = $valor;
+        if($this->datos[$index]['cantidad'] < 50){
+            $this->datos[$index]['cantidad'] = $valor;
+        }else{
+            session()->flash('message', 'La cantidad máxima es 50');
+        }
     }
 
     public function quitar($index)
@@ -85,6 +103,7 @@ class Ventas extends Component
 
     public function redirigir()
     {
+        $this->validate();
         Session::put('datos', $this->datos);
         dd($this->datos);
         return redirect()->to('/');

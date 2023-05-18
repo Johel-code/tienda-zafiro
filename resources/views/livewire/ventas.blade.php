@@ -81,7 +81,9 @@
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['precio'] }}</td>
                         
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
-                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '0' max='999999' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" wire:model.lazy="datos.{{ $index }}.cantidad" wire:change="actualizarCantidad($index)">
+                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="2" min= '1' max='50' oninput="javascript:if (this.value.length > 2) {this.value = this.value.slice(0, 2);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" 
+                            wire:model.lazy="datos.{{ $index }}.cantidad" wire:change.lazy="actualizarCantidad($index)">
+                            @error('datos.'.$index.'.cantidad') <span class="error text-red-700 font-anek block">{{ $message }}</span> @enderror
                         </td>
 
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['cantidad'] * $dato['precio'] }}</td>
