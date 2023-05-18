@@ -14,7 +14,7 @@
 
                 <div class="flex justify-center">
                     
-                    <button type=button wire:click="emit" class="rounded-md border border-white shadow-md 
+                    <button type=button wire:click="$emit('clean-cerrar')" class="rounded-md border border-white shadow-md 
                          bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-1 mr-6  w-28">SI
                       </button>
                     <button type=button wire:click="cerrarModal()" class="rounded-md border border-white shadow-md 

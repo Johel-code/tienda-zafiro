@@ -99,13 +99,14 @@
         </div>
         
         <div id="botones-cancelar-continuar" class="flex justify-end mt-20">
-            <button type=button class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
+            <button type=button wire:click="$emit('show-modalConfirmacion')"class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
                 CANCELAR
             </button>
             <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
                 CONTINUAR
             </button>
         </div>
+        @livewire('modal-cerrar-ventas')
     </div>
     
 </div>
