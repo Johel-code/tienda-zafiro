@@ -10,14 +10,14 @@
                         2xl:mb-4 2xl:grid 2xl:grid-cols-3 2xl:gap-2
 
                         sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
-                            <div class="">
+                            <div class="col-span-1">
 
                                 <label class="block text-black-700 text-lg font-bold font-anek">
                                     NIT/CI:<span class="text-red-900">*</span>
 
                                 </label>
                             </div>
-                            <div class="sm:max-lg:col-span-3 sm:max-lg:ml-12">
+                            <div class="col-span-2 px-10 sm:max-lg:ml-12">
                                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                                 id="nit/ci" type="number" placeholder="NIT/CI" wire:model="nit/ci"min="0" max="999999999"
 
@@ -66,11 +66,11 @@
             </table>
         </div> 
     
-        <div>
-            <p>hola</p>
-            <p>hola</p>
-            <p>hola</p>
-            <p>hola</p>
+        <div class="px-28">
+            <p>00000</p>
+            <p>00000</p>
+            <p>00000</p>
+            <p>00000</p>
         </div>
 
         <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
@@ -82,5 +82,13 @@
                 </thead>
             </table>
         </div> 
+        <div class="flex justify-end pt-16 ">
+        <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded">
+            CANCELAR
+        </button>
+        <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            EMITIR FACTURA
+        </button>
+        </div>
     </div>
 </div>
