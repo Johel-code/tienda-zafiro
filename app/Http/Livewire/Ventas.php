@@ -80,12 +80,13 @@ class Ventas extends Component
     public function limpiar()
     {
         $this->datos = [];
+        $this->search = '';
     }    
 
     public function redirigir()
     {
         Session::put('datos', $this->datos);
-        
+        dd($this->datos);
         return redirect()->to('/');
     }
     
