@@ -50,7 +50,15 @@
                 </thead>
 
                 <tbody>
-                    
+                    <tr class="hover:bg-blue-200">
+                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> 4565</td>
+
+                        <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>Patito 500 gr</td>
+
+                        <td id="precio" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">10</td>
+                        
+                        <td id="cantidad" class=class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
+                    </tr>
 
                     <tr class="">
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total (Bs)</td>
