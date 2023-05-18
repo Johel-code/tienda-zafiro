@@ -5,7 +5,7 @@
         <div class="grid grid-cols-7 pb-20">
 
             <div id="buscador" class="col-span-4">
-                <input wire:model="search" type="search"  class=" p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border-none  focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar">
+                <input wire:model="search" type="search"  class=" p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border-none  focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar producto">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </button> --}}
@@ -24,7 +24,7 @@
                                     <tr class="hover:bg-gray-100"  wire:click="agregar('{{ $product->id }}', '{{ $product->codigo }}')">
                                         <td class="px-4 py-2 cursor-pointer">{{ $product->codigo }}</td>
                                         <td class="px-4 py-2 cursor-pointer">{{ $product->name_product }}</td>
-                                        <td class="px-4 py-2 cursor-pointer">{{ $product->precio }}</td>
+                                        <td class="px-4 pl-8 py-2 cursor-pointer">{{ $product->precio }}</td>
                                         <td class="px-4 py-2 cursor-pointer">{{ $product->marca }}</td>
                                     </tr>
                                 @endforeach
@@ -42,7 +42,7 @@
             <div id="cantidad" class="col-span-2 mx-8">
                 <input class="shadow appearance-none border rounded w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
 
-                id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="12" min= '0' max='9999999999.99'
+                id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="12" min= '1' max='50'
                 oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
                 {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
                 onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
@@ -61,7 +61,7 @@
             <table class="md:table-fixed w-full font-anek">
                 <thead class="h-12">
                     <tr class="text-dark">
-                        <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Código</th>
+                        <th class="2xl:py-4 2xl:text-lg text-left pl-2 text-ellipsis overflow-hidden border-b border-black">Código</th>
                         <th class="2xl:text-lg text-left text-ellipsis overflow-hidden border-b border-black" colspan=2>Nombre</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
@@ -81,7 +81,7 @@
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['precio'] }}</td>
                         
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
-                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '0' max='999999' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" wire:model.lazy="datos.{{ $index }}.cantidad" wire:change="actualizarCantidad($index)">
+                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 text-center border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '1' max='50' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" wire:model.lazy="datos.{{ $index }}.cantidad" wire:change="actualizarCantidad($index)">
                         </td>
 
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['cantidad'] * $dato['precio'] }}</td>
@@ -89,13 +89,14 @@
                         <td  class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden text-red-600"><button type="button" class="delete-row-button" wire:click="quitar({{ $index }})">Quitar</button></td>
                     </tr>
                     @endforeach
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs):</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">{{ $this->total() }}</td>
+                    </tr>
                 </tbody>
             </table>
-            <tr class="">
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs):</td>
-
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">{{ $this->total() }}</td>
-            </tr>
+            
         </div>
         
         <div id="botones-cancelar-continuar" class="flex justify-end mt-20">
