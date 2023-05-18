@@ -1,23 +1,17 @@
 <div class="flex flex-col">
-    <div class="sm:px-12">
-        <div>
-            <form wire:submit.prevent="submit" class="2xl:ml-6 2xl:pr-20 2xl:pl-0 xl:ml-6 xl:pr-20 xl:pl-0 my-2  md:px-6 sm:px-4">
+    <div class="px-16 2xl:pr-48">
+        <div class="">
 
-                <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
-                    2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
-                    <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-3 lg:max-2xl:gap-2    
-                        
-                        2xl:mb-4 2xl:grid 2xl:grid-cols-3 2xl:gap-2
-
-                        sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
-                            <div class="col-span-1">
+                <div class="">
+                    <div class="">
+                            <div class="">
 
                                 <label class="block text-black-700 text-lg font-bold font-anek">
                                     NIT/CI:<span class="text-red-900">*</span>
 
                                 </label>
                             </div>
-                            <div class="col-span-2 px-10 sm:max-lg:ml-12">
+                            <div class="2xl:col-span-4  xl:col-span-4  lg:col-span-3 lg:pl-4">
                                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
                                 id="nit/ci" type="number" placeholder="NIT/CI" wire:model="nit/ci"min="0" max="999999999"
 
@@ -28,67 +22,46 @@
                             </div>
                     </div>
 
-                    <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-3 lg:max-2xl:gap-16
-                        
-                        2xl:mb-4 2xl:grid 2xl:grid-cols-3 2xl:gap-16
-
-                        sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-3
-
-                        lg:gap-16 md:gap-0 sm:gap-0">
+                    <div class="">
                         <div class="">
-                            <label class="block text-black-700 text-lg font-bold 2xl:ml-12 xl:ml-8 lg:ml-4 w-10 font-anek" for="precio">
+                            <label class="block text-black-700 text-lg font-bold w-10 font-anek" for="precio">
                                 Señor(es):<span class="text-red-900">*</span>
 
                             </label>
                         </div>
-                        <div class="lg:max-2xl:col-span-2 
-                                    2xl:col-span-2
-                                    sm:max-lg:col-span-3 sm:max-lg:ml-12">
+                        <div class="">
                             <input class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                             id="señor(es)" type="text" placeholder="Señor(es)" wire:model="Señor(es)" maxlength="30">
                         </div>
                     </div>
                 </div>
-            </form>
         </div>
 
-        <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
+        <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 mt-10 shrink ">
             <table class="md:table-fixed w-full font-anek">
                 <thead class="h-12">
                     <tr class=" text-dark">
-                        <th class="w-1/6 2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
-                        <th class="w-2/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Cantidad (Ud)</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Total Parcial (Bs)</th>
+                        <th class="w-1/6 2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Código</th>
+                        <th class="w-2/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Nombre</th>
+                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
+                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
+                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
                     </tr>
                 </thead>
-            </table>
-        </div> 
-    
-        <div class="px-28">
-            <p>00000</p>
-            <p>00000</p>
-            <p>00000</p>
-            <p>00000</p>
-        </div>
 
-        <div class=" overflow-hidden overflow-x-auto shadow-x1 sm:rounded-lg pb-2 shrink">
-            <table class="md:table-fixed w-full font-anek">
-                <thead class="h-12">
-                    <tr class=" text-dark">
-                        <th class="2xl:py-4 2xl:px-20 2xl:text-lg text-start text-ellipsis overflow-hidden border-t-2 border-black">Total (B):</th>
+                <tbody>
+                    
+
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total (Bs)</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">600</td>
                     </tr>
-                </thead>
+                </tbody>
+
             </table>
         </div> 
-        <div class="flex justify-end pt-16 ">
-        <button type=button wire:click="$emit('show-modalConfirmacion')" class=" ml-32 bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded">
-            CANCELAR
-        </button>
-        <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            EMITIR FACTURA
-        </button>
-        </div>
+         
+        
     </div>
 </div>
