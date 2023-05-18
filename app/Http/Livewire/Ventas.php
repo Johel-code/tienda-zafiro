@@ -83,4 +83,5 @@ class Ventas extends Component
         return redirect()->to('/factura');
     }
     
+    
 }
