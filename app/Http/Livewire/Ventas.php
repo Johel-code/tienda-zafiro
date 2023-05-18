@@ -13,6 +13,7 @@ class Ventas extends Component
     public $search = "";
 
     public $datos = [];
+    protected $listeners =  ['clean-cerrar' => 'limpiar'];
 
     public function render()
     {
@@ -75,6 +76,11 @@ class Ventas extends Component
 
         return $suma;
     }
+
+    public function limpiar()
+    {
+        $this->datos = [];
+    }    
 
     public function redireccionar()
     {
