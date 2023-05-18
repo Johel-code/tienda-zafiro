@@ -53,7 +53,7 @@
                 </thead>
 
                 <tbody>
-                    <tr class="hover:bg-blue-200">
+                    <tr class="cursor-pointer">
                         <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden"> 4565</td>
 
                         <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>Patito 500 gr</td>
