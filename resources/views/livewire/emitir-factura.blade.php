@@ -2,8 +2,10 @@
     <div class="px-16 2xl:pr-48">
         <div class="">
 
-                <div class="">
-                    <div class="">
+                <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
+                    2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
+                    <div class="lg:max-2xl:grid   2xl:grid  lg:grid-cols-4  xl:grid-cols-6     
+                                2xl:grid-cols-7">
                             <div class="">
 
                                 <label class="block text-black-700 text-lg font-bold font-anek">
