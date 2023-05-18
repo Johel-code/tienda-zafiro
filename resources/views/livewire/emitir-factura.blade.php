@@ -34,7 +34,7 @@
                         </div>
                         <div class="2xl:col-span-6  xl:col-span-5  lg:col-span-4 lg:pl-4 lg:pr-0 lg:pl-8 ">
                             <input class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                            id="señor(es)" type="text" placeholder="Señor(es)" wire:model="Señor(es)" maxlength="30">
+                            id="señor(es)" type="text" placeholder="Señor(es)" wire:model="Señor(es)" maxlength="50">
                         </div>
                     </div>
                 </div>
@@ -44,23 +44,25 @@
             <table class="md:table-fixed w-full font-anek">
                 <thead class="h-12">
                     <tr class=" text-dark">
-                        <th class="w-1/6 2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Código</th>
-                        <th class="w-2/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Nombre</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
-                        <th class="w-1/6 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
+                        <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Código</th>
+                        <th class="2xl:text-lg text-left text-ellipsis overflow-hidden border-b border-black" colspan=2>Nombre</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr class="hover:bg-blue-200">
-                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> 4565</td>
+                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden"> 4565</td>
 
                         <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>Patito 500 gr</td>
 
                         <td id="precio" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">10</td>
                         
-                        <td id="cantidad" class=class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
+                        <td id="cantidad" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">15</td>
+
+                        <td id="total-parcial" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
                     </tr>
 
                     <tr class="">
