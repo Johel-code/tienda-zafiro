@@ -90,9 +90,9 @@
                 </tbody>
             </table>
             <tr class="">
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs)</td>
+                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs):</td>
 
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">600</td>
+                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">{{ $this->Total() }}</td>
             </tr>
         </div>
         
