@@ -20,7 +20,7 @@ class Ventas extends Component
         $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
                 ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
-        })->orderBy('name_product', 'asc')->get();
+        })->get();
     
         return view('livewire.ventas', [
             'products' => $products,
@@ -82,11 +82,11 @@ class Ventas extends Component
         $this->datos = [];
     }    
 
-    public function redireccionar()
+    public function redirigir()
     {
         Session::put('datos', $this->datos);
-        
-        return redirect()->to('/factura');
+        dd($this->datos);
+        return redirect()->to('/');
     }
     
     
