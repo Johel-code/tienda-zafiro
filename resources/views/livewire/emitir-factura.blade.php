@@ -62,6 +62,13 @@
             </table>
         </div> 
          
-        
+        <div class="flex justify-end mt-20">
+        <button type=button class=" bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
+            CANCELAR
+        </button>
+        <button type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
+            EMITIR FACTURA
+        </button>
+        </div>
     </div>
 </div>
