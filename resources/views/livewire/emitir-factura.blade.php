@@ -24,14 +24,15 @@
                             </div>
                     </div>
 
-                    <div class="">
+                    <div class="lg:max-2xl:grid   2xl:grid  lg:grid-cols-5  xl:grid-cols-6     
+                                2xl:grid-cols-7">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold w-10 font-anek" for="precio">
                                 Señor(es):<span class="text-red-900">*</span>
 
                             </label>
                         </div>
-                        <div class="">
+                        <div class="2xl:col-span-6  xl:col-span-5  lg:col-span-4 lg:pl-4 lg:pr-0 lg:pl-8 ">
                             <input class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
                             id="señor(es)" type="text" placeholder="Señor(es)" wire:model="Señor(es)" maxlength="30">
                         </div>
