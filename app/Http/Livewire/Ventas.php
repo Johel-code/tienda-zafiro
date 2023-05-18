@@ -46,7 +46,7 @@ class Ventas extends Component
                 'nombre' => $product->name_product,
                 //'cantidad_inventario' => $product->cantidad,
                 //'cantidad_minima' => $product->cantidad_minima,
-                'marca' => $product->marca,
+                //'marca' => $product->marca,
                 //'fecha_vencimiento' => $product->fecha,
                 'cantidad' => 1,
                 'precio' => $product->precio,

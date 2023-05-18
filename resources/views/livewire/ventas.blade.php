@@ -68,33 +68,34 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($datos as $index => $dato)
                     <tr class="hover:bg-blue-200">
-                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> 4565
+                        <td  class="px-3 py-1 2xl:py-3 2xl:text-lg t xt-center text-ellipsis overflow-hidden"> {{ $dato['codigo'] }}
                         </td>
 
-                        <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>Patito 500 gr
+                        <td  class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>{{ $dato['nombre'] }}
                         </td>
 
-                        <td id="precio" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">10</td>
+                        <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['precio'] }}</td>
                         
-                        <td id="cantidad" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
-                            <input class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '0' max='999999' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
+                        <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                            <input class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="5" min= '0' max='999999' oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2)  {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" wire:model.lazy="datos.{{ $index }}.cantidad" wire:change="actualizarCantidad($index)">
                         </td>
 
-                        <td id="total-parcial" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">120</td>
+                        <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['cantidad'] * $dato['precio'] }}</td>
 
-                        <td id="quitar" class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden text-red-600"><button type="button" class="delete-row-button">Quitar</button></td>
+                        <td  class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden text-red-600"><button type="button" class="delete-row-button" wire:click="quitar({{ $index }})">Quitar</button></td>
                     </tr>
-
-                    <tr class="">
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs)</td>
-
-                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">600</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
-        </div>
+            <tr class="">
+                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs)</td>
 
+                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">600</td>
+            </tr>
+        </div>
+        
         <div id="botones-cancelar-continuar" class="flex justify-end mt-20">
             <button type=button class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
                 CANCELAR
