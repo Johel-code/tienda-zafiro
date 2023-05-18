@@ -19,7 +19,7 @@ class Ventas extends Component
         $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
                 ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
-        })->orderBy('name_product', 'asc')->paginate(3);
+        })->orderBy('name_product', 'asc')->get();
     
         return view('livewire.ventas', [
             'products' => $products,

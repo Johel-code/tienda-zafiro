@@ -9,8 +9,9 @@
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </button> --}}
+                <div class="max-h-[200px] overflow-y-auto">
                 <table class="md:table-fixed w-full font-anek">
-                    <thead class="bg-gray-200">
+                    <thead class="bg-gray-200 max-h-[400px] overflow-y-auto">
                         @if (!empty($search))
                             @if ($products->count() > 0)
                                 <tr>
@@ -27,7 +28,7 @@
                                         <td class="px-4 py-2 cursor-pointer">{{ $product->marca }}</td>
                                     </tr>
                                 @endforeach
-                                {{ $products->links() }}
+                                
                             @else
                                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3">
                                     <strong class="font-bold">No se encontraron resultados</strong>
@@ -35,6 +36,7 @@
                             @endif
                         @endif
                 </table>
+            </div>
             </div>
 
             <div id="cantidad" class="col-span-2 mx-8">
@@ -49,7 +51,7 @@
 
             <div id="boton-añadir">
                 <button type="submit" class="bg-[#3988FF]
-                    hover:bg-blue-700 text-white font-bold py-2 px-8    rounded">
+                    hover:bg-blue-700 text-white font-bold py-2 px-8 rounded">
                     AÑADIR
                 </button>
             </div>
