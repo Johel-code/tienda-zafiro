@@ -16,7 +16,7 @@
                 id="email" name="email">
                 @error('email')
                 <small>
-                    <strong>{{ $message }}</strong>
+                    <p class="cursor-default text-red-700 w-full text-xs">{{ $message }}</p>
                 </small>   
                 @enderror
                 
@@ -32,12 +32,12 @@
                 </div>
                 @error('password')
                 <small>
-                    <strong>{{ $message }}</strong>
+                    <p class="cursor-default text-red-700 w-full text-xs">{{ $message }}</p>
                 </small>   
                 @enderror
                 
                 @error('message')
-                <p class="text-red-600 w-full rounded-md h-8 text-sm mt-3">{{ $message }}</p>
+                <p class="text-red-700 w-full h-8 text-sm mt-3">{{ $message }}</p>
                 @enderror
 
                 <button type="submit" class="rounded-md bg-[#063780] hover:bg-[#063780f0] w-full text-xs text-gray-200 font-semibold h-8
