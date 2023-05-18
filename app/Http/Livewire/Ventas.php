@@ -65,7 +65,7 @@ class Ventas extends Component
         unset($this->datos[$index]);
     }
     
-    public function Total()
+    public function total()
     {
         $suma = 0;
 
