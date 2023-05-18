@@ -44,10 +44,10 @@ class Ventas extends Component
             $this->datos[] = [
                 'codigo' => $codigo,
                 'nombre' => $product->name_product,
-                'cantidad_inventario' => $product->cantidad,
-                'cantidad_minima' => $product->cantidad_minima,
+                //'cantidad_inventario' => $product->cantidad,
+                //'cantidad_minima' => $product->cantidad_minima,
                 'marca' => $product->marca,
-                'fecha_vencimiento' => $product->fecha,
+                //'fecha_vencimiento' => $product->fecha,
                 'cantidad' => 1,
                 'precio' => $product->precio,
                 'IdProduct' => $product->id,
@@ -82,4 +82,5 @@ class Ventas extends Component
         
         return redirect()->to('/factura');
     }
+    
 }
