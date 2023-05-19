@@ -17,6 +17,13 @@
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
+            
+            <div class="fixed bottom-0 right-0 w-1/2 flex justify-end pl-60 duration-1000 transform transition-all">
+                <div class="">
+                    <img src="{{ asset('logo/zafiro.png') }}" alt="zafiro" class="hidden sm:block">
+                </div>
+            </div>
+
         </div>
     </body>
 </html>
