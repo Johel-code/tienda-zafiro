@@ -76,11 +76,7 @@ class Ventas extends Component
 
     public function actualizarCantidad($index, $valor)
     {
-        if($this->datos[$index]['cantidad'] < 50){
             $this->datos[$index]['cantidad'] = $valor;
-        }else{
-            session()->flash('message', 'La cantidad máxima es 50');
-        }
     }
 
     public function quitar($index)
