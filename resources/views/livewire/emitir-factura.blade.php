@@ -1,3 +1,4 @@
+
 <div class="flex flex-col">
     <div class="px-16 2xl:pr-48">
         <div class="">
@@ -85,3 +86,4 @@
         </div>
     </div>
 </div>
+
