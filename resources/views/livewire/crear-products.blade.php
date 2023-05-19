@@ -39,12 +39,12 @@
                 </div>
             </div>
             <div class="lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-4     
-            2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
+                2xl:grid 2xl:grid-cols-2 2xl:gap-4 ">
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid     lg:max-2xl:grid-cols-2 lg:max-2xl:gap-2    
                 
-                2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
+                    2xl:mb-4 2xl:grid 2xl:grid-cols-2 2xl:gap-2
 
-                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
+                    sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                     <div class="">
 
                         <label class="block text-black-700 text-lg font-bold font-anek" for="cantidad">
@@ -65,12 +65,9 @@
                 </div>
 
                 <div class="lg:max-2xl:mb-4 lg:max-2xl:grid lg:max-2xl:grid-cols-4 lg:max-2xl:gap-16
-                
-                2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
-
-                sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
-
-                lg:gap-16 md:gap-0 sm:gap-0">
+                    2xl:mb-4 2xl:grid 2xl:grid-cols-4 2xl:gap-16
+                    sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4
+                    lg:gap-16 md:gap-0 sm:gap-0">
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
                         <label class="block text-black-700 text-lg font-bold 2xl:ml-36 xl:ml-32 lg:ml-20 w-10 font-anek" for="precio">
