@@ -106,7 +106,7 @@ class Ventas extends Component
         $this->validate();
         Session::put('datos', $this->datos);
         dd($this->datos);
-        return redirect()->to('/');
+        return redirect()->to('/factura');
     }
     
     
