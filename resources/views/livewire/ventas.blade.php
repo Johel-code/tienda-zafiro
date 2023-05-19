@@ -92,7 +92,9 @@
                     </tr>
                     @endforeach
                 </tbody>
+                
             </table>
+            @error('datos') <strong class="error text-red-700 font-anek block text-center">{{ $message }}</strong> @enderror
             <tr class="">
                 <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs):</td>
 

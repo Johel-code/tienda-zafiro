@@ -14,11 +14,14 @@ class Ventas extends Component
 
     public $datos = [];
     protected $listeners =  ['clean-cerrar' => 'limpiar'];
+    
     protected $rules = [
+        'datos' => 'required',
         'datos.*.cantidad' => 'required|numeric|min:1|max:50',
     ];
 
     protected $messages = [
+        'datos.required' => 'Ingrese al menos 1 producto',
         'datos.*.cantidad.min' => 'Minimo: 1 ud.',
         'datos.*.cantidad.max' => 'Máximo: 50 uds.',
     ];
@@ -42,7 +45,7 @@ class Ventas extends Component
 
     public function agregar($id, $codigo)
     {
-        $this->validate();
+        //$this->validate();
         $existencia = false;
 
         foreach ($this->datos as &$dato) {
@@ -68,6 +71,7 @@ class Ventas extends Component
                 'IdProduct' => $product->id,
             ];
         }
+        $this->search = '';
     }
 
     public function actualizarCantidad($index, $valor)
