@@ -42,5 +42,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/vendedores', 'index-vendedores');
     Route::view('/ventas-realizadas','index-ventas');
     Route::view('/pre-factura','index-ventas');
-    Route::view('/factura','index-ventas');
+    Route::view('/factura','index-ventas') ;
 });
