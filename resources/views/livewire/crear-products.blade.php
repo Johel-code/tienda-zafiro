@@ -238,7 +238,7 @@
                     <div class="lg:max-2xl:col-span-2 
                                 2xl:col-span-2">
                         <label class="block text-black-700 text-lg font-bold mx-0 w-10 2xl:ml-36 xl:ml-32 lg:ml-20 md:ml-0 sm:ml-0 font-anek" for="fecha">
-                            Fecha:
+                            Fecha:<span class="text-red-900">*</span>
 
                         </label>
                     </div>
