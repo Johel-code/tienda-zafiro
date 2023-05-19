@@ -43,6 +43,12 @@ class Ventas extends Component
         ]);
     }
 
+    public function mount()
+    {
+        $this->datos = session('datos');
+        //dd($datos);
+    }
+
     public function agregar($id, $codigo)
     {
         //$this->validate();
@@ -105,7 +111,7 @@ class Ventas extends Component
     {
         $this->validate();
         Session::put('datos', $this->datos);
-        dd($this->datos);
+        //dd($this->datos);
         return redirect()->to('/factura');
     }
     
