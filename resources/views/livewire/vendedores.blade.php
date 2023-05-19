@@ -1,11 +1,13 @@
 <div>
     
     <div class="sm:ml-8">
+    @can('Admin.vista')
         <a href="/crear-personal">
             <button class=" bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 AÑADIR
             </button>
         </a>
+    @endcan
     </div>    
     
     <div class="py-1.5 2xl:py-2"></div>

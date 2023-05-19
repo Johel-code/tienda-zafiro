@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use App\Models\Role;
+//use App\Models\Role;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,12 +28,13 @@ class DatabaseSeeder extends Seeder
         //     'guard_name' => 'vista'
         // ]);
         $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
 
-        DB::table('users')->insert([ //1
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345678'),
-        ]);
+        // DB::table('users')->insert([ //1
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => bcrypt('12345678')
+        // ]);
         //\App\Models\User::factory(10)->create();
         // \App\Models\User::factory(10)->create();
 

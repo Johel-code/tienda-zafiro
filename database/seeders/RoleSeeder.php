@@ -18,18 +18,19 @@ class RoleSeeder extends Seeder
         $role1 = Role::create(['name' => 'Admin']);
         $role2 = Role::create(['name' => 'Vendedor']);
 
-        Permission::create(['name' => 'admin.home']);
+        Permission::create(['name' => 'Admin.vista'])->assignRole($role1);
+        Permission::create(['name' => 'Vendedor.vista'])->syncRoles([$role1, $role2]);
 
-        Permission::create(['name' => 'admin.products.index']);
-        Permission::create(['name' => 'admin.products.edit']);
-        Permission::create(['name' => 'admin.products.create']);
+        // Permission::create(['name' => 'admin.products.index'])->syncRoles([$role1]);
+        // Permission::create(['name' => 'admin.products.edit'])->syncRoles([$role1]);
+        // Permission::create(['name' => 'admin.products.create'])->syncRoles([$role1]);
 
-        Permission::create(['name' => 'admin.vendedor.index']);
-        Permission::create(['name' => 'admin.vendedor.edit']);
-        Permission::create(['name' => 'admin.vendedor.create']);
+        // Permission::create(['name' => 'admin.vendedor.index'])->syncRoles([$role1, $role2]);
+        // Permission::create(['name' => 'admin.vendedor.edit'])->syncRoles([$role1, $role2]);
+        // Permission::create(['name' => 'admin.vendedor.create'])->syncRoles([$role1, $role2]);
 
-        Permission::create(['name' => 'admin.ventas.index']);
-        Permission::create(['name' => 'admin.ventas.edit']);
-        Permission::create(['name' => 'admin.ventas.create']);
+        // Permission::create(['name' => 'admin.ventas.index'])->syncRoles([$role1, $role2]);
+        // Permission::create(['name' => 'admin.ventas.edit'])->syncRoles([$role1, $role2]);
+        // Permission::create(['name' => 'admin.ventas.create'])->syncRoles([$role1, $role2]);
     }
 }

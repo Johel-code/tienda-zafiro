@@ -28,9 +28,9 @@ use Illuminate\Support\Facades\Route;
 //          return view('dashboard');
 //      })->name('dashboard');
 //  });
+//->middleware('can:Admin.vista')
 
-
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->middleware('can:Admin.vista')->group(function () {
     Route::view('/', 'index-products')->name('home');
     //Route::view('/products', 'index-products');
     Route::view('/crear-products', 'index-create-products');
@@ -38,8 +38,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('modificar-producto/{id}', ModificarProducts::class);
 
     Route::view('/crear-personal', 'index-create-personal');
+});
 
+Route::middleware(['auth:sanctum', 'verified'])->middleware(['can:Vendedor.vista'])->group(function () {
     Route::view('/vendedores', 'index-vendedores');
-    Route::view('/ventas-realizadas','index-ventas');
-    Route::view('/pre-factura','index-ventas');
+    Route::view('/ventas-realizadas', 'index-ventas');
+    Route::view('/pre-factura', 'index-ventas');
 });
