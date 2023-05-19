@@ -27,7 +27,7 @@
                 <div class="">
 
                     <label class="block text-black-700 text-lg font-bold mx-0 w-10 font-anek" for="descripcion">
-                        Descripción
+                        Descripción<span class="text-red-900">*</span>
 
                     </label>
                 </div>
