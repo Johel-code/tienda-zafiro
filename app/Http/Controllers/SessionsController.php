@@ -44,7 +44,13 @@ class SessionsController extends Controller
                 $this->clearLoginAttempts($user);
 
                 $request->session()->regenerate();
-                return redirect()->to('/');
+                
+                if ($user->role_id === 1) {
+                    return redirect()->to('/');
+                }else{
+                    return redirect()->to('/vendedores');
+                }
+
             } else {
                 $this->incrementLoginAttempts($user);
             }
@@ -71,6 +77,8 @@ class SessionsController extends Controller
                 throw ValidationException::withMessages([
                     'message' => 'Tu cuenta ha sido bloqueada. Por favor, inténtalo mas tarde.' //de nuevo después de ' . $remainingTime . ' segundos.'
                 ]);
+            }else{
+                $user->login_attempts = 0;
             }
         }
     }
