@@ -50,3 +50,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('/pre-factura', 'index-ventas');
 
 });
+
+Route::get('/factura/preview', function () {
+    $codigoFactura = 'F001';
+    $ciNit = '123456789';
+    $nombreCliente = 'John Doe';
+    $productos = [
+        ['nombre' => 'Producto 1', 'precio' => 10, 'cantidad' => 2, 'subtotal' => 20],
+        ['nombre' => 'Producto 2', 'precio' => 15, 'cantidad' => 1, 'subtotal' => 15],
+    ];
+    $total = 35;
+
+    return view('factura', compact('codigoFactura', 'ciNit', 'nombreCliente', 'productos', 'total'));
+});
