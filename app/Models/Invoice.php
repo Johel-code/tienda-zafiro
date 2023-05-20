@@ -14,8 +14,8 @@ class Invoice extends Model
     ]; 
 
     //Relacion uno a muchos (inversa)
-    public function invoice_product(){
-    return $this->belongsTo('app\Http\Model\Invoice_product');
+    public function invoice_products(){
+    return $this->hasMany(Invoice_product::class);
     }
 
     public function user(){
@@ -23,7 +23,7 @@ class Invoice extends Model
     }
 
     public function customer(){
-        return $this->hasOne('app\Http\Model\Customer');
+        return $this->belongsTo(Customer::class);
     }
 
 }

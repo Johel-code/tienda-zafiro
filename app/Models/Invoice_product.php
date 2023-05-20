@@ -24,13 +24,13 @@ class Invoice_product extends Model
 
     protected $foreignKey2 = 'invoice_id';
 
-    public function products()
+    public function product()
     {
-        return $this->belongsToMany(Product::class, 'invoice_product', $this->foreignKey2, $this->foreignKey1)->withPivot(['cantidad_detalle', 'precio_unitario']);
+        return $this->belongsTo(Product::class);
     }
 
-    public function invoices()
+    public function invoice()
     {
-        return $this->belongsToMany(Invoice::class, 'invoice_product', $this->foreignKey1, $this->foreignKey2)->withPivot(['cantidad_detalle', 'precio_unitario']);
+        return $this->belongsTo(Invoice::class, 'invoice_product', $this->foreignKey1, $this->foreignKey2)->withPivot(['cantidad_detalle', 'precio_unitario']);
     }
 }

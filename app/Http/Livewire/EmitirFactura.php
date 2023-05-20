@@ -82,10 +82,12 @@ class EmitirFactura extends Component
         }
 
         //$this->generarPDF($this->factura, $cliente);
-        return redirect()->route('factura.pdf', $this->factura);
+       // return redirect()->to('factura/'.$this->factura->id);
+       $result = $this->factura->id;
+        return redirect()->route('factura.pdf', ['id' => $result]);
     }
 
-    public function generarPDF($factura)
+    public function generarPDF($id)
     {
         // $vista = view('factura', [
         //     'codigoFactura' => $factura->id,
@@ -97,13 +99,16 @@ class EmitirFactura extends Component
 
         // $pdf = Pdf::loadHtml($vista);
         // return $pdf->stream();
-
-        dd($factura);
-
+        $factura = Invoice::find($id);
         $facts = [
-            'codigoFactura' => 2,
-            'ci' =>1, 
+            'codigoFactura' => $id,
+            'ciNit' => $factura->customer->ci_nit, 
+            'nombreCliente' => $factura->customer->name_razon,
+            'productos' => $factura->invoice_products,
+            'total' => $factura->total_factura,
+            'fecha' => $factura->created_at
         ];
+        //dd($facts);
 
        // dd($vista);
         $pdf = Pdf::loadView('factura', compact('facts'));
