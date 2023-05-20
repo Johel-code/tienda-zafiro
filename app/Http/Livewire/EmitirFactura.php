@@ -98,7 +98,7 @@ class EmitirFactura extends Component
 
 
         $this->limpiar();
-        $this->redirigir();
+        //$this->redirigir();
 
         //$this->generarPDF($factura);
 
