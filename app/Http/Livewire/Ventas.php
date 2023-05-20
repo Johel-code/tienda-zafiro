@@ -45,7 +45,7 @@ class Ventas extends Component
 
     public function mount()
     {
-        $this->datos = session('datos');
+        //$this->datos = session('datos');
         //dd($datos);
     }
 
@@ -110,7 +110,7 @@ class Ventas extends Component
     public function redirigir()
     {
         $this->validate();
-        Session::put('datos', $this->datos);
+        //Session::put('datos', $this->datos);
         //dd($this->datos);
         return redirect()->to('/factura');
     }
