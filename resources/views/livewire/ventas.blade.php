@@ -2,7 +2,11 @@
 
     <div class="px-16 w-full md:px-10 sm:px-8">
 
-        <div class="sm:grid sm:grid-cols-1 lg:max-2xl:grid lg:max-2xl:grid-cols-3 pb-20">
+        <div class="sm:grid sm:grid-cols-1 
+                    lg:grid lg:grid-cols-3 
+                    xl:grid xl:grid-cols-3
+                    2xl:grid 2xl:grid-cols-3
+                    pb-20">
 
             <div id="buscador" class="pr-20 lg:pr-12 sm:pr-0 md:pr-0">
                 <input wire:model="search" type="search"  class=" p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border-none  focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar producto">
