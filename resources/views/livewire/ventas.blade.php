@@ -51,7 +51,7 @@
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
-                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Quitar</th>
+                        <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">      </th>
                     </tr>
                 </thead>
                 <tbody>
