@@ -17,7 +17,7 @@ class ContractFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=>$this->faker->numberBetween(1,10),
+            'user_id'=>$this->faker->unique()->numberBetween(1,14),
             'fecha_ini'=>$this->faker->dateTimeBetween('-1 month', 'now'),
             'fecha_fin'=>$this->faker->dateTimeBetween('now' , '+1 year'),
             'salario'=>$this->faker->numberBetween(1000,5000),
