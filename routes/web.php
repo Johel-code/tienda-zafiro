@@ -52,4 +52,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 });
 
-Route::get('/factura/pdf', [EmitirFactura::class, 'generarPDF'])->name('factura.pdf');
+Route::get('/factura/pdf/{$factura}', [EmitirFactura::class, 'generarPDF'])->name('factura.pdf');

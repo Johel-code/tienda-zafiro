@@ -81,22 +81,32 @@ class EmitirFactura extends Component
             $producto->save();
         }
 
-        //$this->generarPDF($factura);
-        return redirect()->route('factura.pdf');
+        //$this->generarPDF($this->factura, $cliente);
+        return redirect()->route('factura.pdf', $this->factura);
     }
 
-    public function generarPDF()
+    public function generarPDF($factura)
     {
-        $vista = view('factura', [
-            'codigoFactura' => 1,
-            'ciNit' => $this->nit,
-            'nombreCliente' => $this->cliente,
-            'productos' => $this->datos,
-            'total' => $this->suma,
-        ])->render();
+        // $vista = view('factura', [
+        //     'codigoFactura' => $factura->id,
+        //     'ciNit' => $cliente->ci_nit,
+        //     'nombreCliente' => $cliente->name_razon,
+        //     'productos' => $this->datos,
+        //     'total' => $factura->total_factura,
+        // ])->render();
 
-        dd($vista);
-        $pdf = Pdf::loadView('factura.pdf', $vista);
-         return $pdf->stream();
+        // $pdf = Pdf::loadHtml($vista);
+        // return $pdf->stream();
+
+        dd($factura);
+
+        $facts = [
+            'codigoFactura' => 2,
+            'ci' =>1, 
+        ];
+
+       // dd($vista);
+        $pdf = Pdf::loadView('factura', compact('facts'));
+        return $pdf->stream();
     }
 }
