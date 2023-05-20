@@ -48,7 +48,7 @@ class SessionsController extends Controller
                 if ($user->role_id === 1) {
                     return redirect()->to('/');
                 }else{
-                    return redirect()->to('/vendedores');
+                    return redirect()->to('/pre-factura');
                 }
 
             } else {

@@ -83,10 +83,10 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('Opciones') }}
                         </div>
 
-                        <x-dropdown-link href="{{ route('profile.show') }}">
+                        {{-- <x-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -94,14 +94,14 @@
                         <x-dropdown-link href="{{ route('api-tokens.index') }}">
                             {{ __('API Tokens') }}
                         </x-dropdown-link>
-                        @endif
+                        @endif --}}
 
                         <div class="border-t border-gray-200"></div>
 
                         <!-- Authentication -->
                         <a href="{{ route('login.destroy') }}" class="block w-full px-4 py-2 text-left text-sm
                         leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100
-                        transition duration-150 ease-in-out">Log Out</a>
+                        transition duration-150 ease-in-out">Cerrar Sesion</a>
                         {{--<form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
 

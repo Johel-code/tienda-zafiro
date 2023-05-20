@@ -56,13 +56,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::view('/crear-products', 'index-create-products');
         //Route::view( '/modificar-producto');
         Route::get('modificar-producto/{id}', ModificarProducts::class);
-
+        Route::view('/vendedores', 'index-vendedores');
         Route::view('/crear-personal', 'index-create-personal');
     });
 
     Route::middleware(['auth:sanctum', 'verified'])->middleware(['can:Vendedor.vista'])->group(function () {
-        Route::view('/vendedores', 'index-vendedores');
-        Route::view('/ventas-realizadas', 'index-ventas');
+        
+        //Route::view('/ventas-realizadas', 'index-ventas');
         Route::view('/pre-factura', 'index-ventas');
+        Route::view('/factura','index-factura');
+        Route::view('/emitir-factura', 'index-emitir-factura');
     });
 });
