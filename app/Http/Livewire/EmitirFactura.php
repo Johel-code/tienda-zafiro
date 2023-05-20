@@ -25,6 +25,7 @@ class EmitirFactura extends Component
     public function redirigir()
     {
         //dd($this->datos);
+        $this->datos =[];
         Session::put('datos', $this->datos);
         //dd($this->datos);
         return redirect()->to('/pre-factura');
