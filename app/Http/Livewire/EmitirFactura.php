@@ -5,12 +5,16 @@ namespace App\Http\Livewire;
 use App\Models\Customer;
 use App\Models\Invoice;
 use App\Models\Invoice_product;
+use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class EmitirFactura extends Component
 {
     public $datos, $suma, $nit, $cliente;
+    public $factura;
 
     public function render()
     {
@@ -58,56 +62,41 @@ class EmitirFactura extends Component
         $cliente->ci_nit = $this->nit;
         $cliente->save();
 
-        $factura = new Invoice;
-        $factura->total_factura = $this->suma;
-        $factura->user_id = auth()->user()->id;
-        $factura->customer_id = $cliente->id;
-        $factura->save();
+        $this->factura = new Invoice;
+        $this->factura->total_factura = $this->suma;
+        $this->factura->user_id = auth()->user()->id;
+        $this->factura->customer_id = $cliente->id;
+        $this->factura->save();
 
         foreach($this->datos as $dato){
             $detalle = new Invoice_product;
             $detalle->product_id = $dato['IdProduct'];
-            $detalle->invoice_id = $factura->id;
+            $detalle->invoice_id = $this->factura->id;
             $detalle->cantidad_detalle = $dato['cantidad'];
             $detalle->precio_unitario = $dato['precio'];
             $detalle->save();
+
+            $producto = Product::find($dato['IdProduct']);
+            $producto->cantidad_inventario = $producto->cantidad_inventario - $dato['cantidad'];
+            $producto->save();
         }
 
         //$this->generarPDF($factura);
+        return redirect()->route('factura.pdf');
     }
 
-    public function generarPDF($factura)
+    public function generarPDF()
     {
         $vista = view('factura', [
-            'codigoFactura' => $factura->id,
+            'codigoFactura' => 1,
             'ciNit' => $this->nit,
             'nombreCliente' => $this->cliente,
             'productos' => $this->datos,
             'total' => $this->suma,
         ])->render();
 
-        // Crear una nueva instancia de Dompdf
-        $dompdf = new Dompdf();
-
-        $dompdf->setPaper('letter');
-
-        // Cargar el contenido HTML en Dompdf
-        $dompdf->loadHtml($vista);
-
-        // Renderizar el PDF
-        $dompdf->render();
-
-        // Obtener el contenido del PDF como una cadena
-        $contenidoPDF = $dompdf->output();
-
-        // Generar una respuesta HTTP con el contenido del PDF
-        $response = new \Illuminate\Http\Response($contenidoPDF);
-
-        // Establecer las cabeceras para indicar que es un archivo PDF
-        $response->header('Content-Type', 'application/pdf');
-        $response->header('Content-Disposition', 'attachment; filename="factura.pdf"');
-
-        // Devolver la respuesta HTTP
-        return $response;
+        dd($vista);
+        $pdf = Pdf::loadView('factura.pdf', $vista);
+         return $pdf->stream();
     }
 }
