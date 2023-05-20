@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class Ventas extends Component
 {
     use WithPagination;
-    public $search = "";
+    public $search = "", $error;
 
     public $datos = [];
     protected $listeners =  ['clean-cerrar' => 'limpiar'];
@@ -46,20 +46,31 @@ class Ventas extends Component
     public function mount()
     {
         //$this->datos = session('datos');
+        //$this->datos = session('datos');
         //dd($datos);
     }
 
     public function agregar($id, $codigo)
     {
-        //$this->validate();
         $existencia = false;
 
+        $index = 0;
         foreach ($this->datos as &$dato) {
             if ($dato['codigo'] === $codigo) {
-                $dato['cantidad'] += 1;
+                $cantidadInventario = $dato['cantidad_inventario'];
+                $valor = $dato['cantidad'];
+
+                if ($valor > $cantidadInventario) {
+                    $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
+                    $this->error ++;
+                } else {
+                    $dato['cantidad'] += 1;
+                    $this->error--;
+                }
                 $existencia = true;
                 break;
             }
+            $index++;
         }
 
         if (!$existencia) {
@@ -68,8 +79,8 @@ class Ventas extends Component
             $this->datos[] = [
                 'codigo' => $codigo,
                 'nombre' => $product->name_product,
-                //'cantidad_inventario' => $product->cantidad,
-                //'cantidad_minima' => $product->cantidad_minima,
+                'cantidad_inventario' => $product->cantidad_inventario,
+                'cantidad_minima' => $product->cantidad_minima,
                 //'marca' => $product->marca,
                 //'fecha_vencimiento' => $product->fecha,
                 'cantidad' => 1,
@@ -77,12 +88,32 @@ class Ventas extends Component
                 'IdProduct' => $product->id,
             ];
         }
-        $this->search = '';
+        //$this->search = '';
     }
 
+    public function control($i, $valor){
+        $index = $i;
+        foreach ($this->datos as &$dato) {
+                $cantidadInventario = $dato['cantidad_inventario'];
+                $valor = $dato['cantidad'] ;
+
+                if ($valor > $cantidadInventario) {
+                    $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
+                }
+            $index++;
+        }
+    }
+    
     public function actualizarCantidad($index, $valor)
     {
+        $cantidadInventario = $this->datos[$index]['cantidad_inventario'];
+        if ($valor > $cantidadInventario) {
+            $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
+            $this->error ++;
+        }else{
             $this->datos[$index]['cantidad'] = $valor;
+            $this->error--;
+        }
     }
 
     public function quitar($index)
@@ -110,10 +141,12 @@ class Ventas extends Component
     public function redirigir()
     {
         $this->validate();
-        Session::put('datos', $this->datos);
-        //dd($this->datos);
-        return redirect()->to('/factura');
-    }
-    
-    
+        if ($this->error > 0) {
+            $this->control(0,0);
+        }else{
+            Session::put('datos', $this->datos);
+            return redirect()->to('/factura');
+        } 
+    }   
 }
+
