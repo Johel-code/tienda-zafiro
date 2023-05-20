@@ -2,12 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Invoice;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 
 class EmitirFactura extends Component
 {
     public $datos;
+    public $codigo, $nombre, $cantidad, $precio, $IdProduct; 
+
     public function render()
     {
         //dd($this->datos);
@@ -19,6 +22,12 @@ class EmitirFactura extends Component
     public function mount()
     {
         $this->datos = session('datos');
+        $this->codigo = $this->datos->codigo;
+        $this->nombre = $this->datos->nombre;
+        $this->cantidad = $this->datos->cantidad;
+        $this->precio = $this->datos->precio;
+        $this->IdProduct = $this->datos->IdProduct;
+
         //dd($datos);
     }
 
