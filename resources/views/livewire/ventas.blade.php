@@ -1,61 +1,46 @@
 <div id="ventas-pre-factura" class="flex justify-center items center">
 
-    <div class="px-16 pt-4 w-full">
+    <div class="px-16 w-full">
 
-        <div class="grid grid-cols-7 pb-20">
+        <div class="grid grid-cols-3 pb-20">
 
-            <div id="buscador" class="col-span-4">
+            <div id="buscador" class="">
                 <input wire:model="search" type="search"  class=" p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border-none  focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar producto">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </button> --}}
-                <div class="max-h-[200px] overflow-y-auto">
-                <table class="md:table-fixed w-full font-anek">
-                    <thead class="bg-gray-200 max-h-[400px] overflow-y-auto">
-                        @if (!empty($search))
-                            @if ($products->count() > 0)
-                                <tr>
-                                    <th class="px-4 py-2 text-left">Código</th>
-                                    <th class="px-4 py-2 text-left">Nombre</th>
-                                    <th class="px-4 py-2 text-left">Precio (Bs)</th>
-                                    <th class="px-4 py-2 text-left">Marca</th>
-                                </tr>
-                                @foreach($products as $product)
-                                    <tr class="hover:bg-gray-100"  wire:click="agregar('{{ $product->id }}', '{{ $product->codigo }}')">
-                                        <td class="px-4 py-2 cursor-pointer">{{ $product->codigo }}</td>
-                                        <td class="px-4 py-2 cursor-pointer">{{ $product->name_product }}</td>
-                                        <td class="px-4 py-2 cursor-pointer">{{ $product->precio }}</td>
-                                        <td class="px-4 py-2 cursor-pointer">{{ $product->marca }}</td>
-                                    </tr>
-                                @endforeach
-                                
-                            @else
-                                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3">
-                                    <strong class="font-bold">No se encontraron resultados</strong>
-                                </div>
-                            @endif
-                        @endif
-                </table>
-            </div>
-            </div>
-
-            <div id="cantidad" class="col-span-2 mx-8">
-                <input class="shadow appearance-none border rounded w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-
-                id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="12" min= '1' max='50'
-                oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2) 
-                {this.value = parseFloat(this.value).toFixed(2);}} else if (this.value.length > 10) {this.value = this.value.slice(0, 10);}"
-                onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                 
             </div>
-
-            <div id="boton-añadir">
-                <button type="submit" class="bg-[#3988FF]
-                    hover:bg-blue-700 text-white font-bold py-2 px-8 rounded">
-                    AÑADIR
-                </button>
+            <div class="max-h-[200px] overflow-y-auto col-span-2 pl-20">
+                    <table class="md:table-fixed w-full font-anek">
+                        <thead class="bg-[#D9D9D9] max-h-[400px] overflow-y-auto">
+                            @if (!empty($search))
+                                @if ($products->count() > 0)
+                                    <tr>
+                                        <th class="px-4 py-2 text-left">Código</th>
+                                        <th class="px-4 py-2 text-left">Nombre</th>
+                                        <th class="px-4 py-2 text-left">Precio (Bs)</th>
+                                        <th class="px-4 py-2 text-left">Marca</th>
+                                    </tr>
+                                    @foreach($products as $product)
+                                        <tr class="hover:bg-gray-100"  wire:click="agregar('{{ $product->id }}', '{{ $product->codigo }}')">
+                                            <td class="px-4 py-2 cursor-pointer">{{ $product->codigo }}</td>
+                                            <td class="px-4 py-2 cursor-pointer">{{ $product->name_product }}</td>
+                                            <td class="px-4 py-2 cursor-pointer">{{ $product->precio }}</td>
+                                            <td class="px-4 py-2 cursor-pointer">{{ $product->marca }}</td>
+                                        </tr>
+                                    @endforeach
+                                
+                                @else
+                                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3">
+                                        <strong class="font-bold">No se encontraron resultados</strong>
+                                    </div>
+                                @endif
+                            @endif
+                    </table>
             </div>
         </div>
+
 
         <div id="canasta">
             <table class="md:table-fixed w-full font-anek">
@@ -81,7 +66,7 @@
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">{{ $dato['precio'] }}</td>
                         
                         <td  class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
-                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="2" min= '1' max='50' oninput="javascript:if (this.value.length > 2) {this.value = this.value.slice(0, 2);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" 
+                            <input id="cantidad_{{ $index }}" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" id="cantidad" type="number" step="1" placeholder="Cantidad" maxlength="2" min= '1' max='50' oninput="javascript:if (this.value.length > 2) {this.value = this.value.slice(0, 2);}" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" 
                             wire:model.lazy="datos.{{ $index }}.cantidad" wire:change="actualizarCantidad({{ $index }}, $event.target.value)">
                             @error('datos.'.$index.'.cantidad')<div class="error">{{ $message }}</div>@enderror
                         </td>
