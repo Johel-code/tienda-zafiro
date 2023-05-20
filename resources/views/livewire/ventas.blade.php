@@ -1,17 +1,17 @@
 <div id="ventas-pre-factura" class="flex justify-center items center">
 
-    <div class="px-16 w-full">
+    <div class="px-16 w-full md:px-10 sm:px-8">
 
-        <div class="grid grid-cols-3 pb-20">
+        <div class="sm:grid sm:grid-cols-1 lg:max-2xl:grid lg:max-2xl:grid-cols-3 pb-20">
 
-            <div id="buscador" class="">
+            <div id="buscador" class="pr-20 lg:pr-12 sm:pr-0 md:pr-0">
                 <input wire:model="search" type="search"  class=" p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border-none  focus:ring-gray-300 focus:border-gray-300" placeholder="Buscar producto">
                 {{-- <button type="submit" class="absolute top-0 left-96 ml-20 pl-4 p-2.5 bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-gray-200 focus:ring-2 focus:outline-none focus:ring-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </button> --}}
                 
             </div>
-            <div class="max-h-[200px] overflow-y-auto col-span-2 pl-20">
+            <div class="max-h-[200px] overflow-y-auto col-span-2">
                     <table class="md:table-fixed w-full font-anek">
                         <thead class="bg-[#D9D9D9] max-h-[400px] overflow-y-auto">
                             @if (!empty($search))
@@ -19,7 +19,7 @@
                                     <tr>
                                         <th class="px-4 py-2 text-left">Código</th>
                                         <th class="px-4 py-2 text-left">Nombre</th>
-                                        <th class="px-4 py-2 text-left">Precio (Bs)</th>
+                                        <th class="px-4 py-2 text-left">Precio(Bs)</th>
                                         <th class="px-4 py-2 text-left">Marca</th>
                                     </tr>
                                     @foreach($products as $product)
@@ -43,11 +43,11 @@
 
 
         <div id="canasta">
-            <table class="md:table-fixed w-full font-anek">
+            <table class=" w-full font-anek">
                 <thead class="h-12">
                     <tr class="text-dark">
                         <th class="2xl:py-4 2xl:text-lg text-left pl-2 text-ellipsis overflow-hidden border-b border-black">Código</th>
-                        <th class="2xl:text-lg text-left text-ellipsis overflow-hidden border-b border-black" colspan=2>Nombre</th>
+                        <th class="2xl:text-lg text-left text-ellipsis overflow-hidden border-b border-black" colspan=2 sm:colspan=1 md:colspan=1>Nombre</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Precio (Bs)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Cantidad (Ud)</th>
                         <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b border-black">Total Parcial (Bs)</th>
@@ -76,15 +76,19 @@
                         <td  class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden text-red-600"><button type="button" class="delete-row-button" wire:click="quitar({{ $index }})">Quitar</button></td>
                     </tr>
                     @endforeach
+                    
+                    @error('datos') <strong class="error text-red-700 font-anek block text-center">{{ $message }}</strong> @enderror
+                    <tr class="border-t border-black">
+                        <td class="" colspan=3></td>
+
+                        <td class="cursor-pointer pr-3 pl-10 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=2>Total (Bs)</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">{{ $this->total() }}</td>
+                     </tr>
                 </tbody>
                 
             </table>
-            @error('datos') <strong class="error text-red-700 font-anek block text-center">{{ $message }}</strong> @enderror
-            <tr class="">
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=6>Total (Bs):</td>
-
-                <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">{{ $this->total() }}</td>
-            </tr>
+            
         </div>
         
         <div id="botones-cancelar-continuar" class="flex justify-end mt-20">
