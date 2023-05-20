@@ -91,7 +91,7 @@
         </div> 
          
         <div class="flex justify-end mt-20">
-        <button type=button class=" bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
+        <button type=button wire:click.prevent="redirigir()" class=" bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
             CANCELAR
         </button>
         <button wire:click.prevent="submit()" type="submit" class="bg-[#3988FF] hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">

@@ -31,24 +31,23 @@ class EmitirFactura extends Component
     public function render()
     {
         //dd($this->datos);
-        return view('livewire.emitir-factura',[
+        return view('livewire.emitir-factura', [
             'datos' => $this->datos
         ]);
-        
     }
     public function mount()
     {
         $this->datos = session('datos');
         $this->suma = $this->total();
-//        dd($this->datos);
-        
-       // dd($this->datos);
+        //        dd($this->datos);
+
+        // dd($this->datos);
     }
 
     public function redirigir()
     {
         //dd($this->datos);
-        $this->datos =[];
+        // $this->datos =[];
         Session::put('datos', $this->datos);
         //dd($this->datos);
         return redirect()->to('/pre-factura');
@@ -67,7 +66,7 @@ class EmitirFactura extends Component
 
     public function submit()
     {
-//        $this->validate();
+        //        $this->validate();
 
         $cliente = new Customer;
         $cliente->name_razon = $this->cliente;
@@ -80,7 +79,7 @@ class EmitirFactura extends Component
         $factura->customer_id = $cliente->id;
         $factura->save();
 
-        foreach($this->datos as $dato){
+        foreach ($this->datos as $dato) {
             $detalle = new Invoice_product;
             $detalle->product_id = $dato['IdProduct'];
             $detalle->invoice_id = $factura->id;

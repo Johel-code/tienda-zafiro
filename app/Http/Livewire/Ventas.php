@@ -14,7 +14,7 @@ class Ventas extends Component
 
     public $datos = [];
     protected $listeners =  ['clean-cerrar' => 'limpiar'];
-    
+
     protected $rules = [
         'datos' => 'required',
         'datos.*.cantidad' => 'required|numeric|min:1|max:50',
@@ -30,14 +30,14 @@ class Ventas extends Component
     {
         $this->validateOnly($cantidad);
     }
-    
+
     public function render()
     {
         $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
                 ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
         })->get();
-    
+
         return view('livewire.ventas', [
             'products' => $products,
         ]);
@@ -45,7 +45,7 @@ class Ventas extends Component
 
     public function mount()
     {
-        //$this->datos = session('datos');
+        $this->datos = session('datos');
         //dd($datos);
     }
 
@@ -64,7 +64,7 @@ class Ventas extends Component
 
         if (!$existencia) {
             $product = Product::findOrFail($id);
-            
+
             $this->datos[] = [
                 'codigo' => $codigo,
                 'nombre' => $product->name_product,
@@ -82,14 +82,14 @@ class Ventas extends Component
 
     public function actualizarCantidad($index, $valor)
     {
-            $this->datos[$index]['cantidad'] = $valor;
+        $this->datos[$index]['cantidad'] = $valor;
     }
 
     public function quitar($index)
     {
         unset($this->datos[$index]);
     }
-    
+
     public function total()
     {
         $suma = 0;
@@ -105,7 +105,7 @@ class Ventas extends Component
     {
         $this->datos = [];
         $this->search = '';
-    }    
+    }
 
     public function redirigir()
     {
@@ -114,6 +114,4 @@ class Ventas extends Component
         //dd($this->datos);
         return redirect()->to('/factura');
     }
-    
-    
 }
