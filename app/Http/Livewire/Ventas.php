@@ -46,7 +46,7 @@ class Ventas extends Component
     public function mount()
     {
 
-        //$this->datos = session('datos');
+        $this->datos = session('datos');
         //$this->datos = session('datos');
 
         //dd($datos);
@@ -63,8 +63,8 @@ class Ventas extends Component
                 $valor = $dato['cantidad'];
 
                 if ($valor > $cantidadInventario) {
-                    $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
-                    $this->error ++;
+                    $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
+                    $this->error++;
                 } else {
                     $dato['cantidad'] += 1;
                     $this->error--;
@@ -93,31 +93,31 @@ class Ventas extends Component
         //$this->search = '';
     }
 
-    public function control($i, $valor){
+    public function control($i, $valor)
+    {
         $index = $i;
         foreach ($this->datos as &$dato) {
-                $cantidadInventario = $dato['cantidad_inventario'];
-                $valor = $dato['cantidad'] ;
+            $cantidadInventario = $dato['cantidad_inventario'];
+            $valor = $dato['cantidad'];
 
-                if ($valor > $cantidadInventario) {
-                    $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
-                }
+            if ($valor > $cantidadInventario) {
+                $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
+            }
             $index++;
         }
     }
-    
+
     public function actualizarCantidad($index, $valor)
     {
 
         $cantidadInventario = $this->datos[$index]['cantidad_inventario'];
         if ($valor > $cantidadInventario) {
-            $this->addError('datos.'.$index.'.cantidad', 'Se excede al inventario de '.$cantidadInventario);
-            $this->error ++;
-        }else{
+            $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
+            $this->error++;
+        } else {
             $this->datos[$index]['cantidad'] = $valor;
             $this->error--;
         }
-
     }
 
     public function quitar($index)
@@ -147,12 +147,10 @@ class Ventas extends Component
         $this->validate();
 
         if ($this->error > 0) {
-            $this->control(0,0);
-        }else{
+            $this->control(0, 0);
+        } else {
             Session::put('datos', $this->datos);
             return redirect()->to('/factura');
-        } 
-    }   
-
+        }
+    }
 }
-
