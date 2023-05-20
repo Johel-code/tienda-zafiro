@@ -110,7 +110,7 @@ class Ventas extends Component
     public function redirigir()
     {
         $this->validate();
-        //Session::put('datos', $this->datos);
+        Session::put('datos', $this->datos);
         //dd($this->datos);
         return redirect()->to('/factura');
     }

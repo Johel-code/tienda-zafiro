@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class EmitirFactura extends Component
 {
-    public $datos;
-    public $codigo, $nombre, $cantidad, $precio, $IdProduct; 
+    public $datos, $suma, $nit, $cliente;
 
     public function render()
     {
@@ -22,13 +21,10 @@ class EmitirFactura extends Component
     public function mount()
     {
         $this->datos = session('datos');
-        $this->codigo = $this->datos->codigo;
-        $this->nombre = $this->datos->nombre;
-        $this->cantidad = $this->datos->cantidad;
-        $this->precio = $this->datos->precio;
-        $this->IdProduct = $this->datos->IdProduct;
-
-        //dd($datos);
+        $this->suma = $this->total();
+//        dd($this->datos);
+        
+       // dd($this->datos);
     }
 
     public function redirigir()
@@ -40,13 +36,25 @@ class EmitirFactura extends Component
         return redirect()->to('/pre-factura');
     }
 
+    public function total()
+    {
+        $suma = 0;
+
+        foreach ($this->datos as $dato) {
+            $suma += $dato['cantidad'] * $dato['precio'];
+        }
+
+        return $suma;
+    }
+
     public function submit()
     {
+        dd($this->nit);
         $this->validate();
         $factura = new Invoice;
         
         $factura->save();
-        generarPDF();
+        //$this->generarPDF();
     }
 
     public function generarPDF()
