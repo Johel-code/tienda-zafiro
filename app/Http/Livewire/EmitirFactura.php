@@ -66,7 +66,7 @@ class EmitirFactura extends Component
 
     public function submit()
     {
-        //        $this->validate();
+        $this->validate();
 
         $cliente = new Customer;
         $cliente->name_razon = $this->cliente;
