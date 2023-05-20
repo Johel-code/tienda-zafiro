@@ -28,7 +28,7 @@ class SessionsController extends Controller
             'email.required' => 'Por favor ingrese el campo obligatorio (*) faltante',
             'email.email' => 'Ingrese una dirección de correo electrónico válida',
             'password.required' => 'Por favor ingrese el campo obligatorio (*) faltante',
-            //'password.string' => 'La contraseña debe ser una cadena de texto',
+            ///'password.string' => 'La contraseña debe ser una cadena de texto',
             //'password.min' => 'La contraseña debe tener al menos 8 caracteres de longitud',
             //'password.regex' => 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número'
         ]);
