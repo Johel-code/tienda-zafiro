@@ -35,7 +35,7 @@
                     <td class="px-4 py-3 border-b">{{ $producto['nombre'] }}</td>
                     <td class="px-4 py-3 border-b">{{ $producto['precio'] }}</td>
                     <td class="px-4 py-3 border-b">{{ $producto['cantidad'] }}</td>
-                    <td class="px-4 py-3 border-b">{{ $producto['subtotal'] }}</td>
+                    <td class="px-4 py-3 border-b">{{ $producto['cantidad']*$producto['precio'] }}</td>
                 </tr>
                 @endforeach
             </tbody>
