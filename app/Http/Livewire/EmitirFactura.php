@@ -50,7 +50,6 @@ class EmitirFactura extends Component
 
     public function redirigir()
     {
-        //dd($this->datos);
         // $this->datos =[];
         Session::put('datos', $this->datos);
         //dd($this->datos);
@@ -98,7 +97,6 @@ class EmitirFactura extends Component
 
 
         $this->limpiar();
-        //$this->redirigir();
 
         //$this->generarPDF($factura);
 
@@ -134,7 +132,7 @@ class EmitirFactura extends Component
 
        // dd($vista);
         $pdf = Pdf::loadView('factura', compact('facts'));
-        return $pdf->stream();
+        return $pdf->download('invoice.pdf');
     }
     public function limpiar()
     {

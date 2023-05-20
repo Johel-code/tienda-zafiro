@@ -64,7 +64,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->middleware(['can:Vendedor.vista'])->group(function () {
         
         //Route::view('/ventas-realizadas', 'index-ventas');
-        Route::view('/pre-factura', 'index-ventas');
+        Route::view('/pre-factura', 'index-ventas')->name('pre-factura');
         Route::view('/factura','index-factura');
         Route::view('/emitir-factura', 'index-emitir-factura');
     });
