@@ -46,7 +46,7 @@ class Ventas extends Component
     public function mount()
     {
 
-        if (empty($datos)) {
+        if (!empty($datos)) {
             $this->datos = session('datos');
         }
 

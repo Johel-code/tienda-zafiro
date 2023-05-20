@@ -24,12 +24,12 @@ class EmitirFactura extends Component
     ];
 
     protected $messages = [
-        'nit' => 'Este campo es obligatorio',
-        'nit' => 'Solo admite números enteros',
-        'nit' => 'Ingrese números mayores a 0',
+        'nit.required' => 'Este campo es obligatorio',
+        'nit.numeric' => 'Solo admite números enteros',
+        'nit.max' => 'Ingrese números mayores a 0',
 
-        'cliente' => 'Este campo es obligatorio',
-        'cliente' => 'Solo se admiten 50 caracteres',
+        'cliente.required' => 'Este campo es obligatorio',
+        'cliente.max' => 'Solo se admiten 50 caracteres',
     ];
 
     public function render()
