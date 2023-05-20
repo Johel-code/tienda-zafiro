@@ -11,8 +11,8 @@ class Product extends Model
 
     protected $table = "products";
 
-    public function invoice_product() {
-        return $this->hasMany('app\Http\Model\Invoice_product');
+    public function invoice_products() {
+        return $this->hasMany(Invoice_product::class);
     } 
 
     public function categoria()
