@@ -16,10 +16,12 @@
                 <div class="inline-block align-top {{$with_reponsivos}}">
                     <ul class="fixed z-10 py-0 space-y-1 {{$with_reponsivos}} bg-[#021633] h-full">
                         <li>
+                        @can('Admin.vista')
                             <a href="/" class="relative flex flex-row justify-between items-center h-11 focus:outline-none hover:bg-[#597AAB] focus:bg-[#597AAB] text-white-600 hover:text-white-800 focus:text-white-800 border-l-4 border-transparent hover:border-blue-500 focus:border-blue-500 dark:hover:border-gray-800 pl-1 pr-0 {{ request()->is('/') ? 'bg-[#597AAB]' : '' }} {{ request()->is('crear-products') ? 'bg-[#597AAB]' : '' }}">
                                 <span class="hidden {{$smblock}} sm:ml-1 md:ml-6 text-[15px] font-anek font-medium">Productos</span>
                                 <svg class="{{$smhidden}}" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" height="29" viewBox="0 96 960 960" width="29"><path d="M120 1016V726q0-78.85 56-134.425Q232 536 310 536h60V196q0-24.75 17.625-42.375T430 136h100q24.75 0 42.375 17.625T590 196v340h60q78.85 0 134.425 55.575Q840 647.15 840 726v290H120Zm60-60h105V826q0-12.75 9-21.375T315.5 796q12.5 0 21 8.625T345 826v130h105V826q0-12.75 9-21.375T480.5 796q12.5 0 21 8.625T510 826v130h105V826q0-12.75 9-21.375T645.5 796q12.5 0 21 8.625T675 826v130h105V726q0-54.167-37.917-92.083Q704.167 596 650 596H310q-54.167 0-92.083 37.917Q180 671.833 180 726v230Zm350-420V196H430v340h100Z"/></svg>
                             </a>
+                        @endcan
                         </li>
                         <li>
                         <a href="/vendedores" class="relative flex flex-row justify-between items-center h-11 focus:outline-none hover:bg-[#597AAB] focus:bg-[#597AAB] text-white-600 hover:text-white-800 focus:text-white-800 border-l-4 border-transparent hover:border-blue-500 focus:border-blue-500 dark:hover:border-gray-800 pl-1 pr-0 {{ request()->is('vendedores') ? 'bg-[#597AAB]' : '' }} {{ request()->is('crear-personal') ? 'bg-[#597AAB]' : '' }}">
