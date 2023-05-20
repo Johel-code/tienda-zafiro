@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\Invoice_product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 
@@ -49,22 +51,39 @@ class EmitirFactura extends Component
 
     public function submit()
     {
-        dd($this->nit);
-        $this->validate();
+//        $this->validate();
+
+        $cliente = new Customer;
+        $cliente->name_razon = $this->cliente;
+        $cliente->ci_nit = $this->nit;
+        $cliente->save();
+
         $factura = new Invoice;
-        
+        $factura->total_factura = $this->suma;
+        $factura->user_id = auth()->user()->id;
+        $factura->customer_id = $cliente->id;
         $factura->save();
-        //$this->generarPDF();
+
+        foreach($this->datos as $dato){
+            $detalle = new Invoice_product;
+            $detalle->product_id = $dato['IdProduct'];
+            $detalle->invoice_id = $factura->id;
+            $detalle->cantidad_detalle = $dato['cantidad'];
+            $detalle->precio_unitario = $dato['precio'];
+            $detalle->save();
+        }
+
+        //$this->generarPDF($factura);
     }
 
-    public function generarPDF()
+    public function generarPDF($factura)
     {
         $vista = view('factura', [
-            'codigoFactura' => $this->codigoFactura,
-            'ciNit' => $this->ciNit,
-            'nombreCliente' => $this->nombreCliente,
-            'productos' => $this->productos,
-            'total' => $this->total,
+            'codigoFactura' => $factura->id,
+            'ciNit' => $this->nit,
+            'nombreCliente' => $this->cliente,
+            'productos' => $this->datos,
+            'total' => $this->suma,
         ])->render();
 
         // Crear una nueva instancia de Dompdf
