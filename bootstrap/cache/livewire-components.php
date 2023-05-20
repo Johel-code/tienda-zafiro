@@ -3,6 +3,7 @@
   'crear-products' => 'App\\Http\\Livewire\\CrearProducts',
   'crear-vendedor' => 'App\\Http\\Livewire\\CrearVendedor',
   'emitir-factura' => 'App\\Http\\Livewire\\EmitirFactura',
+  'modal-cerrar-ventas' => 'App\\Http\\Livewire\\ModalCerrarVentas',
   'modal-confirmar-cerrar' => 'App\\Http\\Livewire\\ModalConfirmarCerrar',
   'modal-confirmar-cerrar-vendedores' => 'App\\Http\\Livewire\\ModalConfirmarCerrarVendedores',
   'modificar-products' => 'App\\Http\\Livewire\\ModificarProducts',
