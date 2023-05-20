@@ -88,6 +88,9 @@ class EmitirFactura extends Component
             $detalle->save();
         }
 
+        $this->limpiar();
+        $this->redirigir();
+
         //$this->generarPDF($factura);
     }
 
@@ -124,5 +127,9 @@ class EmitirFactura extends Component
 
         // Devolver la respuesta HTTP
         return $response;
+    }
+    public function limpiar()
+    {
+        $this->datos = [];
     }
 }
