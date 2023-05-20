@@ -96,10 +96,17 @@ class EmitirFactura extends Component
             $producto->save();
         }
 
+
+        $this->limpiar();
+        //$this->redirigir();
+
+        //$this->generarPDF($factura);
+
         //$this->generarPDF($this->factura, $cliente);
        // return redirect()->to('factura/'.$this->factura->id);
        $result = $this->factura->id;
         return redirect()->route('factura.pdf', ['id' => $result]);
+
     }
 
     public function generarPDF($id)
@@ -128,5 +135,9 @@ class EmitirFactura extends Component
        // dd($vista);
         $pdf = Pdf::loadView('factura', compact('facts'));
         return $pdf->stream();
+    }
+    public function limpiar()
+    {
+        $this->datos = [];
     }
 }
