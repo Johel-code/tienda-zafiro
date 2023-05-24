@@ -19,6 +19,15 @@
             border-radius: 5px;
         }
 
+        body .container .header {
+            display:flex;
+            
+        }
+
+        body .container .titulo-factura {
+            text-align: center;
+        }
+
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -35,8 +44,6 @@
         }
 
         .invoice-details {
-            display: flex;
-            justify-content: space-between;
             margin-bottom: 20px;
         }
 
@@ -68,19 +75,45 @@
             text-align: right;
             font-weight: bold;
         }
+
+        body .container .mensaje-final {
+            padding: 40px 0px;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="">
     <div class="container">
         <div class="header">
-            <h1>Factura</h1>
-            <p>Fecha: {{  $facts['fecha']  }}</p>
+            <a href="{{ route('dashboard') }}">
+                        <x-application-mark class="block h-9 w-auto" />
+            </a>
+            <h1>TIENDA ZAFIRO</h1>
+            
         </div>
 
+        <div>
+            <p>Av. América esq. Av. Melchor Perez</p>
+            <p>Teléfono: 4563211</p>
+            <p>Cochabamba-Bolivia</p> <br>
+            <hr>
+            
+        </div>
+
+        <div class="titulo-factura">
+            <h1>FACTURA</h1>
+            <p>(Con Derecho a Crédito Fiscal)</p> <br> 
+            <hr>
+        </div>
         <div class="invoice-details">
+            <p>Cod. Autorización: 45D7D069F9D8EE8D4E29FC3640BAE05121ADC7C2349E0BD857D8FD74</p>
+            <p>NIT: 1020948890</p>
             <p class="text-lg font-bold">Código de Factura: {{ $facts['codigoFactura'] }}</p>
+            <p>Fecha: {{  $facts['fecha']  }}</p><br>
+            <hr>
             <p class="mt-2">CI/NIT: {{ $facts['ciNit'] }}</p>
             <p class="mt-2">Señor(es): {{ $facts['nombreCliente'] }}</p>
+            
         </div>
 
         <table class="table">
@@ -109,6 +142,12 @@
                 </tr>
             </tfoot>
         </table>
+        <div class="mensaje-final">
+            <p>No se aceptan cambios ni devoluciones. </p>
+            <p>Gracias por su compra.</p>
+        </div>
+        
+
     </div>
 </body>
 </html>
