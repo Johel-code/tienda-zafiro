@@ -16,7 +16,7 @@
                             </div>
                             <div class="2xl:col-span-4  xl:col-span-4  lg:col-span-3 lg:pl-4">
                                 <input wire:model="nit" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                                id="nit/ci" type="number" placeholder="NIT/CI" min="0" max="999999999"
+                                id="nit/ci" type="number" placeholder="Escriba aquí el NIT o CI" min="0" max="999999999"
 
                                 oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
 
@@ -36,7 +36,7 @@
                         </div>
                         <div class="2xl:col-span-6  xl:col-span-5  lg:col-span-4 lg:pl-4 lg:pr-0 lg:pl-8 ">
                             <input class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1]" 
-                            id="señor(es)" type="text" placeholder="Señor(es)" wire:model="cliente" maxlength="50">
+                            id="señor(es)" type="text" placeholder="Escriba aquí la razón social o el nombre" wire:model="cliente" maxlength="50">
                             @error('cliente') <span class="error text-red-700">{{ $message }}</span> @enderror
                         </div>
                     </div>

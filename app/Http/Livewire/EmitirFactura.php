@@ -9,6 +9,8 @@ use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use DateTime;
+use DateTimeZone;
 
 
 class EmitirFactura extends Component
@@ -126,13 +128,16 @@ class EmitirFactura extends Component
         // $pdf = Pdf::loadHtml($vista);
         // return $pdf->stream();
         $factura = Invoice::find($id);
+        $fecha = new DateTime($factura->created_at, new DateTimeZone('UTC'));
+        $fecha->setTimezone(new DateTimeZone('America/La_Paz'));
+        $fechaFormateada = $fecha->format('d/m/Y H:i:s');
         $facts = [
             'codigoFactura' => $id,
             'ciNit' => $factura->customer->ci_nit,
             'nombreCliente' => $factura->customer->name_razon,
             'productos' => $factura->invoice_products,
             'total' => $factura->total_factura,
-            'fecha' => $factura->created_at
+            'fecha' => $fechaFormateada
         ];
         //dd($facts);
 
