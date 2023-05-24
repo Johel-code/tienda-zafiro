@@ -41,7 +41,12 @@ class EmitirFactura extends Component
     }
     public function mount()
     {
-        $this->datos = session('datos');
+        if (session('datos') === null) {
+            $this->datos = [];
+        } else {
+
+            $this->datos = session('datos');
+        }
         $this->suma = $this->total();
         //        dd($this->datos);
 
@@ -101,10 +106,11 @@ class EmitirFactura extends Component
         //$this->generarPDF($factura);
 
         //$this->generarPDF($this->factura, $cliente);
-       // return redirect()->to('factura/'.$this->factura->id);
-       $result = $this->factura->id;
+        // return redirect()->to('factura/'.$this->factura->id);
+        $result = $this->factura->id;
+        //dd($this->datos);
+        $this->emit('clean-cerrar');
         return redirect()->route('factura.pdf', ['id' => $result]);
-
     }
 
     public function generarPDF($id)
@@ -122,7 +128,7 @@ class EmitirFactura extends Component
         $factura = Invoice::find($id);
         $facts = [
             'codigoFactura' => $id,
-            'ciNit' => $factura->customer->ci_nit, 
+            'ciNit' => $factura->customer->ci_nit,
             'nombreCliente' => $factura->customer->name_razon,
             'productos' => $factura->invoice_products,
             'total' => $factura->total_factura,
@@ -130,12 +136,20 @@ class EmitirFactura extends Component
         ];
         //dd($facts);
 
-       // dd($vista);
+        // dd($vista);
         $pdf = Pdf::loadView('factura', compact('facts'));
+        //dd($facts);
+        //return redirect(request()->header('Referer'));
         return $pdf->download('invoice.pdf');
     }
     public function limpiar()
     {
         $this->datos = [];
+        $this->suma = 0;
+        $this->nit = "";
+        $this->cliente = "";
+        session()->forget('datos');
+        //$this->mount();
+        //redirect('/pre-factura');
     }
 }
