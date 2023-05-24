@@ -20,8 +20,11 @@
         }
 
         body .container .header {
-            display:flex;
-            
+            display:grid;
+        }
+
+        body .container .header img{
+            height: 80px;
         }
 
         body .container .titulo-factura {
@@ -80,16 +83,17 @@
             padding: 40px 0px;
             text-align: center;
         }
+
+        body .container .header #h1_tiendazafiro{
+            margin-top: -50px;
+        }
     </style>
 </head>
 <body class="">
     <div class="container">
         <div class="header">
-            <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-            </a>
-            <h1>TIENDA ZAFIRO</h1>
-            
+            <img class="" src="logo/logo-fondo-blanco.png" /> 
+            <!-- <h1 id="h1_tiendazafiro">TIENDA ZAFIRO</h1> -->
         </div>
 
         <div>
@@ -144,7 +148,7 @@
         </table>
         <div class="mensaje-final">
             <p>No se aceptan cambios ni devoluciones. </p>
-            <p>Gracias por su compra.</p>
+            <p>Gracias por su preferencia.</p>
         </div>
         
 
