@@ -97,7 +97,6 @@ class Ventas extends Component
                 $this->datos[$index]['cantidad'] = $valor;
             }
         }
-
         return $errors;
     }
 
