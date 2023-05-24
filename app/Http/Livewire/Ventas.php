@@ -45,14 +45,11 @@ class Ventas extends Component
 
     public function mount()
     {
-
-        if (empty($datos)) {
+        if (session('datos') === null) {
+            $this->datos = [];
+        }else{
             $this->datos = session('datos');
         }
-
-        //$this->datos = session('datos');
-
-        //dd($datos);
     }
 
     public function agregar($id, $codigo)

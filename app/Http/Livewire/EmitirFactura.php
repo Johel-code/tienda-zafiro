@@ -87,7 +87,9 @@ class EmitirFactura extends Component
             $detalle->precio_unitario = $dato['precio'];
             $detalle->save();
         }
-
+        
+        Session::put('datos', []);
+        return redirect()->to('/pre-factura');
         //$this->generarPDF($factura);
     }
 
