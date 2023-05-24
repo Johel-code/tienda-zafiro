@@ -34,7 +34,7 @@ class Ventas extends Component
 
     public function render()
     {
-        $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
+        $products = Product::where('estado_product', 1)->where('cantidad_inventario', '>', 0)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
                 ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
         })->get();
@@ -48,7 +48,7 @@ class Ventas extends Component
     {
         if (session('datos') === null) {
             $this->datos = [];
-        }else{
+        } else {
             $this->datos = session('datos');
         }
     }
