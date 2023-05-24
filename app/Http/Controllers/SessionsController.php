@@ -25,9 +25,9 @@ class SessionsController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required']//, 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/']
         ], [
-            'email.required' => 'Por favor ingrese el campo obligatorio (*) faltante',
-            'email.email' => 'Ingrese una dirección de correo electrónico válida',
-            'password.required' => 'Por favor ingrese el campo obligatorio (*) faltante',
+            'email.required' => '*Por favor complete el campo Correo electrónico',
+            'email.email' => '*Ingrese una dirección de correo electrónico válida',
+            'password.required' => '*Por favor complete el campo Contraseña',
             ///'password.string' => 'La contraseña debe ser una cadena de texto',
             //'password.min' => 'La contraseña debe tener al menos 8 caracteres de longitud',
             //'password.regex' => 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número'
@@ -57,7 +57,7 @@ class SessionsController extends Controller
         }
 
         throw ValidationException::withMessages([
-            'message' => '*Las credenciales no son válidas'
+            'message' => '*Tu Correo electrónico o Contraseña son incorrectos'
         ]);
     }
 
