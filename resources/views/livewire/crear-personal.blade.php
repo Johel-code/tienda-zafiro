@@ -213,7 +213,7 @@
                     sm:max-lg:mb-4 sm:max-lg:grid sm:max-lg:grid-cols-4">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold font-anek" for="fecha-nacimiento">
-                                Fecha de nacimiento:
+                                Fecha de nacimiento:<span class="text-red-900">*</span>
 
                             </label>
                         </div>
