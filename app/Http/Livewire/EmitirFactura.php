@@ -19,16 +19,16 @@ class EmitirFactura extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'required|numeric|min:1|max:999999999',
-        'cliente' => 'required|max:50'
+        'nit' => 'numeric|min:1|max:999999999',
+        'cliente' => 'max:50'
     ];
 
     protected $messages = [
-        'nit.required' => 'Este campo es obligatorio',
+
         'nit.numeric' => 'Solo admite números enteros',
         'nit.max' => 'Ingrese números mayores a 0',
 
-        'cliente.required' => 'Este campo es obligatorio',
+        
         'cliente.max' => 'Solo se admiten 50 caracteres',
     ];
 
