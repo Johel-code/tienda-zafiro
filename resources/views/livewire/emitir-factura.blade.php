@@ -58,29 +58,30 @@
                 <tbody>
                     @foreach($datos as $dato)
                     <tr class="cursor-pointer">
-                        <td id="codigo" class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden"> 
+                        <td class="px-3 py-1 2xl:py-3 2xl:text-lg text-center text-ellipsis overflow-hidden"> 
                             {{ $dato['codigo'] }}
                         </td>
 
-                        <td id="nombre" class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>
+                        <td class=" pr-3 py-1 2xl:text-lg text-left text-ellipsis md:overflow-hidden ms:overflow-hidden  whitespace-nowrap" colspan=2>
                             {{ $dato['nombre'] }}
                         </td>
 
-                        <td id="precio" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
                             {{ $dato['precio'] }}
                         </td>
                         
-                        <td id="cantidad" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
                             {{ $dato['cantidad'] }}
                         </td>
 
-                        <td id="total-parcial" class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                        <td class="pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
                             {{ $dato['precio']*$dato['cantidad'] }}
                         </td>
                     </tr>
                     @endforeach
 
                     <tr class="">
+                    @error('datos') <span class="error text-red-700">{{ $message }}</span> @enderror
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total (Bs)</td>
 
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">

@@ -36,7 +36,7 @@ class Ventas extends Component
     {
         $products = Product::where('estado_product', 1)->where('cantidad_inventario', '>', 0)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
-                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
+                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%')->where('cantidad_inventario', '>', 0);
         })->get();
         $this->control();
         return view('livewire.ventas', [

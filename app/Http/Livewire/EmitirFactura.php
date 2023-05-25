@@ -22,7 +22,8 @@ class EmitirFactura extends Component
 
     protected $rules = [
         'nit' => 'required|numeric|min:1|max:999999999',
-        'cliente' => 'required|max:50'
+        'cliente' => 'required|max:50',
+        'datos' => 'required|min:1'
     ];
 
     protected $messages = [
@@ -32,6 +33,7 @@ class EmitirFactura extends Component
 
         'cliente.required' => 'Este campo es obligatorio',
         'cliente.max' => 'Solo se admiten 50 caracteres',
+        'datos.required' => 'No existen productos para poder emitir factura'
     ];
 
     public function render()
