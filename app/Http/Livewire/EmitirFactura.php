@@ -21,22 +21,30 @@ class EmitirFactura extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'required|numeric|min:1|max:999999999',
+        'nit' => 'numeric|min:1|max:999999999',
 
-        'cliente' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
+        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
         'datos' => 'required|min:1'
 
     ];
 
     protected $messages = [
-        'nit.required' => 'Este campo es obligatorio',
+        //'nit.required' => 'Este campo es obligatorio',
         'nit.numeric' => 'Solo admite números enteros',
-        'nit.max' => 'Ingrese números mayores a 0',
+        'nit.max' => 'Ingrese números menores a 999999999',
+        'nit.min' => 'Ingrese números mayores a 0',
 
-        'cliente.required' => 'Este campo es obligatorio',
-        'cliente.max' => 'Solo se admiten 50 caracteres',
+        //'cliente.required' => 'Este campo es obligatorio',
+        //'cliente.max' => 'Solo se admiten 50 caracteres',
+        'cliente.regex' => 'El formato del campo de cliente no es válido.',
+
         'datos.required' => 'No existen productos para poder emitir factura'
     ];
+
+    public function updated($campo)
+    {
+        $this->validateOnly($campo);
+    }
 
     public function render()
     {
