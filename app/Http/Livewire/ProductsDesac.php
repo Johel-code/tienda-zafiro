@@ -24,7 +24,7 @@ class ProductsDesac extends Component
         $this->category = Category::all();
         $productsDesac = Product::where('estado_product', 0)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
-                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
+                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%')->where('estado_product', 0);
         });
 
 
