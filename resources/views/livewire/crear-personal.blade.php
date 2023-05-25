@@ -287,7 +287,7 @@
 
                             <label class="block text-black-700 text-lg font-bold 2xl:ml-28 xl:ml-24 lg:ml-16 w-40 lg:max-xl:w-32  font-anek" for="fecha-fin-contrato">
 
-                                Fecha fin contrato:
+                                Fecha fin contrato:<span class="text-red-900">*</span>
 
                             </label>
                         </div>

@@ -22,8 +22,10 @@ class EmitirFactura extends Component
 
     protected $rules = [
         'nit' => 'required|numeric|min:1|max:999999999',
-        'cliente' => 'required|max:50',
+
+        'cliente' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
         'datos' => 'required|min:1'
+
     ];
 
     protected $messages = [
