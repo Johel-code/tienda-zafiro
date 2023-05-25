@@ -5,13 +5,13 @@
          <div class="fixed z-50 modal-login px-12 pt-3 pb-2 bg-white shadow-lg overflow-hidden rounded-lg">
             
             <div class="text-center mt-7 mb-9 mx-7 px-6">
-                <label class="text-3xl font-anek font-bold text-[#063780]">INICIAR SESION</label>
+                <label class="text-3xl font-anek font-bold text-[#063780]">INICIAR SESIÓN</label>
             </div>
 
             <form method="POST" action="">
                 @csrf
 
-                <label class="block font-semibold text-xs text-gray-700 mb-1">Correo</label>
+                <label class="block font-semibold text-xs text-gray-700 mb-1">Correo electrónico</label>
                 <input type="email" value="{{ old('email') }}" class="border border-gray-300 w-full rounded-md shadow-md h-8 text-sm"
                 id="email" name="email">
                 @error('email')
@@ -37,7 +37,7 @@
                 @enderror
                 
                 @error('message')
-                <p class="text-red-700 w-full h-8 text-sm mt-3">{{ $message }}</p>
+                <p class="text-red-700 w-full h-8 text-xs mt-3">{{ $message }}</p>
                 @enderror
 
                 <button type="submit" class="rounded-md bg-[#063780] hover:bg-[#063780f0] w-full text-xs text-gray-200 font-semibold h-8
