@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Spatie\Permission\Models\Role;
 
 class SessionsController extends Controller
 {
@@ -45,10 +46,10 @@ class SessionsController extends Controller
 
                 $request->session()->regenerate();
                 
-                if ($user->role_id === 1) {
-                    return redirect()->to('/');
-                }else{
-                    return redirect()->to('/pre-factura');
+                if ($user->hasRole(Role::findByName('Admin'))) {
+                    return redirect()->intended('/');
+                } else{
+                    return redirect()->intended('/pre-factura');
                 }
 
             } else {
