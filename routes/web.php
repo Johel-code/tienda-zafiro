@@ -6,6 +6,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->middleware('can:Admin.vista')->group(function () {
-        Route::view('/', 'index-products')->name('home');
+        //Route::view('/', 'index-products')->name('home');
         //Route::view('/products', 'index-products');
         Route::view('/crear-products', 'index-create-products');
         //Route::view( '/modificar-producto');
@@ -60,7 +61,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::view('/vendedores', 'index-vendedores');
         Route::view('/crear-personal', 'index-create-personal');
     });
-
+//este main controla auth
+    Route::get('/', [HomeController::class, 'index'])
+    ->middleware('auth.home')
+    ->name('');
+//
     Route::middleware(['auth:sanctum', 'verified'])->middleware(['can:Vendedor.vista'])->group(function () {
         
         //Route::view('/ventas-realizadas', 'index-ventas');
