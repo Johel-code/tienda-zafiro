@@ -75,6 +75,17 @@
         }
 
         .total {
+            background-color: #f0f0f0;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .importe-pagado {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .importe-devuelto {
             text-align: right;
             font-weight: bold;
         }

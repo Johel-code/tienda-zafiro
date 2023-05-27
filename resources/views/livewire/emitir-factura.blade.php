@@ -96,6 +96,14 @@
                             <input id="importePagado" class="px-1 shadow appearance-none border rounded 2xl:w-3/4 sm:w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" id="importePagado" type="number" step="1" placeholder="Importe Pagado" min= '1' onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false" >
                         </td>
                     </tr>
+
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Importe devuelto (Bs)</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black ">
+                            <p>000</p>
+                        </td>
+                    </tr>
                 </tbody>
 
             </table>
