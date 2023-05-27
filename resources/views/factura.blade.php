@@ -158,12 +158,12 @@
 
                 <tr>
                     <td class="importe-pagado" colspan="3">Importe pagado</td>
-                    <td>000</td>
+                    <td class="importe-pagado">{{ $facts['importePagado'] }}</td>
                 </tr>
 
                 <tr>
                     <td class="importe-devuelto" colspan="3">Importe devuelto</td>
-                    <td>000</td>
+                    <td class="importe-devuelto">{{ $facts['importeDevuelto'] }}</td>
                 </tr>
             </tfoot>
         </table>
