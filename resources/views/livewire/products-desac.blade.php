@@ -12,6 +12,24 @@
                 <table class="md:table-fixed w-full font-anek">
                     <thead class="h-12">
                         <tr class="bg-white text-dark">
+                            <div>
+                                <div>
+
+                                    @if (!empty($search))
+                                        @if ($productsDesac->count() > 0)
+                                            <div class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative" role="alert">
+                                                <strong class="font-bold">Se encontraron {{ $productsDesac->total() }} resultados</strong>
+                                            </div>
+                                        @else
+                                            <div class="bg-red-100 border border-red-400 text-red-700 px-2 py-3 rounded relative" role="alert">
+                                                <strong class="font-bold">No se encontraron resultados</strong>
+                                            </div>
+                                        @endif
+                                    @endif
+                                    
+                                </div>
+                            </div>
+
                             <th class="2xl:py-4 2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Código</th>
                             <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Nombre</th>
                             <th class="2xl:text-lg text-center text-ellipsis overflow-hidden border-b-2 border-black">Precio (Bs)</th>
