@@ -91,6 +91,10 @@
 
                     <tr class="">
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total importe pagado (Bs)</td>
+
+                        <td  class="border-t border-black pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                            <input id="importePagado" class="shadow appearance-none border rounded w-3/4 py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" id="importePagado"  placeholder="Importe Pagado" >
+                        </td>
                     </tr>
                 </tbody>
 
