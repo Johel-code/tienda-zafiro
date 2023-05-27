@@ -144,6 +144,16 @@
                     <td class="total" colspan="3">Total</td>
                     <td class="total">{{ $facts['total'] }}</td>
                 </tr>
+
+                <tr>
+                    <td class="importe-pagado" colspan="3">Importe pagado</td>
+                    <td>000</td>
+                </tr>
+
+                <tr>
+                    <td class="importe-devuelto" colspan="3">Importe devuelto</td>
+                    <td>000</td>
+                </tr>
             </tfoot>
         </table>
         <div class="mensaje-final">
