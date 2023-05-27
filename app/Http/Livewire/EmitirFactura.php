@@ -19,7 +19,7 @@ class EmitirFactura extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'required|numeric|min:1|max:999999999',
+        'nit' => 'required|numeric|min:1|max:12',
         'cliente' => 'required|regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
     ];
 
