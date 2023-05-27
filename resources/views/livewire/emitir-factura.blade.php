@@ -88,6 +88,10 @@
                             {{ $suma }}
                         </td>
                     </tr>
+
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Total importe pagado (Bs)</td>
+                    </tr>
                 </tbody>
 
             </table>
