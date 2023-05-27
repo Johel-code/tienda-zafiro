@@ -29,7 +29,8 @@ class EmitirFactura extends Component
         'nit.max' => 'Ingrese números mayores a 0',
 
         'cliente.required' => 'Este campo es obligatorio',
-        'cliente.max' => 'Solo se admiten 50 caracteres',
+        'cliente.max' => 'Solo se admiten 100 caracteres',
+        'nombre.regex' => 'Solo se admiten letras',
     ];
 
     public function render()
