@@ -120,11 +120,10 @@ class EmitirFactura extends Component
             // return redirect()->to('factura/'.$this->factura->id);
             $result = $this->factura->id;
             //dd($this->datos);
+            session()->put('importePagado', $this->importePagado);
+            session()->put('importeDevuelto', $this->importeDevuelto);
             $this->emit('clean-cerrar');
-            return redirect()->route('factura.pdf', ['id' => $result])->with([
-                'importePagado' => $this->importePagado,
-                'importeDevuelto' => $this->importeDevuelto,
-            ]);
+            return redirect()->route('factura.pdf', ['id' => $result]);
         }
     }
 
@@ -162,6 +161,8 @@ class EmitirFactura extends Component
         $pdf = Pdf::loadView('factura', compact('facts'));
         //dd($facts);
         //return redirect(request()->header('Referer'));
+        session()->forget('importePagado');
+        session()->forget('importeDevuelto');
         $this->limpiar();
         return $pdf->download('invoice.pdf');
     }
