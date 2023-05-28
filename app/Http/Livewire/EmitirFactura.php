@@ -182,8 +182,8 @@ class EmitirFactura extends Component
     public function control()
     {
         $errors = 0;
-            if($this->importePagado === null || $this->importePagado === ''){
-                $this->importePagado = 0;
+            if($this->importePagado === ''){
+                $this->importePagado = null;
             }
             if($this->importePagado < $this->total()){
                 $this->addError('importePagado','El valor debe ser mayor o igual al total');
