@@ -126,6 +126,7 @@ class Ventas extends Component
     {
         $this->datos = [];
         $this->search = '';
+        session()->forget('datos');
     }
 
     public function redirigir()
