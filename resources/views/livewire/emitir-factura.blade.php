@@ -30,7 +30,7 @@
                                 2xl:grid-cols-7">
                         <div class="">
                             <label class="block text-black-700 text-lg font-bold w-10 font-anek" for="precio">
-                                Señor(es):<span class="text-red-900">*</span>
+                                Señor(es):
 
                             </label>
                         </div>
