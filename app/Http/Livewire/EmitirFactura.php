@@ -129,15 +129,23 @@ class EmitirFactura extends Component
         $this->control();
         if($this->control() < 1){
 
-            if($this->clienteExistente->ci_nit === $this->nit){
-                $cliente = $this->clienteExistente;
-                $this->clienteExistente = null;
+            if($this->clienteExistente !== null){
+                if($this->clienteExistente->ci_nit === $this->nit){
+                    $cliente = $this->clienteExistente;
+                    $this->clienteExistente = null;
+                }else{
+                    $cliente = new Customer;
+                    $cliente->name_razon = $this->cliente;
+                    $cliente->ci_nit = $this->nit;
+                    $cliente->save();
+                }
             }else{
                 $cliente = new Customer;
                 $cliente->name_razon = $this->cliente;
                 $cliente->ci_nit = $this->nit;
                 $cliente->save();
             }
+            
 
             $this->factura = new Invoice;
             $this->factura->total_factura = $this->suma;
