@@ -26,9 +26,9 @@ class EmitirFactura extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'numeric|min:1|max:999999999',
+        'nit' => 'numeric|min:1|max:999999999999|nullable',
 
-        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ.\s]+$/' ,
+        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ.\s]+$/|max:100|nullable' ,
         'datos' => 'required|min:1'
 
     ];
@@ -36,12 +36,13 @@ class EmitirFactura extends Component
     protected $messages = [
         //'nit.required' => 'Este campo es obligatorio',
         'nit.numeric' => 'Solo admite números enteros',
-        'nit.max' => 'Ingrese números menores a 999999999',
+        'nit.max' => 'Ingrese números menores a 999999999999',
         'nit.min' => 'Ingrese números mayores a 0',
 
         //'cliente.required' => 'Este campo es obligatorio',
         //'cliente.max' => 'Solo se admiten 50 caracteres',
         'cliente.regex' => 'El formato del campo de cliente no es válido.',
+        'cliente.max' => 'Solo se admite 100 caracteres.',
 
         'datos.required' => 'No existen productos para poder emitir factura'
     ];
@@ -137,7 +138,7 @@ class EmitirFactura extends Component
                 $cliente->ci_nit = $this->nit;
                 $cliente->save();
             }
-            
+
             $this->factura = new Invoice;
             $this->factura->total_factura = $this->suma;
             $this->factura->user_id = auth()->user()->id;
