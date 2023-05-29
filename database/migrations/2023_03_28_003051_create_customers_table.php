@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name_razon');
-            $table->integer('ci_nit');
+            $table->string('name_razon')->nullable();
+            $table->integer('ci_nit')->nullable();
             $table->timestamps();
         });
     }
