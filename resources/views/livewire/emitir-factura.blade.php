@@ -102,5 +102,27 @@
         </button>
         </div>
     </div>
+    @if($mostrarModalSwitch)
+    <div class="fixed inset-0 z-20">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
+            <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
+            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all duration-1000 align-middle" style="width: 8.5cm; height: 3.8cm;">
+            <!--Contenido-->
+            <div class="mx-4 mb-0 mt-2">
+                <h2 class="text-2xl font-bold mt-2 ml-1">¡Venta exitosa!</h2>
+                <p class="mt-2 ml-1">Tu venta se ha realizado exitosamente.</p>
+            </div>
+            <div class="mt-2.5"></div>
+            <div class="flex justify-center">
+                <button type=button wire:click="redirigirVentas()" class="rounded-md border border-white shadow-md 
+                    bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-0 mt-1 px-7 h-9">CERRAR
+                </button>
+            </div>   
+            <!--finContenido-->
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
 

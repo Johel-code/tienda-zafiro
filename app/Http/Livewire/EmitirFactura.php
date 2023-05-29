@@ -17,6 +17,7 @@ class EmitirFactura extends Component
 {
     public $datos, $suma, $nit, $cliente;
     public $factura;
+    public $mostrarModalSwitch=false;
 
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
@@ -40,6 +41,10 @@ class EmitirFactura extends Component
 
         'datos.required' => 'No existen productos para poder emitir factura'
     ];
+
+    public function redirigirVentas(){
+        redirect('pre-factura');
+    }
 
     public function updated($campo)
     {
@@ -124,6 +129,7 @@ class EmitirFactura extends Component
         $result = $this->factura->id;
         //dd($this->datos);
         $this->emit('clean-cerrar');
+        $this->mostrarModalSwitch=true;
         return redirect()->route('factura.pdf', ['id' => $result]);
     }
 
