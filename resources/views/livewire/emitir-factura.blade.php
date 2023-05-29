@@ -16,7 +16,7 @@
                             </div>
                             <div class="2xl:col-span-4  xl:col-span-4  lg:col-span-3 lg:pl-4">
                                 <input wire:model.debounce.300ms="nit" wire:input="buscarCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                                id="nit/ci" type="number" placeholder="Escriba aquí el NIT o CI" min="0" max="999999999"
+                                id="nit/ci" type="number" placeholder="Escriba aquí el NIT o CI" min="0" max="999999999999"
 
                                 oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
 
@@ -104,7 +104,7 @@
                         <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Importe pagado (Bs)</td>
 
                         <td class="border-t border-black pr-0 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
-                            <input id="importe" class="px-1 shadow appearance-none border rounded 2xl:w-3/4 sm:w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" type="number" step="1" placeholder="Importe Pagado" wire:model.debounce.500ms= 'importePagado' wire:input= control maxlength="12" onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
+                            <input id="importe" class="px-1 shadow appearance-none border rounded 2xl:w-3/4 sm:w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" type="number" step="1" placeholder="Imp. Pagado" wire:model.debounce.500ms= 'importePagado' wire:input= control maxlength="12" onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
                                 oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2){this.value = parseFloat(this.value).toFixed(2);}} 
                                 else if (this.value.length > 10){this.value = this.value.slice(0, 10);}" >
                             @error('importePagado')<div class="error text-red-700 font-anek block text-center">{{ $message }}</div>@enderror
