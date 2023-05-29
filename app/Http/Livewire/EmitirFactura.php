@@ -26,7 +26,7 @@ class EmitirFactura extends Component
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'numeric|min:1|max:999999999999|nullable',
+        'nit' => 'numeric|min:0|max:999999999999|nullable',
 
         'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ.\s]+$/|max:100|nullable' ,
         'datos' => 'required|min:1'
@@ -58,9 +58,9 @@ class EmitirFactura extends Component
 
     public function render()
     {
-        // if($this->nit){
-        //     $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
-        // }
+        if($this->nit){
+            $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
+        }
             //dd($this->resultados);
             //$this->resultados = [];
         
