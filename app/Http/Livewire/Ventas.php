@@ -22,6 +22,7 @@ class Ventas extends Component
 
     protected $messages = [
         'datos.required' => 'Ingrese al menos 1 producto',
+        'datos.*.cantidad.required' => '',
         'datos.*.cantidad.min' => 'Minimo: 1 ud.',
         'datos.*.cantidad.max' => 'Máximo: 50 uds.',
     ];
@@ -33,11 +34,11 @@ class Ventas extends Component
 
     public function render()
     {
-        $products = Product::where('estado_product', 1)->when($this->search, function ($query, $search) {
+        $products = Product::where('estado_product', 1)->where('cantidad_inventario', '>', 0)->when($this->search, function ($query, $search) {
             return $query->whereRaw('LOWER(name_product) LIKE ? ', ['%' . trim(strtolower($search)) . '%'])
-                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%');
+                ->orwhere('codigo', 'LIKE', '%' . $this->search . '%')->where('cantidad_inventario', '>', 0);
         })->get();
-
+        $this->control();
         return view('livewire.ventas', [
             'products' => $products,
         ]);
@@ -45,41 +46,22 @@ class Ventas extends Component
 
     public function mount()
     {
-
-
         if (session('datos') === null) {
             $this->datos = [];
         } else {
-
             $this->datos = session('datos');
         }
-
-        //$this->datos = session('datos');
-
-        //dd($datos);
     }
 
     public function agregar($id, $codigo)
     {
         $existencia = false;
-
-        $index = 0;
         foreach ($this->datos as &$dato) {
             if ($dato['codigo'] === $codigo) {
-                $cantidadInventario = $dato['cantidad_inventario'];
-                $valor = $dato['cantidad'];
-
-                if ($valor > $cantidadInventario) {
-                    $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
-                    $this->error++;
-                } else {
-                    $dato['cantidad'] += 1;
-                    $this->error--;
-                }
+                $dato['cantidad'] += 1;
                 $existencia = true;
                 break;
             }
-            $index++;
         }
 
         if (!$existencia) {
@@ -100,31 +82,28 @@ class Ventas extends Component
         //$this->search = '';
     }
 
-    public function control($i, $valor)
+    public function control()
     {
-        $index = $i;
-        foreach ($this->datos as &$dato) {
-            $cantidadInventario = $dato['cantidad_inventario'];
+        $errors = 0;
+        foreach ($this->datos as $index => $dato) {
             $valor = $dato['cantidad'];
-
-            if ($valor > $cantidadInventario) {
+            $cantidadInventario = $dato['cantidad_inventario'];
+            if ($valor === "") {
+                $this->datos[$index]['cantidad'] = 1;
+            } else if ($valor > $cantidadInventario) {
                 $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
+                $errors += 1;
+            } else {
+                $this->datos[$index]['cantidad'] = $valor;
             }
-            $index++;
         }
+        return $errors;
     }
+
 
     public function actualizarCantidad($index, $valor)
     {
-
-        $cantidadInventario = $this->datos[$index]['cantidad_inventario'];
-        if ($valor > $cantidadInventario) {
-            $this->addError('datos.' . $index . '.cantidad', 'Se excede al inventario de ' . $cantidadInventario);
-            $this->error++;
-        } else {
-            $this->datos[$index]['cantidad'] = $valor;
-            $this->error--;
-        }
+        $this->datos[$index]['cantidad'] = $valor;
     }
 
     public function quitar($index)
@@ -147,15 +126,13 @@ class Ventas extends Component
     {
         $this->datos = [];
         $this->search = '';
+        session()->forget('datos');
     }
 
     public function redirigir()
     {
         $this->validate();
-
-        if ($this->error > 0) {
-            $this->control(0, 0);
-        } else {
+        if ($this->control() === 0) {
             Session::put('datos', $this->datos);
             return redirect()->to('/factura');
         }
