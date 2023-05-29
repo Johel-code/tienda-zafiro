@@ -21,7 +21,7 @@ class ToggleProduct extends Component
     {
         //$this->updating($this->field, true);
         $this->mostrarModalSwitch = false;
-        $this->isActive=true;
+        $this->isActive = true;
     }
     public function confirmarSwitch()
     {
@@ -30,11 +30,18 @@ class ToggleProduct extends Component
     }
 
     public function mount()
-    { 
+    {
         $this->isActive = $this->product->getAttribute('estado_product');
         $fechaProm = Product::whereDate('fecha_vencimiento', '<', now())->get();
         foreach ($fechaProm as $product1) {
             $product1->setAttribute('estado_product', false)->save();
+        }
+
+        $products = Product::all();
+        foreach ($products as $product) {
+            if ($product->cantidad_inventario == 0) {
+                $product->setAttribute('estado_product', false)->save();
+            }
         }
     }
 
@@ -47,7 +54,7 @@ class ToggleProduct extends Component
     {
         if ($this->isActive) {
             $this->abrirModalSwitch();
-        }else{
+        } else {
             $this->product->setAttribute($this->field, $value)->save();
             //$this->emit('refresh');
             //redirect('/');
