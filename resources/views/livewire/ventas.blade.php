@@ -96,7 +96,7 @@
             
         </div>
         
-        <div id="botones-cancelar-continuar" class="flex justify-end mt-20">
+        <div id="botones-cancelar-continuar" class="flex justify-end mt-20 mb-20">
             <button type=button wire:click="$emit('show-modalConfirmacion')"class="bg-[#597AAB] hover:bg-gray-700 text-white font-bold py-2 px-2 mr-8 rounded">
                 CANCELAR
             </button>
