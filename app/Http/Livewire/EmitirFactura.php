@@ -15,15 +15,20 @@ use DateTimeZone;
 
 class EmitirFactura extends Component
 {
-    public $datos, $suma, $nit, $cliente;
+    public $datos, $suma, $nit, $cliente, $importePagado, $importeDevuelto;
     public $factura;
+    public $mostrarModalSwitch=false;
+
+    public $search = "";
+    public $resultados = [];
+    public $clienteExistente;
 
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
-        'nit' => 'numeric|min:1|max:999999999',
+        'nit' => 'numeric|min:1|max:999999999999|nullable',
 
-        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
+        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ.\s]+$/|max:100|nullable' ,
         'datos' => 'required|min:1'
 
     ];
@@ -31,15 +36,20 @@ class EmitirFactura extends Component
     protected $messages = [
         //'nit.required' => 'Este campo es obligatorio',
         'nit.numeric' => 'Solo admite números enteros',
-        'nit.max' => 'Ingrese números menores a 999999999',
+        'nit.max' => 'Ingrese números menores a 999999999999',
         'nit.min' => 'Ingrese números mayores a 0',
 
         //'cliente.required' => 'Este campo es obligatorio',
         //'cliente.max' => 'Solo se admiten 50 caracteres',
         'cliente.regex' => 'El formato del campo de cliente no es válido.',
+        'cliente.max' => 'Solo se admite 100 caracteres.',
 
         'datos.required' => 'No existen productos para poder emitir factura'
     ];
+
+    public function redirigirVentas(){
+        redirect('pre-factura');
+    }
 
     public function updated($campo)
     {
@@ -48,6 +58,12 @@ class EmitirFactura extends Component
 
     public function render()
     {
+        // if($this->nit){
+        //     $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
+        // }
+            //dd($this->resultados);
+            //$this->resultados = [];
+        
         //dd($this->datos);
         return view('livewire.emitir-factura', [
             'datos' => $this->datos
@@ -66,6 +82,27 @@ class EmitirFactura extends Component
 
         // dd($this->datos);
     }
+
+    public function buscarCliente()
+    {
+        $this->resultados = [];
+
+        if ($this->nit) {
+            $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
+        }
+    }
+
+    public function seleccionarCliente($ci)
+    {
+        $this->clienteExistente = Customer::where('ci_nit', $ci)->first();
+
+        if($this->clienteExistente){
+            $this->cliente = $this->clienteExistente->name_razon;
+            $this->nit = $ci;
+        }
+        $this->resultados = [];
+    }
+
 
     public function redirigir()
     {
@@ -89,42 +126,50 @@ class EmitirFactura extends Component
     public function submit()
     {
         $this->validate();
+        $this->control();
+        if($this->control() < 1){
 
-        $cliente = new Customer;
-        $cliente->name_razon = $this->cliente;
-        $cliente->ci_nit = $this->nit;
-        $cliente->save();
+            if($this->clienteExistente->ci_nit === $this->nit){
+                $cliente = $this->clienteExistente;
+                $this->clienteExistente = null;
+            }else{
+                $cliente = new Customer;
+                $cliente->name_razon = $this->cliente;
+                $cliente->ci_nit = $this->nit;
+                $cliente->save();
+            }
 
-        $this->factura = new Invoice;
-        $this->factura->total_factura = $this->suma;
-        $this->factura->user_id = auth()->user()->id;
-        $this->factura->customer_id = $cliente->id;
-        $this->factura->save();
+            $this->factura = new Invoice;
+            $this->factura->total_factura = $this->suma;
+            $this->factura->user_id = auth()->user()->id;
+            $this->factura->customer_id = $cliente->id;
+            $this->factura->save();
+        
 
-        foreach ($this->datos as $dato) {
-            $detalle = new Invoice_product;
-            $detalle->product_id = $dato['IdProduct'];
-            $detalle->invoice_id = $this->factura->id;
-            $detalle->cantidad_detalle = $dato['cantidad'];
-            $detalle->precio_unitario = $dato['precio'];
-            $detalle->save();
+            foreach ($this->datos as $dato) {
+                $detalle = new Invoice_product;
+                $detalle->product_id = $dato['IdProduct'];
+                $detalle->invoice_id = $this->factura->id;
+                $detalle->cantidad_detalle = $dato['cantidad'];
+                $detalle->precio_unitario = $dato['precio'];
+                $detalle->save();
 
-            $producto = Product::find($dato['IdProduct']);
-            $producto->cantidad_inventario = $producto->cantidad_inventario - $dato['cantidad'];
-            $producto->save();
+                $producto = Product::find($dato['IdProduct']);
+                $producto->cantidad_inventario = $producto->cantidad_inventario - $dato['cantidad'];
+                $producto->save();
+            }
+            //$this->generarPDF($factura);
+
+            //$this->generarPDF($this->factura, $cliente);
+            // return redirect()->to('factura/'.$this->factura->id);
+            $result = $this->factura->id;
+            //dd($this->datos);
+            session()->put('importePagado', $this->importePagado);
+            session()->put('importeDevuelto', $this->importeDevuelto);
+            $this->emit('clean-cerrar');
+            $this->mostrarModalSwitch=true;
+            return redirect()->route('factura.pdf', ['id' => $result]);
         }
-
-
-        $this->limpiar();
-
-        //$this->generarPDF($factura);
-
-        //$this->generarPDF($this->factura, $cliente);
-        // return redirect()->to('factura/'.$this->factura->id);
-        $result = $this->factura->id;
-        //dd($this->datos);
-        $this->emit('clean-cerrar');
-        return redirect()->route('factura.pdf', ['id' => $result]);
     }
 
     public function generarPDF($id)
@@ -139,6 +184,9 @@ class EmitirFactura extends Component
 
         // $pdf = Pdf::loadHtml($vista);
         // return $pdf->stream();
+        $importePagado = session('importePagado');
+        $importeDevuelto = session('importeDevuelto');
+
         $factura = Invoice::find($id);
         $fecha = new DateTime($factura->created_at, new DateTimeZone('UTC'));
         $fecha->setTimezone(new DateTimeZone('America/La_Paz'));
@@ -149,14 +197,18 @@ class EmitirFactura extends Component
             'nombreCliente' => $factura->customer->name_razon,
             'productos' => $factura->invoice_products,
             'total' => $factura->total_factura,
-            'fecha' => $fechaFormateada
+            'fecha' => $fechaFormateada,
+            'importePagado' => $importePagado,
+            'importeDevuelto' => $importeDevuelto,
         ];
         //dd($facts);
-
         // dd($vista);
         $pdf = Pdf::loadView('factura', compact('facts'));
         //dd($facts);
         //return redirect(request()->header('Referer'));
+        session()->forget('importePagado');
+        session()->forget('importeDevuelto');
+        $this->limpiar();
         return $pdf->download('invoice.pdf');
     }
     public function limpiar()
@@ -165,8 +217,24 @@ class EmitirFactura extends Component
         $this->suma = 0;
         $this->nit = "";
         $this->cliente = "";
+        $this->importePagado = 0;
+        $this->importeDevuelto = 0;
         session()->forget('datos');
         //$this->mount();
         //redirect('/pre-factura');
+    }
+
+    public function control()
+    {
+        $errors = 0;
+            if($this->importePagado === ''){
+                $this->importePagado = null;
+            }
+            if($this->importePagado < $this->total()){
+                $this->addError('importePagado','El valor debe ser mayor o igual al total');
+                $errors++;
+            }
+            $this->importeDevuelto = round($this->importePagado - $this->total(), 2);
+        return $errors;
     }
 }

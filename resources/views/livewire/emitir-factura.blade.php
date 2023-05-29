@@ -15,13 +15,24 @@
                                 </label>
                             </div>
                             <div class="2xl:col-span-4  xl:col-span-4  lg:col-span-3 lg:pl-4">
-                                <input wire:model="nit" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
-                                id="nit/ci" type="number" placeholder="Escriba aquí el NIT o CI" min="0" max="999999999"
+                                <input wire:model.debounce.300ms="nit" wire:input="buscarCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] " 
+                                id="nit/ci" type="number" placeholder="Escriba aquí el NIT o CI" min="0" max="999999999999"
 
                                 oninput="javascript: if (this.value.length > 9) this.value = this.value.slice(0, 9);"
 
                                 onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" onpaste="return false">
                                 @error('nit') <span class="error text-red-700">{{ $message }}</span> @enderror
+
+                                <div>
+                                @if ($resultados)
+                                    <ul>
+                                        @foreach ($resultados as $resultado)
+                                            <li wire:click="seleccionarCliente('{{ $resultado->ci_nit }}')">{{ $resultado->name_razon }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                </div>
 
                             </div>
                     </div>
@@ -88,6 +99,25 @@
                             {{ $suma }}
                         </td>
                     </tr>
+
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Importe pagado (Bs)</td>
+
+                        <td class="border-t border-black pr-0 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden">
+                            <input id="importe" class="px-1 shadow appearance-none border rounded 2xl:w-3/4 sm:w-full py-2 text-gray-700 border-solid border-black leading-tight focus:outline-none focus:shadow-none bg-[#E3E9F1] text-center" type="number" step="1" placeholder="Imp. Pagado" wire:model.debounce.500ms= 'importePagado' wire:input= control maxlength="12" onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && (event.key != '.' || this.value.includes('.'))) event.preventDefault();" onpaste="return false"
+                                oninput="javascript:if (this.value.includes('.')) { if (this.value.split('.')[1].length > 2){this.value = parseFloat(this.value).toFixed(2);}} 
+                                else if (this.value.length > 10){this.value = this.value.slice(0, 10);}" >
+                            @error('importePagado')<div class="error text-red-700 font-anek block text-center">{{ $message }}</div>@enderror
+                        </td>
+                    </tr>
+
+                    <tr class="">
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-left text-ellipsis overflow-hidden border-t border-black font-semibold" colspan=5>Importe devuelto (Bs)</td>
+
+                        <td class="cursor-pointer pr-3 py-1 2xl:text-lg text-center text-ellipsis overflow-hidden border-t border-black">
+                            <p>{{ $importeDevuelto }}</p>
+                        </td>
+                    </tr>
                 </tbody>
 
             </table>
@@ -102,5 +132,27 @@
         </button>
         </div>
     </div>
+    @if($mostrarModalSwitch)
+    <div class="fixed inset-0 z-20">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="modal-bg-container fixed inset-0 bg-gray-700 bg-opacity-30"></div>
+            <div class="modal-space-container hidden sm:inline-block sm:align-middle sm:h-screen"></div>
+            <div class="border-4 border-white inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all duration-1000 align-middle" style="width: 8.5cm; height: 3.8cm;">
+            <!--Contenido-->
+            <div class="mx-4 mb-0 mt-2">
+                <h2 class="text-2xl font-bold mt-2 ml-1">¡Venta exitosa!</h2>
+                <p class="mt-2 ml-1">Tu venta se ha realizado exitosamente.</p>
+            </div>
+            <div class="mt-2.5"></div>
+            <div class="flex justify-center">
+                <button type=button wire:click="redirigirVentas()" class="rounded-md border border-white shadow-md 
+                    bg-[#3988FF] hover:bg-blue-700 font-bold text-white py-0 mt-1 px-7 h-9">CERRAR
+                </button>
+            </div>   
+            <!--finContenido-->
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
 
