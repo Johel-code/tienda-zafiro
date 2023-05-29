@@ -10,7 +10,7 @@
                             <div class="">
 
                                 <label class="block text-black-700 text-lg font-bold font-anek">
-                                    NIT/CI:<span class="text-red-900">*</span>
+                                    NIT/CI:
 
                                 </label>
                             </div>
