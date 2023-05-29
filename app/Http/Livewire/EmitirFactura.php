@@ -21,13 +21,14 @@ class EmitirFactura extends Component
 
     public $search = "";
     public $resultados = [];
+    public $clienteExistente;
 
     protected $listeners = ['clean-cerrar' => 'limpiar'];
 
     protected $rules = [
         'nit' => 'numeric|min:1|max:999999999',
 
-        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\s]+$/' ,
+        'cliente' => 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ.\s]+$/' ,
         'datos' => 'required|min:1'
 
     ];
@@ -56,9 +57,9 @@ class EmitirFactura extends Component
 
     public function render()
     {
-        if($this->nit){
-            $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
-        }
+        // if($this->nit){
+        //     $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
+        // }
             //dd($this->resultados);
             //$this->resultados = [];
         
@@ -81,9 +82,23 @@ class EmitirFactura extends Component
         // dd($this->datos);
     }
 
-    public function seleccionarCliente($nombre)
+    public function buscarCliente()
     {
-        $this->cliente = $nombre;
+        $this->resultados = [];
+
+        if ($this->nit) {
+            $this->resultados = Customer::where('ci_nit', 'like', '%'.$this->nit.'%')->get();
+        }
+    }
+
+    public function seleccionarCliente($ci)
+    {
+        $this->clienteExistente = Customer::where('ci_nit', $ci)->first();
+
+        if($this->clienteExistente){
+            $this->cliente = $this->clienteExistente->name_razon;
+            $this->nit = $ci;
+        }
         $this->resultados = [];
     }
 
@@ -112,16 +127,23 @@ class EmitirFactura extends Component
         $this->validate();
         $this->control();
         if($this->control() < 1){
-            $cliente = new Customer;
-            $cliente->name_razon = $this->cliente;
-            $cliente->ci_nit = $this->nit;
-            $cliente->save();
 
+            if($this->clienteExistente->ci_nit === $this->nit){
+                $cliente = $this->clienteExistente;
+                $this->clienteExistente = null;
+            }else{
+                $cliente = new Customer;
+                $cliente->name_razon = $this->cliente;
+                $cliente->ci_nit = $this->nit;
+                $cliente->save();
+            }
+            
             $this->factura = new Invoice;
             $this->factura->total_factura = $this->suma;
             $this->factura->user_id = auth()->user()->id;
             $this->factura->customer_id = $cliente->id;
             $this->factura->save();
+        
 
             foreach ($this->datos as $dato) {
                 $detalle = new Invoice_product;
